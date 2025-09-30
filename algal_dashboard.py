@@ -28,15 +28,13 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 def main():
     st.set_page_config(page_title="HAB Monitoring - South Australia", layout="wide")
 
-    # Remove Streamlit padding/header/footer
+    # Custom styles
     st.markdown(
         """
         <style>
-        /* Remove top padding and footer */
         .block-container {padding-top: 0rem; padding-bottom: 0rem;}
         header, footer {visibility: hidden;}
-        
-        /* Make sidebar compact */
+
         section[data-testid="stSidebar"] {
             font-size: 12px;
             padding: 0.5rem;
@@ -62,22 +60,28 @@ def main():
             margin: 0 auto;
         }
 
-        /* Always show zoom buttons, keep same size */
+        /* Always show zoom buttons */
         .leaflet-control-zoom {
             transform: scale(1) !important;
         }
 
-        /* Shrink colorbar so it fits fully */
+        /* Shrink colorbar */
         .leaflet-bottom.leaflet-left {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             margin-left: 10px;
+        }
+
+        /* Shrink font in multiselect options */
+        div[data-baseweb="select"] span {
+            font-size: 11px !important;
+            line-height: 1.2 !important;
         }
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # Tiny header text instead of title
+    # Small header
     st.markdown(
         '<p style="font-size:14px; margin:0 0 5px 0;">Interactive viewer for algal monitoring data in South Australia</p>',
         unsafe_allow_html=True
@@ -135,9 +139,13 @@ def main():
     # ---------------------------
     # Map
     # ---------------------------
-    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, tiles="Esri.WorldImagery", control_scale=True)
+    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, 
+                   tiles="Esri.WorldImagery", control_scale=True)
 
-    # Define custom green→yellow→red gradient
+    # Add km scale only (no miles)
+    folium.map.ScaleControl(metric=True, imperial=False).add_to(m)
+
+    # Color scale (green → yellow → red)
     colormap = LinearColormap(
         colors=["green", "yellow", "red"],
         vmin=1,
@@ -165,10 +173,25 @@ def main():
                 )
             ).add_to(m)
 
-    # Display map full-width with border
+    # Map display
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
     st_folium(m, width=1200, height=700)
     st.markdown('</div>', unsafe_allow_html=True)
+
+    # Disclaimer
+    st.markdown(
+        """
+        <p style="font-size:11px; color:gray; margin-top:10px;">
+        Disclaimer – this is a research product that utilises publicly available 
+        South Australian Government data 
+        (<a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">source</a>). 
+        No liability is assumed by the author (A/Prof. Luke Mosley) or the University of Adelaide 
+        for the use of this system or the data, which may be in error and/or out of date. 
+        Users should obtain their own independent advice.
+        </p>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 if __name__ == "__main__":
