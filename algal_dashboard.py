@@ -1,6 +1,7 @@
 import pandas as pd
 import folium
 from branca.colormap import LinearColormap
+from branca.element import Element
 from streamlit_folium import st_folium
 import streamlit as st
 import os
@@ -61,12 +62,13 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar toggle at top of page
+    # Sidebar filters
     # ---------------------------
-    st.session_state.show_sidebar = st.checkbox("Show Filters", value=True)
+    with st.sidebar:
+        # Checkbox to show/hide filters inside sidebar
+        show_filters = st.checkbox("Show Filters", value=True)
 
-    if st.session_state.show_sidebar:
-        with st.sidebar:
+        if show_filters:
             st.markdown('<div class="-card">', unsafe_allow_html=True)
             st.markdown("**Filters**")
 
@@ -93,13 +95,13 @@ def main():
                 start_date, end_date = min_date, max_date
 
             st.markdown('</div>', unsafe_allow_html=True)
-    else:
-        # Defaults if sidebar hidden
-        all_species = sorted(df['Result_Name'].dropna().unique())
-        default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
-        species_selected = default_species
-        min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
-        start_date, end_date = max_date - timedelta(days=7), max_date
+        else:
+            # Defaults if filters hidden
+            all_species = sorted(df['Result_Name'].dropna().unique())
+            default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
+            species_selected = default_species
+            min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
+            start_date, end_date = max_date - timedelta(days=7), max_date
 
     # ---------------------------
     # Filter dataset
@@ -118,7 +120,7 @@ def main():
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
 
-    # Add hybrid tile layer (satellite + labels)
+    # Hybrid tile layers
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri',
@@ -135,14 +137,31 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Add color scale (bottom-left)
+    # Color scale
     colormap = LinearColormap(
         colors=['green', 'yellow', 'red'],
         vmin=1, vmax=500000,
         caption="Cell count (cells/L)"
     )
     colormap.add_to(m)
-    colormap.position = 'bottomleft'
+
+    # Force bottom-left using JS
+    legend_js = f"""
+    <script>
+    (function() {{
+      try {{
+        var el = document.getElementsByClassName('branca-colormap')[0];
+        if (el) {{
+          el.style.right = 'auto';
+          el.style.left = '10px';
+          el.style.bottom = '10px';
+          el.style.top = 'auto';
+        }}
+      }} catch(e) {{ console.log('legend move err', e); }}
+    }})();
+    </script>
+    """
+    m.get_root().html.add_child(Element(legend_js))
 
     # Add markers
     for _, row in sub_df.iterrows():
@@ -156,15 +175,13 @@ def main():
                 fill=True,
                 fill_color=color,
                 fill_opacity=0.8,
-                popup=(
-                    f"<b>{row['Site_Description']}</b><br>"
-                    f"{row['Date_Sample_Collected'].date()}<br>"
-                    f"{row['Result_Name']}<br>"
-                    f"{value:,} {row.get('Units','')}"
-                )
+                popup=(f"<b>{row['Site_Description']}</b><br>"
+                       f"{row['Date_Sample_Collected'].date()}<br>"
+                       f"{row['Result_Name']}<br>"
+                       f"{value:,} {row.get('Units','')}")
             ).add_to(m)
 
-    # Map display
+    # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
     st_folium(m, width=1200, height=600)
     st.markdown('</div>', unsafe_allow_html=True)
