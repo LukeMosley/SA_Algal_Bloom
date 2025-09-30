@@ -1,9 +1,9 @@
-import streamlit as st
-import folium
-from streamlit_folium import st_folium
-from branca.element import Element
-from branca.colormap import LinearColormap
 import pandas as pd
+import folium
+from branca.colormap import LinearColormap
+from branca.element import Element
+from streamlit_folium import st_folium
+import streamlit as st
 import os
 from datetime import timedelta
 
@@ -45,9 +45,6 @@ def main():
             padding: 0.25rem 0.5rem 0.5rem 0.5rem;
             width: 360px !important;
         }
-        section[data-testid="stSidebar"] .stMarkdown p {
-            margin-bottom: 0.2rem;
-        }
         .sidebar-card {
             border: 1px solid #d0d0d0;
             border-radius: 8px;
@@ -81,7 +78,7 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters (always visible)
+    # Sidebar filters (working)
     # ---------------------------
     with st.sidebar:
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
@@ -108,5 +105,86 @@ def main():
 
     # Filter dataset
     mask = (
-        df['Result_Name'].isin(_]()
+        df['Result_Name'].isin(species_selected) &
+        df['Date_Sample_Collected'].between(start_date, end_date) &
+        df['Result_Value_Numeric'].notna()
+    )
+    sub_df = df[mask]
+
+    st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
+
+    # ---------------------------
+    # Map with hybrid style
+    # ---------------------------
+    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
+
+    # Satellite + label layers
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attr='Esri', name='Esri Satellite', overlay=False, control=True
+    ).add_to(m)
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+        attr='Esri', name='Labels', overlay=True, control=True
+    ).add_to(m)
+    folium.LayerControl().add_to(m)
+
+    # Color scale
+    colormap = LinearColormap(colors=['green','yellow','red'], vmin=1, vmax=500000)
+    colormap.caption = "Cell count (cells/L)"
+    colormap.add_to(m)
+
+    # Inject JS to move legend bottom-left
+    legend_js = """
+    <script>
+    setTimeout(function() {
+      var el = document.getElementsByClassName('branca-colormap')[0];
+      if (el) {
+        el.style.position = 'absolute';
+        el.style.left = '10px';
+        el.style.bottom = '10px';
+        el.style.width = '20px';
+        el.style.height = '150px';
+        el.style.fontSize = '11px';
+      }
+    }, 500);
+    </script>
+    """
+    m.get_root().html.add_child(Element(legend_js))
+
+    # Add markers
+    for _, row in sub_df.iterrows():
+        if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
+            value = row['Result_Value_Numeric']
+            color = colormap(value if pd.notna(value) else 1)
+            folium.CircleMarker(
+                location=[row['Latitude'], row['Longitude']],
+                radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
+                popup=(f"<b>{row['Site_Description']}</b><br>"
+                       f"{row['Date_Sample_Collected'].date()}<br>"
+                       f"{row['Result_Name']}<br>"
+                       f"{value:,} {row.get('Units','')}")  
+            ).add_to(m)
+
+    # Display map
+    st.markdown('<div class="map-container">', unsafe_allow_html=True)
+    st_folium(m, width=1000, height=700)
+    st.markdown('</div>', unsafe_allow_html=True)
+
+    # Disclaimer
+    st.markdown("""
+        <div style="font-size:11px; color:#666; margin-top:10px;">
+        <strong>Disclaimer</strong> – this is a research product that utilises publicly available 
+        South Australian Government data 
+        (<a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">source</a>). 
+        No liability is assumed by the author (A/Prof. Luke Mosley) or the University of Adelaide 
+        for the use of this system or the data, which may be in error and/or out of date. 
+        Users should obtain their own independent advice.
+        </div>
+    """, unsafe_allow_html=True)
+
+
+if __name__ == "__main__":
+    main()
+
 
