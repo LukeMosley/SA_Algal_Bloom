@@ -28,9 +28,60 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 def main():
     st.set_page_config(page_title="HAB Monitoring - South Australia", layout="wide")
 
-    # Markdown intro (no Streamlit title)
-    st.markdown("## 🌊 Harmful Algal Bloom Monitoring Map")
-    st.markdown("Interactive viewer for algal monitoring data in South Australia.")
+    # Remove Streamlit padding/header/footer
+    st.markdown(
+        """
+        <style>
+        /* Remove top padding and footer */
+        .block-container {padding-top: 0rem; padding-bottom: 0rem;}
+        header, footer {visibility: hidden;}
+        
+        /* Make sidebar compact */
+        section[data-testid="stSidebar"] {
+            font-size: 12px;
+            padding: 0.5rem;
+            width: 280px !important;
+        }
+        section[data-testid="stSidebar"] .stMarkdown p {
+            margin-bottom: 0.2rem;
+        }
+
+        /* Sidebar card border */
+        .sidebar-card {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Map container styling */
+        .map-container {
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            padding: 4px;
+            margin: 0 auto;
+        }
+
+        /* Always show zoom buttons, keep same size */
+        .leaflet-control-zoom {
+            transform: scale(1) !important;
+        }
+
+        /* Shrink colorbar so it fits fully */
+        .leaflet-bottom.leaflet-left {
+            margin-bottom: 20px;
+            margin-left: 10px;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+
+    # Tiny header text instead of title
+    st.markdown(
+        '<p style="font-size:14px; margin:0 0 5px 0;">Interactive viewer for algal monitoring data in South Australia</p>',
+        unsafe_allow_html=True
+    )
 
     # File paths
     file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx"
@@ -43,21 +94,20 @@ def main():
     # Sidebar filters
     # ---------------------------
     with st.sidebar:
-        st.markdown("### Filters")
+        st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
+        st.markdown("**Filters**")
 
-        # Species selection
         all_species = sorted(df['Result_Name'].dropna().unique())
         species_selected = st.multiselect(
-            "**Select species**", 
+            "Select species", 
             options=all_species, 
             default=[s for s in all_species if "Karenia" in s] or all_species[:1]
         )
 
-        # Date range (default = last 7 days)
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
         date_range = st.date_input(
-            "**Select date range**", 
+            "Date range", 
             [last_week_start, max_date],
             min_value=min_date, 
             max_value=max_date
@@ -67,6 +117,8 @@ def main():
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
             start_date, end_date = min_date, max_date
+
+        st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
     # Filter dataset
@@ -78,12 +130,12 @@ def main():
     )
     sub_df = df[mask]
 
-    st.sidebar.write(f"Showing {len(sub_df)} filtered records of {len(df)} total")
+    st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
     # Map
     # ---------------------------
-    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, tiles="Esri.WorldImagery")
+    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, tiles="Esri.WorldImagery", control_scale=True)
 
     # Define custom green→yellow→red gradient
     colormap = LinearColormap(
@@ -113,21 +165,9 @@ def main():
                 )
             ).add_to(m)
 
-    # Display map with border
-    st.markdown(
-        """
-        <style>
-        .map-container {
-            border: 2px solid #ccc;
-            border-radius: 10px;
-            padding: 5px;
-        }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
+    # Display map full-width with border
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=900, height=600)
+    st_folium(m, width=1200, height=700)
     st.markdown('</div>', unsafe_allow_html=True)
 
 
