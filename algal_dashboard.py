@@ -37,19 +37,19 @@ def main():
         .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
         header, footer {visibility: hidden;}
 
-        /* Sidebar width + compactness */
-        section[data-testid="stSidebar"] {
+        /*  width + compactness */
+        section[data-testid="st"] {
             font-size: 12px;
             padding: 0.25rem 0.5rem 0.5rem 0.5rem;
             width: 360px !important;
         }
-        /* Small spacing for sidebar markdown */
-        section[data-testid="stSidebar"] .stMarkdown p {
+        /* Small spacing for  markdown */
+        section[data-testid="st"] .stMarkdown p {
             margin-bottom: 0.2rem;
         }
 
-        /* Sidebar card border and reduced margin-top */
-        .sidebar-card {
+        /*  card border and reduced margin-top */
+        .-card {
             border: 1px solid #d0d0d0;
             border-radius: 8px;
             padding: 6px;
@@ -102,8 +102,8 @@ def main():
 
     # Very small header text (no icon)
     st.markdown(
-        '<div style="font-size:14px; margin:0 0 6px 0;">Interactive viewer for algal monitoring data in South Australia</div>',
-        unsafe_allow_html=True
+    "<h4><b>Interactive viewer of harmful algal bloom monitoring data in South Australia</b></h4>",
+    unsafe_allow_html=True
     )
 
     # File paths
@@ -114,10 +114,10 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters (in a card)
+    #  filters (in a card)
     # ---------------------------
-    with st.sidebar:
-        st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
+    with st.:
+        st.markdown('<div class="-card">', unsafe_allow_html=True)
         st.markdown("**Filters**")
 
         all_species = sorted(df['Result_Name'].dropna().unique())
@@ -154,8 +154,8 @@ def main():
     )
     sub_df = df[mask]
 
-    # Sidebar record count compact
-    st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
+    #  record count compact
+    st..write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
     # Map (satellite) + legend + scale
@@ -181,9 +181,13 @@ def main():
     m.get_root().html.add_child(Element(scale_js))
 
     # Color scale (green -> yellow -> red)
-    colormap = LinearColormap(colors=["green", "yellow", "red"], vmin=1, vmax=500000)
-    colormap.caption = "Cell count (cells/L)"
-    colormap.add_to(m)  # default adds bottom-left
+    colormap = cm.LinearColormap(
+    colors=['green', 'yellow', 'red'],
+    vmin=1, vmax=500000,
+    caption="Cell count (cells/L)"
+    )
+    colormap.add_to(m)
+    colormap.options['position'] = 'bottomleft'  # move left so it’s visible
 
     # Add markers
     for _, row in sub_df.iterrows():
@@ -229,7 +233,7 @@ def main():
 
     # Display map large and centered
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1150, height=720)
+    st_folium(m, width=1200, height=600)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer - small, gray text below map
