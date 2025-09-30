@@ -22,7 +22,6 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
-
 # ---------------------------
 # Build Streamlit app
 # ---------------------------
@@ -36,6 +35,7 @@ def main():
     <style>
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
     header, footer {visibility: hidden;}
+
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.25rem 0.5rem 0.5rem 0.5rem;
@@ -49,10 +49,12 @@ def main():
         margin-top: 0.2rem;
         background: #fff;
     }
+
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
     div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 4px 6px !important;}
     div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 2px 0 !important;}
+
     .map-container {
         border: 2px solid #ccc;
         border-radius: 8px;
@@ -64,11 +66,13 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="font-size:14px; margin:0 0 6px 0;"><b>Interactive viewer for algal monitoring data in South Australia</b></div>',
-                unsafe_allow_html=True)
+    st.markdown(
+        '<div style="font-size:14px; margin:0 0 6px 0;"><b>Interactive viewer for algal monitoring data in South Australia</b></div>',
+        unsafe_allow_html=True
+    )
 
     # ---------------------------
-    # File paths and data
+    # Load data
     # ---------------------------
     file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx"
     coords_csv = "site_coordinates.csv"
@@ -83,7 +87,9 @@ def main():
 
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
-        species_selected = st.multiselect("Select species", options=all_species, default=default_species)
+        species_selected = st.multiselect(
+            "Select species", options=all_species, default=default_species
+        )
 
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
@@ -97,7 +103,9 @@ def main():
 
         st.markdown('</div>', unsafe_allow_html=True)
 
+    # ---------------------------
     # Filter dataset
+    # ---------------------------
     mask = (
         df['Result_Name'].isin(species_selected) &
         df['Date_Sample_Collected'].between(start_date, end_date) &
@@ -107,9 +115,10 @@ def main():
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Map
+    # Map setup
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
+
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Esri Satellite', overlay=False, control=True
@@ -120,12 +129,14 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale
+    # ---------------------------
+    # Color scale legend
+    # ---------------------------
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
     colormap.caption = "Cell count (cells/L)"
     colormap.add_to(m)
 
-    # Move legend away from right edge
+    # Fix f-string curly braces for JS
     map_name = m.get_name()
     legend_js = f"""
     <script>
@@ -148,7 +159,9 @@ def main():
     """
     m.get_root().html.add_child(Element(legend_js))
 
+    # ---------------------------
     # Add markers
+    # ---------------------------
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
@@ -162,12 +175,16 @@ def main():
                        f"{value:,} {row.get('Units','')}")
             ).add_to(m)
 
+    # ---------------------------
     # Display map
+    # ---------------------------
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
     st_folium(m, width=1200, height=600)
     st.markdown('</div>', unsafe_allow_html=True)
 
+    # ---------------------------
     # Disclaimer
+    # ---------------------------
     st.markdown("""
     <div style="font-size:11px; color:#666; margin-top:10px;">
     <strong>Disclaimer</strong> – this is a research product that utilises publicly available 
@@ -179,8 +196,5 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-
 if __name__ == "__main__":
     main()
-
-
