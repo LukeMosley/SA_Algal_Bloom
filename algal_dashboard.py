@@ -116,7 +116,7 @@ def main():
     # ---------------------------
     #  filters (in a card)
     # ---------------------------
-    with st.:
+    with st.sidebar:
         st.markdown('<div class="-card">', unsafe_allow_html=True)
         st.markdown("**Filters**")
 
