@@ -3,7 +3,7 @@ import folium
 from streamlit_folium import st_folium
 import streamlit as st
 import os
-from branca.colormap import linear
+from branca.colormap import linear as cm
 
 # ---------------------------
 # Load data + coordinates
