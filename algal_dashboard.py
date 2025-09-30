@@ -1,7 +1,6 @@
 import pandas as pd
 import folium
 from branca.colormap import LinearColormap
-from branca.element import Element
 from streamlit_folium import st_folium
 import streamlit as st
 import os
@@ -29,81 +28,29 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 def main():
     st.set_page_config(page_title="HAB Monitoring - South Australia", layout="wide")
 
-    # Custom styles to tighten layout and adjust legend positioning
+    # Custom styles
     st.markdown(
         """
         <style>
-        /* Remove top padding and footer to maximize map area */
         .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
         header, footer {visibility: hidden;}
-
-        /*  width + compactness */
-        section[data-testid="st"] {
-            font-size: 12px;
-            padding: 0.25rem 0.5rem 0.5rem 0.5rem;
-            width: 360px !important;
-        }
-        /* Small spacing for  markdown */
-        section[data-testid="st"] .stMarkdown p {
-            margin-bottom: 0.2rem;
-        }
-
-        /*  card border and reduced margin-top */
-        .-card {
-            border: 1px solid #d0d0d0;
-            border-radius: 8px;
-            padding: 6px;
-            margin-top: 0.2rem;
-            background: #fff;
-        }
-
-        /* Make multiselect option chips smaller and less tall */
-        /* This targets the baseweb select inside Streamlit's multiselect */
+        section[data-testid="st"] {font-size: 12px; padding: 0.25rem 0.5rem 0.5rem 0.5rem; width: 360px !important;}
+        section[data-testid="st"] .stMarkdown p {margin-bottom: 0.2rem;}
+        .-card {border: 1px solid #d0d0d0; border-radius: 8px; padding: 6px; margin-top: 0.2rem; background: #fff;}
         div[data-baseweb="select"] .css-1uccc91-singleValue,
-        div[data-baseweb="select"] span {
-            font-size: 11px !important;
-            line-height: 1.1 !important;
-        }
-        /* Selected tokens (chips) */
-        div[data-baseweb="select"] .css-1m4v56a {  /* token text */
-            font-size: 11px !important;
-            padding: 4px 6px !important;
-        }
-        div[data-baseweb="select"] .css-1rhbuit-multiValue {  /* token box */
-            margin: 2px 0 !important;
-        }
-
-        /* Map container styling - tighter padding */
-        .map-container {
-            border: 2px solid #ccc;
-            border-radius: 8px;
-            padding: 4px;
-            margin: 0 auto;
-        }
-
-        /* Keep zoom control visible and on top */
-        .leaflet-control-zoom {
-            z-index: 10000 !important;
-            transform: scale(1) !important;
-        }
-
-        /* Ensure the branca legend does not overflow */
-        .branca-colormap {
-            right: 10px !important;
-            left: auto !important;
-            bottom: 10px !important;
-            width: 180px !important;
-            font-size: 11px !important;
-        }
+        div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
+        div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 4px 6px !important;}
+        div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 2px 0 !important;}
+        .map-container {border: 2px solid #ccc; border-radius: 8px; padding: 4px; margin: 0 auto;}
+        .leaflet-control-zoom {z-index: 10000 !important; transform: scale(1) !important;}
         </style>
         """,
         unsafe_allow_html=True
     )
 
-    # Very small header text (no icon)
     st.markdown(
-    "<h4><b>Interactive viewer of harmful algal bloom monitoring data in South Australia</b></h4>",
-    unsafe_allow_html=True
+        "<h4><b>Interactive viewer of harmful algal bloom monitoring data in South Australia</b></h4>",
+        unsafe_allow_html=True
     )
 
     # File paths
@@ -114,35 +61,44 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    #  filters (in a card)
+    # Sidebar toggle
     # ---------------------------
-    with st.sidebar:
-        st.markdown('<div class="-card">', unsafe_allow_html=True)
-        st.markdown("**Filters**")
+    sidebar_expanded = st.sidebar.checkbox("Show Filters", value=True)
 
+    if sidebar_expanded:
+        with st.sidebar:
+            st.markdown('<div class="-card">', unsafe_allow_html=True)
+            st.markdown("**Filters**")
+
+            all_species = sorted(df['Result_Name'].dropna().unique())
+            default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
+            species_selected = st.multiselect(
+                "Select species", 
+                options=all_species, 
+                default=default_species
+            )
+
+            min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
+            last_week_start = max_date - timedelta(days=7)
+            date_range = st.date_input(
+                "Date range", 
+                [last_week_start, max_date],
+                min_value=min_date, 
+                max_value=max_date
+            )
+
+            if len(date_range) == 2:
+                start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
+            else:
+                start_date, end_date = min_date, max_date
+
+            st.markdown('</div>', unsafe_allow_html=True)
+    else:
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
-        species_selected = st.multiselect(
-            "Select species", 
-            options=all_species, 
-            default=default_species
-        )
-
+        species_selected = default_species
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
-        last_week_start = max_date - timedelta(days=7)
-        date_range = st.date_input(
-            "Date range", 
-            [last_week_start, max_date],
-            min_value=min_date, 
-            max_value=max_date
-        )
-
-        if len(date_range) == 2:
-            start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
-        else:
-            start_date, end_date = min_date, max_date
-
-        st.markdown('</div>', unsafe_allow_html=True)
+        start_date, end_date = max_date - timedelta(days=7), max_date
 
     # ---------------------------
     # Filter dataset
@@ -154,40 +110,21 @@ def main():
     )
     sub_df = df[mask]
 
-    #  record count compact
-    st..write(f"{len(sub_df)} of {len(df)} records shown")
+    st.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Map (satellite) + legend + scale
+    # Map
     # ---------------------------
-    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, tiles="Esri.WorldImagery", control_scale=False)
+    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, tiles="Esri.WorldImagery", control_scale=True)
 
-    # Add Leaflet scale control (metric only) via a tiny JS injection
-    map_name = m.get_name()  # JS map variable name, e.g., map_123abc
-    scale_js = f"""
-    <script>
-    (function() {{
-        try {{
-            var map = {map_name};
-            // add metric-only scale control in bottom-left
-            L.control.scale({{metric:true, imperial:false, position:'bottomleft'}}).addTo(map);
-            // ensure zoom control on top
-            var z = document.getElementsByClassName('leaflet-control-zoom')[0];
-            if (z) z.style.zIndex = 10000;
-        }} catch(e) {{ console.log("scale injection err", e); }}
-    }})();
-    </script>
-    """
-    m.get_root().html.add_child(Element(scale_js))
-
-    # Color scale (green -> yellow -> red)
-    colormap = cm.LinearColormap(
-    colors=['green', 'yellow', 'red'],
-    vmin=1, vmax=500000,
-    caption="Cell count (cells/L)"
+    # Add color scale (bottom-left)
+    colormap = LinearColormap(
+        colors=['green', 'yellow', 'red'],
+        vmin=1, vmax=500000,
+        caption="Cell count (cells/L)"
     )
     colormap.add_to(m)
-    colormap.options['position'] = 'bottomleft'  # move left so it’s visible
+    colormap.position = 'bottomleft'
 
     # Add markers
     for _, row in sub_df.iterrows():
@@ -209,34 +146,13 @@ def main():
                 )
             ).add_to(m)
 
-    # Post-process legend placement (small JS to move & shrink if needed)
-    legend_js = f"""
-    <script>
-    (function() {{
-      try {{
-        var map = {map_name};
-        setTimeout(function() {{
-          var el = document.getElementsByClassName('branca-colormap')[0];
-          if (el) {{
-            el.style.right = '10px';
-            el.style.left = 'auto';
-            el.style.bottom = '10px';
-            el.style.width = '180px';
-            el.style.fontSize = '11px';
-          }}
-        }}, 250);
-      }} catch(e) {{ console.log('legend move err', e); }}
-    }})();
-    </script>
-    """
-    m.get_root().html.add_child(Element(legend_js))
-
-    # Display map large and centered
+    # Responsive map height
+    map_height = max(400, min(1000, st.session_state.get("map_height", 600)))
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1200, height=600)
+    st_folium(m, width=1200, height=map_height)
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # Disclaimer - small, gray text below map
+    # Disclaimer
     st.markdown(
         """
         <div style="font-size:11px; color:#666; margin-top:10px;">
