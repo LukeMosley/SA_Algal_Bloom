@@ -93,7 +93,7 @@ def main():
     ).add_to(m)
 
     # Define color scale for cell counts
-    colormap = linear.jet.scale(1, 500000).to_step(n=10)
+    colormap = cm.linear.GreenRed_09.scale(1, 500000)
     colormap.caption = "Cell count (cells/L)"
     colormap.add_to(m)
 
