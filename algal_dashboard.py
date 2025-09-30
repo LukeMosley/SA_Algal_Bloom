@@ -22,6 +22,7 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
+
 # ---------------------------
 # Build Streamlit app
 # ---------------------------
@@ -33,19 +34,14 @@ def main():
     # ---------------------------
     st.markdown("""
     <style>
-    /* Remove top padding and footer */
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
     header, footer {visibility: hidden;}
-
-    /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.25rem 0.5rem 0.5rem 0.5rem;
         width: 360px !important;
     }
-    section[data-testid="stSidebar"] .stMarkdown p {
-        margin-bottom: 0.2rem;
-    }
+    section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.2rem;}
     .sidebar-card {
         border: 1px solid #d0d0d0;
         border-radius: 8px;
@@ -53,20 +49,16 @@ def main():
         margin-top: 0.2rem;
         background: #fff;
     }
-
-    /* Multiselect token styling */
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
     div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 4px 6px !important;}
     div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 2px 0 !important;}
-
-    /* Map container styling */
     .map-container {
         border: 2px solid #ccc;
         border-radius: 8px;
         padding: 4px;
         margin: 0 auto;
-        max-width: 950px;  /* keep sidebar visible */
+        max-width: 950px;
     }
     .leaflet-control-zoom {z-index: 10000 !important; transform: scale(1) !important;}
     </style>
@@ -83,7 +75,7 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters (always visible)
+    # Sidebar filters
     # ---------------------------
     with st.sidebar:
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
@@ -95,7 +87,9 @@ def main():
 
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
-        date_range = st.date_input("Date range (yyyy/mm/dd)", [last_week_start, max_date], min_value=min_date, max_value=max_date)
+        date_range = st.date_input(
+            "Date range (yyyy/mm/dd)", [last_week_start, max_date], min_value=min_date, max_value=max_date
+        )
         if len(date_range) == 2:
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
@@ -110,15 +104,12 @@ def main():
         df['Result_Value_Numeric'].notna()
     )
     sub_df = df[mask]
-
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Map with hybrid style
+    # Map
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
-
-    # Satellite + label layers
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Esri Satellite', overlay=False, control=True
@@ -129,30 +120,30 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale (vertical)
+    # Color scale
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
     colormap.caption = "Cell count (cells/L)"
     colormap.add_to(m)
 
-    # Inject JS to move legend away from right edge (top-right)
+    # Move legend away from right edge
     map_name = m.get_name()
     legend_js = f"""
     <script>
     (function() {{
-      var el = document.getElementsByClassName('branca-colormap')[0];
-      if (el) {{
-        el.style.position = 'absolute';
-        el.style.top = '10px';
-        el.style.right = '100px';   /* move further left so not obscured */
-        el.style.width = '25px';
-        el.style.height = '150px';
-        el.style.fontSize = '11px';
-        el.style.background = 'rgba(255,255,255,0.9)';  /* optional: semi-transparent bg */
-        el.style.border = '1px solid #ccc';
-        el.style.padding = '3px';
-        el.style.zIndex = '9999';
-      }}
-    })();
+        var el = document.getElementsByClassName('branca-colormap')[0];
+        if (el) {{
+            el.style.position = 'absolute';
+            el.style.top = '10px';
+            el.style.right = '100px';
+            el.style.width = '25px';
+            el.style.height = '150px';
+            el.style.fontSize = '11px';
+            el.style.background = 'rgba(255,255,255,0.9)';
+            el.style.border = '1px solid #ccc';
+            el.style.padding = '3px';
+            el.style.zIndex = '9999';
+        }}
+    }})();
     </script>
     """
     m.get_root().html.add_child(Element(legend_js))
@@ -173,7 +164,7 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1200, height=600)  # smaller width to keep sidebar visible
+    st_folium(m, width=1200, height=600)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer
@@ -188,6 +179,8 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
+
 if __name__ == "__main__":
     main()
+
 
