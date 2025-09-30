@@ -61,11 +61,11 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar toggle
+    # Sidebar toggle at top of page
     # ---------------------------
-    sidebar_expanded = st.sidebar.checkbox("Show Filters", value=True)
+    st.session_state.show_sidebar = st.checkbox("Show Filters", value=True)
 
-    if sidebar_expanded:
+    if st.session_state.show_sidebar:
         with st.sidebar:
             st.markdown('<div class="-card">', unsafe_allow_html=True)
             st.markdown("**Filters**")
@@ -94,6 +94,7 @@ def main():
 
             st.markdown('</div>', unsafe_allow_html=True)
     else:
+        # Defaults if sidebar hidden
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = default_species
@@ -113,9 +114,26 @@ def main():
     st.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Map
+    # Map with hybrid style
     # ---------------------------
-    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, tiles="Esri.WorldImagery", control_scale=True)
+    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
+
+    # Add hybrid tile layer (satellite + labels)
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+        attr='Esri',
+        name='Esri Satellite',
+        overlay=False,
+        control=True
+    ).add_to(m)
+    folium.TileLayer(
+        tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
+        attr='Esri',
+        name='Labels',
+        overlay=True,
+        control=True
+    ).add_to(m)
+    folium.LayerControl().add_to(m)
 
     # Add color scale (bottom-left)
     colormap = LinearColormap(
@@ -146,10 +164,9 @@ def main():
                 )
             ).add_to(m)
 
-    # Responsive map height
-    map_height = max(400, min(1000, st.session_state.get("map_height", 600)))
+    # Map display
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1200, height=map_height)
+    st_folium(m, width=1200, height=600)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer
@@ -169,3 +186,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
