@@ -108,7 +108,7 @@ def main():
         df['Result_Name'].isin(species_selected) &
         df['Date_Sample_Collected'].between(start_date, end_date) &
         df['Result_Value_Numeric'].notna()
-    )
+        )
     sub_df = df[mask]
 
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
