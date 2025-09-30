@@ -130,11 +130,11 @@ def main():
     folium.LayerControl().add_to(m)
 
     # Color scale (vertical)
-    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=1, vmax=500000)
+    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
     colormap.caption = "Cell count (cells/L)"
     colormap.add_to(m)
 
-    # Inject JS to force vertical, bottom-left
+    # Inject JS to move legend away from right edge (top-right)
     map_name = m.get_name()
     legend_js = f"""
     <script>
@@ -142,13 +142,17 @@ def main():
       var el = document.getElementsByClassName('branca-colormap')[0];
       if (el) {{
         el.style.position = 'absolute';
-        el.style.left = '10px';
-        el.style.bottom = '10px';
-        el.style.width = '20px';
+        el.style.top = '10px';
+        el.style.right = '100px';   /* move further left so not obscured */
+        el.style.width = '25px';
         el.style.height = '150px';
         el.style.fontSize = '11px';
+        el.style.background = 'rgba(255,255,255,0.9)';  /* optional: semi-transparent bg */
+        el.style.border = '1px solid #ccc';
+        el.style.padding = '3px';
+        el.style.zIndex = '9999';
       }}
-    }})();
+    })();
     </script>
     """
     m.get_root().html.add_child(Element(legend_js))
@@ -169,7 +173,7 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=900, height=720)  # smaller width to keep sidebar visible
+    st_folium(m, width=1200, height=600)  # smaller width to keep sidebar visible
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer
