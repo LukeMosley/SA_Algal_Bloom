@@ -29,83 +29,89 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 def main():
     st.set_page_config(page_title="HAB Monitoring - South Australia", layout="wide")
 
+    # ---------------------------
     # Custom styles
-    st.markdown(
-        """
+    # ---------------------------
+    st.markdown("""
         <style>
+        /* Remove top padding and footer */
         .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
         header, footer {visibility: hidden;}
-        section[data-testid="st"] {font-size: 12px; padding: 0.25rem 0.5rem 0.5rem 0.5rem; width: 360px !important;}
-        section[data-testid="st"] .stMarkdown p {margin-bottom: 0.2rem;}
-        .-card {border: 1px solid #d0d0d0; border-radius: 8px; padding: 6px; margin-top: 0.2rem; background: #fff;}
+
+        /* Sidebar styling */
+        section[data-testid="stSidebar"] {
+            font-size: 12px;
+            padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+            width: 360px !important;
+        }
+        section[data-testid="stSidebar"] .stMarkdown p {
+            margin-bottom: 0.2rem;
+        }
+        .sidebar-card {
+            border: 1px solid #d0d0d0;
+            border-radius: 8px;
+            padding: 6px;
+            margin-top: 0.2rem;
+            background: #fff;
+        }
+
+        /* Multiselect token styling */
         div[data-baseweb="select"] .css-1uccc91-singleValue,
         div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
         div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 4px 6px !important;}
         div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 2px 0 !important;}
-        .map-container {border: 2px solid #ccc; border-radius: 8px; padding: 4px; margin: 0 auto;}
+
+        /* Map container styling */
+        .map-container {
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            padding: 4px;
+            margin: 0 auto;
+        }
         .leaflet-control-zoom {z-index: 10000 !important; transform: scale(1) !important;}
         </style>
-        """,
-        unsafe_allow_html=True
+        """, unsafe_allow_html=True
     )
 
     st.markdown(
-        "<h4><b>Interactive viewer of harmful algal bloom monitoring data in South Australia</b></h4>",
+        '<div style="font-size:14px; margin:0 0 6px 0;"><b>Interactive viewer for algal monitoring data in South Australia</b></div>',
         unsafe_allow_html=True
     )
 
-    # File paths
+    # ---------------------------
+    # File paths and data
+    # ---------------------------
     file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx"
     coords_csv = "site_coordinates.csv"
-    
-    # Load dataset
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters
+    # Sidebar filters (always visible)
     # ---------------------------
     with st.sidebar:
-        # Checkbox to show/hide filters inside sidebar
-        show_filters = st.checkbox("Show Filters", value=True)
+        st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
+        st.markdown("**Filters**")
 
-        if show_filters:
-            st.markdown('<div class="-card">', unsafe_allow_html=True)
-            st.markdown("**Filters**")
+        all_species = sorted(df['Result_Name'].dropna().unique())
+        default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
+        species_selected = st.multiselect(
+            "Select species", options=all_species, default=default_species
+        )
 
-            all_species = sorted(df['Result_Name'].dropna().unique())
-            default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
-            species_selected = st.multiselect(
-                "Select species", 
-                options=all_species, 
-                default=default_species
-            )
-
-            min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
-            last_week_start = max_date - timedelta(days=7)
-            date_range = st.date_input(
-                "Date range", 
-                [last_week_start, max_date],
-                min_value=min_date, 
-                max_value=max_date
-            )
-
-            if len(date_range) == 2:
-                start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
-            else:
-                start_date, end_date = min_date, max_date
-
-            st.markdown('</div>', unsafe_allow_html=True)
+        min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
+        last_week_start = max_date - timedelta(days=7)
+        date_range = st.date_input(
+            "Date range", [last_week_start, max_date],
+            min_value=min_date, max_value=max_date
+        )
+        if len(date_range) == 2:
+            start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
-            # Defaults if filters hidden
-            all_species = sorted(df['Result_Name'].dropna().unique())
-            default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
-            species_selected = default_species
-            min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
-            start_date, end_date = max_date - timedelta(days=7), max_date
+            start_date, end_date = min_date, max_date
 
-    # ---------------------------
+        st.markdown('</div>', unsafe_allow_html=True)
+
     # Filter dataset
-    # ---------------------------
     mask = (
         df['Result_Name'].isin(species_selected) &
         df['Date_Sample_Collected'].between(start_date, end_date) &
@@ -113,51 +119,43 @@ def main():
     )
     sub_df = df[mask]
 
-    st.write(f"{len(sub_df)} of {len(df)} records shown")
+    st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
     # Map with hybrid style
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
 
-    # Hybrid tile layers
+    # Satellite + label layers
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        attr='Esri',
-        name='Esri Satellite',
-        overlay=False,
-        control=True
+        attr='Esri', name='Esri Satellite', overlay=False, control=True
     ).add_to(m)
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
-        attr='Esri',
-        name='Labels',
-        overlay=True,
-        control=True
+        attr='Esri', name='Labels', overlay=True, control=True
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale
-    colormap = LinearColormap(
-        colors=['green', 'yellow', 'red'],
-        vmin=1, vmax=500000,
-        caption="Cell count (cells/L)"
-    )
+    # Color scale (vertical)
+    colormap = LinearColormap(colors=['green','yellow','red'], vmin=1, vmax=500000)
+    colormap.caption = "Cell count (cells/L)"
     colormap.add_to(m)
 
-    # Force bottom-left using JS
+    # Inject JS to force vertical, bottom-left
+    map_name = m.get_name()
     legend_js = f"""
     <script>
     (function() {{
-      try {{
-        var el = document.getElementsByClassName('branca-colormap')[0];
-        if (el) {{
-          el.style.right = 'auto';
-          el.style.left = '10px';
-          el.style.bottom = '10px';
-          el.style.top = 'auto';
-        }}
-      }} catch(e) {{ console.log('legend move err', e); }}
+      var el = document.getElementsByClassName('branca-colormap')[0];
+      if (el) {{
+        el.style.position = 'absolute';
+        el.style.left = '10px';
+        el.style.bottom = '10px';
+        el.style.width = '20px';
+        el.style.height = '150px';
+        el.style.fontSize = '11px';
+      }}
     }})();
     </script>
     """
@@ -170,11 +168,7 @@ def main():
             color = colormap(value if pd.notna(value) else 1)
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
-                radius=6,
-                color=color,
-                fill=True,
-                fill_color=color,
-                fill_opacity=0.8,
+                radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{row['Result_Name']}<br>"
@@ -183,12 +177,11 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1200, height=600)
+    st_folium(m, width=1150, height=720)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer
-    st.markdown(
-        """
+    st.markdown("""
         <div style="font-size:11px; color:#666; margin-top:10px;">
         <strong>Disclaimer</strong> – this is a research product that utilises publicly available 
         South Australian Government data 
@@ -197,10 +190,9 @@ def main():
         for the use of this system or the data, which may be in error and/or out of date. 
         Users should obtain their own independent advice.
         </div>
-        """,
-        unsafe_allow_html=True
-    )
+    """, unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
+
 
