@@ -51,6 +51,23 @@ def main():
         background: #fff;
     }
 
+    /* Ensure sidebar collapse button is visible and styled */
+    [data-testid="collapsedControl"] {
+        background-color: #f0f0f0 !important;
+        border: 1px solid #ccc !important;
+        border-radius: 4px !important;
+        width: 30px !important;
+        height: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+    }
+    [data-testid="collapsedControl"] > label > div > svg {
+        color: #333 !important;
+        font-size: 16px !important;
+    }
+
     /* Multiselect token styling */
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
@@ -98,11 +115,20 @@ def main():
         font-size: 9px !important;
         text-align: center;
         margin-top: 2px;
+        color: #333 !important;  /* Dark text for caption */
+    }
+    /* Improve tick text readability: white text with black outline or semi-transparent bg */
+    .branca-colormap text {
+        fill: white !important;
+        stroke: black !important;
+        stroke-width: 0.5 !important;
+        text-anchor: middle !important;
+        font-weight: bold !important;
     }
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="font-size:14px; margin:0 0 6px 0;"><b>Interactive viewer for algal monitoring data in South Australia</b></div>',
+    st.markdown('<div style="font-size:18px; margin:0 0 6px 0;"><b>Interactive viewer for algal monitoring data in South Australia</b></div>',
                 unsafe_allow_html=True)
 
     # ---------------------------
@@ -165,7 +191,7 @@ def main():
 
     # Color scale (vertical)
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
-    colormap.caption = "Cell count<br>(cells/L)"
+    colormap.caption = "Cell Count per L"
     colormap.add_to(m)
 
     # Add markers
