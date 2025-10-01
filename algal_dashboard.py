@@ -164,7 +164,7 @@ def main():
     folium.LayerControl().add_to(m)
 
     # Color scale (vertical)
-    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000, orientation='vertical')
+    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
     colormap.caption = "Cell count<br>(cells/L)"
     colormap.add_to(m)
 
