@@ -45,13 +45,11 @@ def main():
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
     header, footer {visibility: hidden;}
 
-    /* Sidebar styling - ensure visibility and prevent hiding */
+    /* Sidebar styling - simplified to match earlier working version */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.5rem 0.75rem 0.75rem 0.75rem;
         width: 360px !important;
-        display: block !important;
-        visibility: visible !important;
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -78,40 +76,43 @@ def main():
         max-width: none;
     }
 
-    /* Custom horizontal colorbar styling - reduced width, bigger text, more ticks */
+    /* Custom vertical colorbar styling - left of map */
+    .colorbar-wrapper {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        gap: 10px;
+    }
     .colorbar-container {
         display: flex;
+        flex-direction: column-reverse;  /* Gradient from bottom (green) to top (red) */
         align-items: center;
-        justify-content: space-between;
-        background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
-        height: 35px;  /* Slightly taller for better visibility */
+        background: linear-gradient(to bottom, red 0%, yellow 50%, green 100%);
+        width: 30px;  /* Narrow vertical bar */
+        height: 200px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        margin-bottom: 10px;
-        padding: 0 5px;
-        font-size: 12px;  /* Bigger font for labels */
+        padding: 5px;
+        font-size: 10px;
         font-weight: bold;
         color: #333;
-        max-width: 600px;  /* Reduced width to accommodate units text */
-        margin-left: auto;
-        margin-right: auto;
     }
     .colorbar-labels {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
+        height: 100%;
         width: 100%;
-        font-size: 11px;  /* Bigger text */
-        color: #333;  /* Darker for readability */
-        margin-top: 2px;
-    }
-    .colorbar-labels span {
-        flex: 1;
         text-align: center;
+        font-size: 9px;  /* Compact ticks */
+        color: #666;
     }
     .colorbar-units {
-        font-size: 10px;
-        color: #666;
+        font-size: 11px;
+        color: #333;
         margin-left: 10px;
+        align-self: center;
         white-space: nowrap;
     }
 
@@ -137,11 +138,11 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters (always visible)
+    # Sidebar filters (always visible) - reverted to earlier structure
     # ---------------------------
     with st.sidebar:
-        st.markdown("**Filters**")  # Explicit header for visibility
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
+        st.markdown("**Filters**")
 
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
@@ -210,17 +211,17 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    # Display custom colorbar above map with more ticks and units
+    # Display custom vertical colorbar left of map with more ticks and units
     st.markdown("""
-    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+    <div class="colorbar-wrapper">
         <div class="colorbar-container">
             <div class="colorbar-labels">
-                <span>0</span>
-                <span>100k</span>
-                <span>200k</span>
-                <span>300k</span>
-                <span>400k</span>
                 <span>500k</span>
+                <span>400k</span>
+                <span>300k</span>
+                <span>200k</span>
+                <span>100k</span>
+                <span>0</span>
             </div>
         </div>
         <div class="colorbar-units">Cell count per L</div>
