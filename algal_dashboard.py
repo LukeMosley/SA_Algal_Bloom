@@ -133,7 +133,7 @@ def main():
     # ---------------------------
     file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
     coords_csv = "site_coordinates.csv"
-    df = load_data(file_path, coords_csv)
+    #df = load_data(file_path, coords_csv)
 
     # ---------------------------
     # Sidebar filters (always visible)
@@ -239,7 +239,7 @@ def main():
     (<a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">source</a>). 
     No liability is assumed by the author (A/Prof. Luke Mosley) or the University of Adelaide 
     for the use of this system or the data, which may be in error and/or out of date. 
-    Users should obtain their own independent advice.
+    Users should consult the official SA Government information (https://www.algalbloom.sa.gov.au/) and/or obtain their own independent advice.
     </div>
     """, unsafe_allow_html=True)
 
