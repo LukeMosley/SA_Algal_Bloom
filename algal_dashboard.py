@@ -76,6 +76,33 @@ def main():
         max-width: none;
     }
 
+    /* Custom horizontal colorbar styling */
+    .colorbar-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin-bottom: 10px;
+        padding: 0 10px;
+        font-size: 11px;
+        font-weight: bold;
+        color: #333;
+    }
+    .colorbar-labels {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 10px;
+        color: #666;
+    }
+    .colorbar-labels span {
+        flex: 1;
+        text-align: center;
+    }
+
     /* Move zoom buttons to top-right */
     .leaflet-control-zoom {
         position: absolute !important;
@@ -83,39 +110,6 @@ def main():
         right: 10px !important;
         left: auto !important;
         z-index: 10000 !important;
-    }
-
-    /* Force legend vertical, top-left */
-    .folium-map .branca-colormap,
-    .leaflet-container .branca-colormap {
-        position: absolute !important;
-        top: 10px !important;
-        left: 10px !important;
-        right: auto !important;
-        bottom: auto !important;
-        width: 35px !important;
-        height: 180px !important;
-        font-size: 10px !important;
-        background: rgba(255,255,255,0.95);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 4px;
-        z-index: 10000 !important;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    .branca-colormap .caption {
-        font-size: 9px !important;
-        text-align: center;
-        margin-top: 2px;
-        color: #333 !important;  /* Dark text for caption */
-    }
-    /* Improve tick text readability: white text with black outline */
-    .branca-colormap text {
-        fill: white !important;
-        stroke: black !important;
-        stroke-width: 0.5 !important;
-        text-anchor: middle !important;
-        font-weight: bold !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -181,10 +175,8 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale (vertical)
+    # Color scale (used for colors only, not added to map)
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
-    colormap.caption = "Cell Count per L"
-    colormap.add_to(m)
 
     # Add markers
     for _, row in sub_df.iterrows():
@@ -205,6 +197,17 @@ def main():
     if not sub_df.empty:
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
+
+    # Display custom colorbar above map
+    st.markdown("""
+    <div class="colorbar-container">
+        <div class="colorbar-labels">
+            <span>0</span>
+            <span>250,000</span>
+            <span>500,000</span>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
