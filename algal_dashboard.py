@@ -11,7 +11,11 @@ from datetime import timedelta
 # ---------------------------
 @st.cache_data
 def load_data(file_path, coords_csv="site_coordinates.csv"):
-    df = pd.read_excel(file_path, sheet_name=0)
+    # Detect file extension and read accordingly
+    if file_path.endswith('.xlsx') or file_path.endswith('.xls'):
+        df = pd.read_excel(file_path, sheet_name=0)
+    else:
+        df = pd.read_csv(file_path)
     df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'])
     
     if not os.path.exists(coords_csv):
@@ -117,8 +121,7 @@ def main():
     # ---------------------------
     # File paths and data
     # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
-    #file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx" #old file path
+    file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.csv"  # Update to .csv if that's your new filename
     coords_csv = "site_coordinates.csv"
     df = load_data(file_path, coords_csv)
 
