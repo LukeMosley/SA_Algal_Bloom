@@ -34,22 +34,26 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 # Build Streamlit app
 # ---------------------------
 def main():
-    st.set_page_config(page_title="HAB Monitoring - South Australia", layout="centered")
+    st.set_page_config(
+    page_title="HAB Monitoring - South Australia",
+    layout="wide",
+    initial_sidebar_state="expanded"
+    )
 
     # ---------------------------
     # Custom styles
     # ---------------------------
     st.markdown("""
     <style>
-    /* Remove top padding and footer */
+    /* Remove top/bottom padding and hide footer only */
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
-    header, footer {visibility: hidden;}
+    footer {visibility: hidden;}   /* keep header visible so sidebar toggle shows */
 
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.5rem 0.75rem 0.75rem 0.75rem;
-        width: 360px !important;
+        max-width: 360px;   /* use max-width instead of fixed width */
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -89,11 +93,11 @@ def main():
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 0 5px;
-        font-size: 12px;  /* Bigger labels */
+        font-size: 12px;
         font-weight: bold;
         color: #333;
-        max-width: 50%;  /* Half map width */
-        width: 100%;  /* Responsive within max */
+        max-width: 50%;
+        width: 100%;
     }
     .colorbar-labels {
         display: flex;
