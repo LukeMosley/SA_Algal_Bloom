@@ -51,23 +51,6 @@ def main():
         background: #fff;
     }
 
-    /* Ensure sidebar collapse button is visible and styled */
-    [data-testid="collapsedControl"] {
-        background-color: #f0f0f0 !important;
-        border: 1px solid #ccc !important;
-        border-radius: 4px !important;
-        width: 30px !important;
-        height: 30px !important;
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-    }
-    [data-testid="collapsedControl"] > label > div > svg {
-        color: #333 !important;
-        font-size: 16px !important;
-    }
-
     /* Multiselect token styling */
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
@@ -117,7 +100,7 @@ def main():
         margin-top: 2px;
         color: #333 !important;  /* Dark text for caption */
     }
-    /* Improve tick text readability: white text with black outline or semi-transparent bg */
+    /* Improve tick text readability: white text with black outline */
     .branca-colormap text {
         fill: white !important;
         stroke: black !important;
@@ -134,7 +117,8 @@ def main():
     # ---------------------------
     # File paths and data
     # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx"
+    #file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
+    #file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx" #old file path
     coords_csv = "site_coordinates.csv"
     df = load_data(file_path, coords_csv)
 
