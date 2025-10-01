@@ -1,7 +1,7 @@
 import pandas as pd
 import folium
 from branca.colormap import LinearColormap
-from streamlit_folium import st_foliumhttp://localhost:8501
+from streamlit_folium import st_folium
 import streamlit as st
 import os
 from datetime import timedelta
