@@ -134,6 +134,15 @@ def main():
     file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
     coords_csv = "site_coordinates.csv"
     #df = load_data(file_path, coords_csv)
+    df = pd.DataFrame({
+    'Result_Name': ['Karenia brevis'] * 10,
+    'Date_Sample_Collected': pd.date_range('2025-09-01', periods=10),
+    'Result_Value_Numeric': [1000] * 10,
+    'Site_Description': ['Test Site'] * 10,
+    'Latitude': [-35.0] * 10,
+    'Longitude': [138.5] * 10,
+    'Units': ['cells/L'] * 10
+    })
 
     # ---------------------------
     # Sidebar filters (always visible)
