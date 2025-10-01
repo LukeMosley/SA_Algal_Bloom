@@ -1,7 +1,7 @@
 import pandas as pd
 import folium
 from branca.colormap import LinearColormap
-from streamlit_folium import st_folium
+from streamlit_folium import st_foliumhttp://localhost:8501
 import streamlit as st
 import os
 from datetime import timedelta
@@ -183,7 +183,7 @@ def main():
     # Satellite + label layers
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
-        attr='Esri', name='Esri Satellite', overlay=False, control=True
+        attr='Esri', name='Satellite', overlay=False, control=True
     ).add_to(m)
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
@@ -216,7 +216,7 @@ def main():
 
     # Display custom horizontal colorbar (1/2 width)
     st.markdown("""
-    <div style="font-size:12px; color:#666">
+    <div style="font-size:14px; color:#00000">
     <div class="colorbar-wrapper">
         <div class="colorbar-container">
             <div class="colorbar-labels">
