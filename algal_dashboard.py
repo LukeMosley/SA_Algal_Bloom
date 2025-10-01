@@ -63,15 +63,23 @@ def main():
         border-radius: 8px;
         padding: 4px;
         margin: 0 auto;
-        max-width: 1150px;  /* wider map */
+        max-width: 1150px;
     }
-    .leaflet-control-zoom {z-index: 10000 !important; transform: scale(1) !important;}
 
-    /* Force legend vertical, top-right, not obscured */
+    /* Move zoom buttons to top-right */
+    .leaflet-control-zoom {
+        position: absolute !important;
+        top: 10px !important;
+        right: 10px !important;
+        left: auto !important;
+        z-index: 10000 !important;
+    }
+
+    /* Force legend vertical, top-left */
     .branca-colormap {
         position: absolute !important;
         top: 10px;
-        right: 150px;  /* move left so not obscured */
+        left: 10px;
         width: 25px !important;
         height: 150px !important;
         font-size: 11px !important;
@@ -94,7 +102,7 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters
+    # Sidebar filters (always visible)
     # ---------------------------
     with st.sidebar:
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
@@ -106,9 +114,7 @@ def main():
 
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
-        date_range = st.date_input(
-            "Date range (yyyy/mm/dd)", [last_week_start, max_date], min_value=min_date, max_value=max_date
-        )
+        date_range = st.date_input("Date range (yyyy/mm/dd)", [last_week_start, max_date], min_value=min_date, max_value=max_date)
         if len(date_range) == 2:
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
@@ -142,7 +148,7 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale
+    # Color scale (vertical)
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
     colormap.caption = "Cell count (cells/L)"
     colormap.add_to(m)
@@ -161,9 +167,14 @@ def main():
                        f"{value:,} {row.get('Units','')}")
             ).add_to(m)
 
+    # Fit map to data extent (if records exist)
+    if not sub_df.empty:
+        m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
+                      [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
+
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1200, height=600)  # map slightly wider
+    st_folium(m, width=1250, height=600)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer
