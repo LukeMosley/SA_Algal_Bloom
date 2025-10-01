@@ -22,11 +22,11 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
         else:
             df = pd.read_csv(file_path)
         df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'])
-    
+
     if not os.path.exists(coords_csv):
         st.error(f"⚠️ Coordinates file '{coords_csv}' not found. Please generate site_coordinates.csv first.")
         st.stop()
-    
+
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
@@ -125,8 +125,13 @@ def main():
     </style>
     """, unsafe_allow_html=True)
 
-    st.markdown('<div style="font-size:18px; margin:0 0 6px 0;"><b>Interactive viewer for algal monitoring data in South Australia</b></div>',
-                unsafe_allow_html=True)
+    # ---------------------------
+    # Title
+    # ---------------------------
+    st.markdown(
+        '<div style="font-size:18px; margin:0 0 6px 0;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
+        unsafe_allow_html=True
+    )
 
     # ---------------------------
     # File paths and data
