@@ -117,7 +117,7 @@ def main():
     # ---------------------------
     # File paths and data
     # ---------------------------
-    #file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
+    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
     #file_path = "HarmfulAlgalBloom_MonitoringSites_-1125610967936090616.xlsx" #old file path
     coords_csv = "site_coordinates.csv"
     df = load_data(file_path, coords_csv)
