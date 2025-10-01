@@ -45,11 +45,13 @@ def main():
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
     header, footer {visibility: hidden;}
 
-    /* Sidebar styling */
+    /* Sidebar styling - ensure visibility and prevent hiding */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.5rem 0.75rem 0.75rem 0.75rem;
         width: 360px !important;
+        display: block !important;
+        visibility: visible !important;
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -76,31 +78,41 @@ def main():
         max-width: none;
     }
 
-    /* Custom horizontal colorbar styling */
+    /* Custom horizontal colorbar styling - reduced width, bigger text, more ticks */
     .colorbar-container {
         display: flex;
         align-items: center;
         justify-content: space-between;
         background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
-        height: 30px;
+        height: 35px;  /* Slightly taller for better visibility */
         border: 1px solid #ccc;
         border-radius: 4px;
         margin-bottom: 10px;
-        padding: 0 10px;
-        font-size: 11px;
+        padding: 0 5px;
+        font-size: 12px;  /* Bigger font for labels */
         font-weight: bold;
         color: #333;
+        max-width: 600px;  /* Reduced width to accommodate units text */
+        margin-left: auto;
+        margin-right: auto;
     }
     .colorbar-labels {
         display: flex;
         justify-content: space-between;
         width: 100%;
-        font-size: 10px;
-        color: #666;
+        font-size: 11px;  /* Bigger text */
+        color: #333;  /* Darker for readability */
+        margin-top: 2px;
     }
     .colorbar-labels span {
         flex: 1;
         text-align: center;
+    }
+    .colorbar-units {
+        font-size: 10px;
+        color: #666;
+        margin-left: 10px;
+        white-space: nowrap;
     }
 
     /* Move zoom buttons to top-right */
@@ -128,8 +140,8 @@ def main():
     # Sidebar filters (always visible)
     # ---------------------------
     with st.sidebar:
+        st.markdown("**Filters**")  # Explicit header for visibility
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
-        st.markdown("**Filters**")
 
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
@@ -198,14 +210,20 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    # Display custom colorbar above map
+    # Display custom colorbar above map with more ticks and units
     st.markdown("""
-    <div class="colorbar-container">
-        <div class="colorbar-labels">
-            <span>0</span>
-            <span>250,000</span>
-            <span>500,000</span>
+    <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 10px;">
+        <div class="colorbar-container">
+            <div class="colorbar-labels">
+                <span>0</span>
+                <span>100k</span>
+                <span>200k</span>
+                <span>300k</span>
+                <span>400k</span>
+                <span>500k</span>
+            </div>
         </div>
+        <div class="colorbar-units">Cell count per L</div>
     </div>
     """, unsafe_allow_html=True)
 
