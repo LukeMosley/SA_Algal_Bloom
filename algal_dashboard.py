@@ -11,17 +11,17 @@ from datetime import timedelta
 # ---------------------------
 @st.cache_data
 def load_data(file_path, coords_csv="site_coordinates.csv"):
-    # Check if main data file exists
+    # Check if main data file exists (warn but continue if missing)
     if not os.path.exists(file_path):
-        st.error(f"⚠️ Main data file '{file_path}' not found. Please place the CSV in the same directory as this app.")
-        st.stop()
-    
-    # Detect file extension and read accordingly
-    if file_path.endswith('.xlsx') or file_path.endswith('.xls'):
-        df = pd.read_excel(file_path, sheet_name=0)
+        st.warning(f"⚠️ Main data file '{file_path}' not found. Using empty dataset.")
+        df = pd.DataFrame()  # Empty DF to proceed
     else:
-        df = pd.read_csv(file_path)
-    df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'])
+        # Detect file extension and read accordingly
+        if file_path.endswith('.xlsx') or file_path.endswith('.xls'):
+            df = pd.read_excel(file_path, sheet_name=0)
+        else:
+            df = pd.read_csv(file_path)
+        df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'])
     
     if not os.path.exists(coords_csv):
         st.error(f"⚠️ Coordinates file '{coords_csv}' not found. Please generate site_coordinates.csv first.")
@@ -45,7 +45,7 @@ def main():
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
     header, footer {visibility: hidden;}
 
-    /* Sidebar styling - simplified to match earlier working version */
+    /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.5rem 0.75rem 0.75rem 0.75rem;
@@ -76,43 +76,41 @@ def main():
         max-width: none;
     }
 
-    /* Custom vertical colorbar styling - left of map */
+    /* Horizontal colorbar - 1/2 width, above map */
     .colorbar-wrapper {
         display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 10px;
-        gap: 10px;
     }
     .colorbar-container {
-        display: flex;
-        flex-direction: column-reverse;  /* Gradient from bottom (green) to top (red) */
-        align-items: center;
-        background: linear-gradient(to bottom, red 0%, yellow 50%, green 100%);
-        width: 30px;  /* Narrow vertical bar */
-        height: 200px;
+        background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+        height: 35px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        padding: 5px;
-        font-size: 10px;
+        padding: 0 5px;
+        font-size: 12px;  /* Bigger labels */
         font-weight: bold;
         color: #333;
+        max-width: 50%;  /* Half map width */
+        width: 100%;  /* Responsive within max */
     }
     .colorbar-labels {
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-        height: 100%;
         width: 100%;
-        text-align: center;
-        font-size: 9px;  /* Compact ticks */
-        color: #666;
-    }
-    .colorbar-units {
         font-size: 11px;
         color: #333;
+        margin-top: 2px;
+    }
+    .colorbar-labels span {
+        flex: 1;
+        text-align: center;
+    }
+    .colorbar-units {
+        font-size: 10px;
+        color: #666;
         margin-left: 10px;
-        align-self: center;
         white-space: nowrap;
     }
 
@@ -133,12 +131,12 @@ def main():
     # ---------------------------
     # File paths and data
     # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"  # Updated to new CSV filename
+    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
     coords_csv = "site_coordinates.csv"
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters (always visible) - reverted to earlier structure
+    # Sidebar filters (always visible)
     # ---------------------------
     with st.sidebar:
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
@@ -211,17 +209,17 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    # Display custom vertical colorbar left of map with more ticks and units
+    # Display custom horizontal colorbar (1/2 width)
     st.markdown("""
     <div class="colorbar-wrapper">
         <div class="colorbar-container">
             <div class="colorbar-labels">
-                <span>500k</span>
-                <span>400k</span>
-                <span>300k</span>
-                <span>200k</span>
-                <span>100k</span>
                 <span>0</span>
+                <span>100k</span>
+                <span>200k</span>
+                <span>300k</span>
+                <span>400k</span>
+                <span>500k</span>
             </div>
         </div>
         <div class="colorbar-units">Cell count per L</div>
