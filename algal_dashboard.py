@@ -39,10 +39,10 @@ def main():
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
-        padding: 0.25rem 0.5rem 0.5rem 0.5rem;
+        padding: 0.5rem 0.75rem 0.75rem 0.75rem;
         width: 360px !important;
     }
-    section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.2rem;}
+    section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
         border: 1px solid #d0d0d0;
         border-radius: 8px;
@@ -63,7 +63,8 @@ def main():
         border-radius: 8px;
         padding: 4px;
         margin: 0 auto;
-        max-width: 1150px;
+        width: 100%;
+        max-width: none;
     }
 
     /* Move zoom buttons to top-right */
@@ -76,17 +77,27 @@ def main():
     }
 
     /* Force legend vertical, top-left */
-    .branca-colormap {
+    .folium-map .branca-colormap,
+    .leaflet-container .branca-colormap {
         position: absolute !important;
-        top: 10px;
-        left: 10px;
-        width: 25px !important;
-        height: 150px !important;
-        font-size: 11px !important;
-        background: rgba(255,255,255,0.9);
+        top: 10px !important;
+        left: 10px !important;
+        right: auto !important;
+        bottom: auto !important;
+        width: 35px !important;
+        height: 180px !important;
+        font-size: 10px !important;
+        background: rgba(255,255,255,0.95);
         border: 1px solid #ccc;
-        padding: 3px;
-        z-index: 9999;
+        border-radius: 4px;
+        padding: 4px;
+        z-index: 10000 !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .branca-colormap .caption {
+        font-size: 9px !important;
+        text-align: center;
+        margin-top: 2px;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -111,6 +122,10 @@ def main():
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = st.multiselect("Select species", options=all_species, default=default_species)
+
+        # Handle empty selection gracefully
+        if not species_selected:
+            species_selected = all_species[:1]  # Default to first if none selected
 
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
@@ -149,8 +164,8 @@ def main():
     folium.LayerControl().add_to(m)
 
     # Color scale (vertical)
-    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
-    colormap.caption = "Cell count (cells/L)"
+    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000, orientation='vertical')
+    colormap.caption = "Cell count<br>(cells/L)"
     colormap.add_to(m)
 
     # Add markers
@@ -158,13 +173,14 @@ def main():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             color = colormap(value if pd.notna(value) else 1)
+            units = row.get('Units', 'cells/L')  # Default to cells/L for consistency
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
                 radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{row['Result_Name']}<br>"
-                       f"{value:,} {row.get('Units','')}")
+                       f"{value:,} {units}")
             ).add_to(m)
 
     # Fit map to data extent (if records exist)
@@ -174,7 +190,7 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width=1250, height=600)
+    st_folium(m, width='100%', height=650)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # Disclaimer
