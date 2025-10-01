@@ -34,7 +34,7 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 # Build Streamlit app
 # ---------------------------
 def main():
-    st.set_page_config(page_title="HAB Monitoring - South Australia", layout="wide")
+    st.set_page_config(page_title="HAB Monitoring - South Australia", layout="centered")
 
     # ---------------------------
     # Custom styles
@@ -133,16 +133,7 @@ def main():
     # ---------------------------
     file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
     coords_csv = "site_coordinates.csv"
-    #df = load_data(file_path, coords_csv)
-    df = pd.DataFrame({
-    'Result_Name': ['Karenia brevis'] * 10,
-    'Date_Sample_Collected': pd.date_range('2025-09-01', periods=10),
-    'Result_Value_Numeric': [1000] * 10,
-    'Site_Description': ['Test Site'] * 10,
-    'Latitude': [-35.0] * 10,
-    'Longitude': [138.5] * 10,
-    'Units': ['cells/L'] * 10
-    })
+    df = load_data(file_path, coords_csv)
 
     # ---------------------------
     # Sidebar filters (always visible)
@@ -228,7 +219,7 @@ def main():
                 <span>100,000</span>
                 <span>200,000</span>
                 <span>300,000</span>
-                <span>400,000/span>
+                <span>400,000</span>
                 <span>>500,000</span>
             </div>
         </div>
