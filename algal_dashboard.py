@@ -40,13 +40,6 @@ def main():
     initial_sidebar_state="expanded"
     )
 
-    # --- Short visible disclaimer banner (top of page) ---
-    st.warning("""
-    **Disclaimer:** This research app uses publicly available South Australian Government data. 
-    Accuracy is not guaranteed; users should refer to 
-    [algalbloom.sa.gov.au](https://www.algalbloom.sa.gov.au/) for official information.
-    """)
-
     # ---------------------------
     # Custom styles
     # ---------------------------
