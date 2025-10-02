@@ -82,7 +82,7 @@ def main():
         padding: 0 5px;
         font-size: 12px;
         font-weight: bold;
-        max-width: 50%;
+        max-width: 80%;  /* expanded width */
         width: 100%;
     }
     .colorbar-labels {
@@ -96,16 +96,16 @@ def main():
     .colorbar-units {
         font-size: 12px;
         color: #000;
-        margin-top: 2px;  /* move to next line */
+        margin-top: 2px;  
         text-align: center;
         white-space: nowrap;
     }
 
-    /* Move zoom + layer buttons down a bit */
+    /* Move zoom + layer buttons further down */
     .leaflet-control-zoom,
     .leaflet-control-layers {
         position: absolute !important;
-        top: 60px !important;  /* move down to avoid being obscured */
+        top: 100px !important;  /* moved further down */
         right: 10px !important;
         left: auto !important;
         z-index: 10000 !important;
@@ -233,3 +233,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
