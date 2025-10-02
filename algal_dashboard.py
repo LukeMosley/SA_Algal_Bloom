@@ -71,12 +71,14 @@ def main():
 
     /* Map container */
     .map-container {
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        padding: 4px;
-        margin: 1rem auto 0 auto;
-        width: 100%;
-        max-width: none;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 4px;
+    margin: 1rem auto 0 auto;
+    width: 100%;
+    max-width: none;
+    height: 650px;          /* fixed height */
+    overflow: hidden;       /* prevent dynamic resizing */
     }
 
     /* Horizontal colorbar - 1/2 width, above map */
@@ -234,7 +236,7 @@ def main():
     # Map display
     # ---------------------------
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height=650)
+    st_folium(m, width='100%', height=550)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
