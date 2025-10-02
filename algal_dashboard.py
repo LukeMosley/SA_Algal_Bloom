@@ -62,7 +62,7 @@ def main():
         margin-bottom: 0.5rem;
     }
 
-    /* Horizontal colorbar in sidebar */
+    /* Horizontal colorbar */
     .colorbar-wrapper {
         display: flex;
         align-items: center;
@@ -77,6 +77,7 @@ def main():
         padding: 0 5px;
         font-size: 12px;
         font-weight: bold;
+        max-width: 95%;
         width: 100%;
     }
     .colorbar-labels {
@@ -94,6 +95,33 @@ def main():
         text-align: center;
         white-space: nowrap;
     }
+
+    /* Map container */
+    .map-container {
+        width: 100%;
+        max-width: none;
+        height: 500px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 4px;
+        margin-bottom: 1rem;
+    }
+
+    /* Move zoom + layer buttons to bottom-left */
+    .leaflet-control-zoom {
+        bottom: 60px !important;
+        top: auto !important;
+        left: 10px !important;
+        right: auto !important;
+        z-index: 10000 !important;
+    }
+    .leaflet-control-layers {
+        bottom: 10px !important;
+        top: auto !important;
+        left: 10px !important;
+        right: auto !important;
+        z-index: 10000 !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -108,6 +136,7 @@ def main():
     # Sidebar: Title, colorbar, filters
     # ---------------------------
     with st.sidebar:
+        # Title
         st.markdown('<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
                     'Harmful Algal Bloom Dashboard – South Australia</div>',
                     unsafe_allow_html=True)
@@ -125,6 +154,7 @@ def main():
         <div class="colorbar-units">Cell count per L</div>
         """, unsafe_allow_html=True)
 
+        # Filters card
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
 
         # Species filter
@@ -153,13 +183,13 @@ def main():
         df['Result_Value_Numeric'].notna()
     )
     sub_df = df[mask]
+
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
     # Map
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
-
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Satellite', overlay=False, control=True
@@ -168,9 +198,7 @@ def main():
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Labels', overlay=True, control=True
     ).add_to(m)
-
-    # Add LayerControl at bottomright
-    folium.LayerControl(position='bottomright').add_to(m)
+    folium.LayerControl().add_to(m)
 
     # Color scale
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
@@ -197,7 +225,7 @@ def main():
     # ---------------------------
     # Map display (undocked)
     # ---------------------------
-    st_folium(m, width='100%', height=750)
+    st_folium(m, width='100%', height=500)
 
     # ---------------------------
     # Disclaimer
