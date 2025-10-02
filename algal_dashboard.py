@@ -82,7 +82,7 @@ def main():
         padding: 0 5px;
         font-size: 12px;
         font-weight: bold;
-        max-width: 80%;  /* expanded width */
+        max-width: 95%;  /* expanded width */
         width: 100%;
     }
     .colorbar-labels {
@@ -105,7 +105,7 @@ def main():
     .leaflet-control-zoom,
     .leaflet-control-layers {
         position: absolute !important;
-        top: 100px !important;  /* moved further down */
+        top: 150px !important;  /* moved further down */
         right: 10px !important;
         left: auto !important;
         z-index: 10000 !important;
@@ -134,8 +134,8 @@ def main():
         <div class="colorbar-wrapper">
             <div class="colorbar-container">
                 <div class="colorbar-labels">
-                    <span>0</span><span>100k</span><span>200k</span>
-                    <span>300k</span><span>400k</span><span>>500k</span>
+                    <span>0</span><span>100,000</span><span>200,000</span>
+                    <span>300,000</span><span>400,000</span><span>>500,000</span>
                 </div>
             </div>
         </div>
