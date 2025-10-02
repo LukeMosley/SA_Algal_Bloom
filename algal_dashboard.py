@@ -107,23 +107,21 @@ def main():
         margin-bottom: 1rem;
     }
 
-    /* Move zoom + layer buttons to bottom-left */
-    .leaflet-control-zoom {
+    /* Force zoom + layer buttons to bottom-left inside Streamlit container */
+    .stFolium .leaflet-control-zoom {
         bottom: 60px !important;
         top: auto !important;
         left: 10px !important;
         right: auto !important;
         z-index: 10000 !important;
     }
-    .leaflet-control-layers {
+    .stFolium .leaflet-control-layers {
         bottom: 10px !important;
         top: auto !important;
         left: 10px !important;
         right: auto !important;
         z-index: 10000 !important;
     }
-    </style>
-    """, unsafe_allow_html=True)
 
     # ---------------------------
     # File paths and data
