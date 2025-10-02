@@ -213,39 +213,90 @@ if not sub_df.empty:
 # ---------------------------
 # Trends Section
 # ---------------------------
-if not sub_df.empty:
+if not df.empty:  # Check full df for options, even if sub_df is filtered
     st.subheader("Trends Over Time")
     
-    # Dropdown for species selection (defaults to first available)
-    available_species = sorted(sub_df['Result_Name'].unique())
-    selected_trend_species = st.selectbox(
+    # Get all unique species from full dataset
+    all_species = sorted(df['Result_Name'].dropna().unique())
+    
+    # Default to Karenia species (matching sidebar logic)
+    default_trend_species = [s for s in all_species if "Karenia" in s] or all_species[:3]  # Fallback to first 3 if no Karenia
+    
+    # Multi-select for species (defaults to Karenia)
+    selected_trend_species = st.multiselect(
         "Select species for trend chart",
-        options=available_species,
-        index=0  # Defaults to first
+        options=all_species,
+        default=default_trend_species
     )
     
-    # Filter to selected species and prep data for chart
-    trend_data = sub_df[sub_df['Result_Name'] == selected_trend_species][['Date_Sample_Collected', 'Result_Value_Numeric']].copy()
-    trend_data = trend_data.sort_values('Date_Sample_Collected')
-    trend_data['Date_Sample_Collected'] = pd.to_datetime(trend_data['Date_Sample_Collected']).dt.date  # For cleaner x-axis
+    # Site filter: All or specific
+    all_sites = sorted(df['Site_Description'].dropna().unique())
+    selected_site = st.selectbox(
+        "Filter by site",
+        options=["All Sites"] + all_sites,
+        index=0
+    )
     
-    if not trend_data.empty:
-        # Pivot for line chart (dates as index, values as series)
-        chart_df = trend_data.set_index('Date_Sample_Collected')['Result_Value_Numeric']
-        st.line_chart(chart_df, use_container_width=True, height=400)
+    # Log scale checkbox
+    use_log_scale = st.checkbox("Use log scale for y-axis (for high-range data)")
+    
+    # Filter data for plot
+    plot_df = df[
+        (df['Result_Name'].isin(selected_trend_species)) &
+        (df['Result_Value_Numeric'].notna())
+    ].copy()
+    
+    if selected_site != "All Sites":
+        plot_df = plot_df[plot_df['Site_Description'] == selected_site]
+    
+    # Sort by date
+    plot_df = plot_df.sort_values('Date_Sample_Collected')
+    
+    if not plot_df.empty:
+        # Pivot for multi-line chart
+        trend_df = plot_df.pivot_table(
+            index='Date_Sample_Collected',
+            columns='Result_Name',
+            values='Result_Value_Numeric',
+            aggfunc='mean'  # Average if multiple samples per day/species
+        ).reset_index()
         
-        # Quick stats below chart
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            st.metric("Max Count", f"{trend_data['Result_Value_Numeric'].max():,.0f}")
-        with col2:
-            st.metric("Avg Count", f"{trend_data['Result_Value_Numeric'].mean():,.0f}")
-        with col3:
-            st.metric("Recent (Last Sample)", f"{trend_data['Result_Value_Numeric'].iloc[-1]:,.0f}")
+        # Prepare for Altair
+        trend_melted = trend_df.melt(
+            id_vars='Date_Sample_Collected',
+            var_name='Species',
+            value_name='Cell_Count',
+            ignore_index=False
+        )
+        trend_melted['Date_Sample_Collected'] = pd.to_datetime(trend_melted['Date_Sample_Collected']).dt.date
+        
+        # Altair chart
+        base = alt.Chart(trend_melted).mark_line().encode(
+            x=alt.X('Date_Sample_Collected:T', title='Date', axis=alt.Axis(labelAngle=0)),
+            y=alt.Y('Cell_Count:Q', title='Cell Count per L'),
+            color=alt.Color('Species:N', title='Species'),
+            tooltip=['Date_Sample_Collected', 'Species', 'Cell_Count']
+        ).properties(
+            width=800,
+            height=400,
+            title=f"Trends for Selected Species {'(Log Scale)' if use_log_scale else ''}"
+        ).interactive()  # Enables zoom/pan
+        
+        if use_log_scale:
+            base = base.transform_calculate(
+                log_count="log(Cell_Count + 1)"  # +1 to avoid log(0)
+            ).encode(
+                y=alt.Y('log_count:Q', title='Log(Cell Count per L)', scale=alt.Scale(type='log'))
+            )
+        
+        st.altair_chart(base, use_container_width=True)
+        
+        # Show filtered row count for transparency
+        st.caption(f"Showing {len(plot_df)} data points across {len(selected_trend_species)} species and {'all sites' if selected_site == 'All Sites' else selected_site}.")
     else:
-        st.info("No data available for the selected species in the current filters.")
+        st.info("No data available for the selected species and site. Adjust options above.")
 else:
-    st.info("No data to display trends. Adjust filters in the sidebar.")
+    st.info("No data loaded. Check file paths in the code.")
     
     # ---------------------------
     # Disclaimer
