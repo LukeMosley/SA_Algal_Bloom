@@ -227,24 +227,6 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    # Display custom horizontal colorbar (1/2 width)
-    st.markdown("""
-    <div style="font-size:14px; color:#00000">
-    <div class="colorbar-wrapper">
-        <div class="colorbar-container">
-            <div class="colorbar-labels">
-                <span>0</span>
-                <span>100,000</span>
-                <span>200,000</span>
-                <span>300,000</span>
-                <span>400,000</span>
-                <span>>500,000</span>
-            </div>
-        </div>
-        <div class="colorbar-units">Cell count per L</div>
-    </div>
-    """, unsafe_allow_html=True)
-
     st.markdown("""
     <div class="sticky-header">
         <div style="font-size:18px; margin:0 0 6px 0;">
