@@ -28,6 +28,7 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
+
 # ---------------------------
 # Build Streamlit app
 # ---------------------------
@@ -43,15 +44,15 @@ def main():
     # ---------------------------
     st.markdown("""
     <style>
-    /* Remove top/bottom padding and hide footer */
-    .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
-    footer {visibility: hidden;}
+    /* Page padding */
+    .block-container {padding-top: 2rem; padding-bottom: 0.25rem;}
+    footer {visibility: hidden;} /* keep header visible */
 
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 360px;
+        max-width: 300px;  /* reduced width */
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -62,29 +63,28 @@ def main():
         background: #fff;
     }
 
-    /* Multiselect styling */
+    /* Multiselect token styling */
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
     div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 2px 4px !important;}
     div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 1px 0 !important;}
 
-    /* Map container styling */
+    /* Map container */
     .map-container {
         border: 2px solid #ccc;
         border-radius: 8px;
         padding: 4px;
-        margin: 0 auto;
+        margin: 1rem auto 0 auto;
         width: 100%;
         max-width: none;
-        height: calc(100vh - 200px); /* fills remaining viewport minus header/colorbar */
     }
 
-    /* Horizontal colorbar */
+    /* Horizontal colorbar - 1/2 width, above map */
     .colorbar-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 0.5rem;
+        margin-bottom: 5px;  /* reduced space */
     }
     .colorbar-container {
         background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
@@ -106,8 +106,13 @@ def main():
         color: #333;
         margin-top: 2px;
     }
-    .colorbar-labels span {flex:1; text-align:center;}
-    .colorbar-units {font-size: 12px; color: #000; margin-left: 10px; white-space: nowrap;}
+    .colorbar-labels span {flex: 1; text-align: center;}
+    .colorbar-units {
+        font-size: 12px;
+        color: #000000;
+        margin-left: 10px;
+        white-space: nowrap;
+    }
 
     /* Move zoom buttons to top-right */
     .leaflet-control-zoom {
@@ -123,11 +128,10 @@ def main():
     # ---------------------------
     # Title
     # ---------------------------
-    st.markdown("""
-    <div style="font-size:18px; text-align:center; font-weight:bold; margin-bottom:0.5rem;">
-        Harmful Algal Bloom Dashboard – South Australia
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        '<div style="font-size:18px; margin:3rem 0 6px 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
+        unsafe_allow_html=True
+    )
 
     # ---------------------------
     # File paths and data
@@ -146,13 +150,13 @@ def main():
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = st.multiselect("Select species", options=all_species, default=default_species)
-
         if not species_selected:
             species_selected = all_species[:1]
 
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
-        date_range = st.date_input("Date range (yyyy/mm/dd)", [last_week_start, max_date], min_value=min_date, max_value=max_date)
+        date_range = st.date_input("Date range (yyyy/mm/dd)", [last_week_start, max_date],
+                                   min_value=min_date, max_value=max_date)
         if len(date_range) == 2:
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
@@ -170,7 +174,7 @@ def main():
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Folium Map
+    # Map
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
     folium.TileLayer(
@@ -183,13 +187,15 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    colormap = LinearColormap(colors=['green','yellow','red'], vmin=0, vmax=500000)
+    # Color scale
+    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
 
+    # Add markers
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             color = colormap(value if pd.notna(value) else 1)
-            units = row.get('Units','cells/L')
+            units = row.get('Units', 'cells/L')
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
                 radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
@@ -204,32 +210,38 @@ def main():
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
     # ---------------------------
-    # Colorbar (above map)
+    # Colorbar
     # ---------------------------
     st.markdown("""
+    <div style="font-size:14px; color:#00000">
     <div class="colorbar-wrapper">
         <div class="colorbar-container">
             <div class="colorbar-labels">
-                <span>0</span><span>100,000</span><span>200,000</span>
-                <span>300,000</span><span>400,000</span><span>>500,000</span>
+                <span>0</span>
+                <span>100,000</span>
+                <span>200,000</span>
+                <span>300,000</span>
+                <span>400,000</span>
+                <span>>500,000</span>
             </div>
         </div>
         <div class="colorbar-units">Cell count per L</div>
     </div>
+    </div>
     """, unsafe_allow_html=True)
 
     # ---------------------------
-    # Map container
+    # Map display
     # ---------------------------
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height='100%')
+    st_folium(m, width='100%', height=650)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
     # Disclaimer
     # ---------------------------
     st.markdown("""
-    <div style="font-size:11px; color:#666; margin-top:15px;">
+    <div style="font-size:11px; color:#666; margin-top:8px; margin-bottom:20px;">
     This application is a research product that utilises publicly available 
     data from the South Australian Government (source). No liability is accepted 
     by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
@@ -241,7 +253,7 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
+
 if __name__ == "__main__":
     main()
-
 
