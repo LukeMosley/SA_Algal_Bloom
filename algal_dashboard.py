@@ -94,25 +94,6 @@ def main():
         text-align: center;
         white-space: nowrap;
     }
-
-    /* Move zoom + layer buttons to bottom corners */
-    .leaflet-control-zoom {
-        position: absolute !important;
-        bottom: 20px !important;
-        left: 10px !important;
-        top: auto !important;
-        right: auto !important;
-        z-index: 10000 !important;
-    }
-    .leaflet-control-layers {
-        position: absolute !important;
-        bottom: 20px !important;
-        right: 10px !important;
-        top: auto !important;
-        left: auto !important;
-        z-index: 10000 !important;
-    }
-
     
     </style>
     """, unsafe_allow_html=True)
