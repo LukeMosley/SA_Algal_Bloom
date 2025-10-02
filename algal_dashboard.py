@@ -305,27 +305,6 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
         st.info("No data available for the selected species and site. Adjust options above.")
 else:
     st.info("No data loaded. Check file paths in the code.")
-    
-    # ---------------------------
-    # Disclaimer
-    # ---------------------------
-    st.markdown(
-        """
-        <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px;">
-        This application is a research product that utilises publicly available 
-        data from the South Australian Government (<a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">
-        Algal Data</a>). No liability is accepted 
-        by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
-        of this system or the data it contains, which may be incomplete, inaccurate, 
-        or out of date. Users should consult the official South Australian Government 
-        information at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
-        https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before 
-        relying on this information.
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-
 
 if __name__ == "__main__":
     main()
