@@ -133,7 +133,7 @@ def main():
     # Title
     # ---------------------------
     st.markdown(
-        '<div style="font-size:18px; margin:0 0 20px 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
+        '<div style="font-size:18px; margin:3rem 0 6px 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
         unsafe_allow_html=True
     )
     # ---------------------------
