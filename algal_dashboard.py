@@ -28,7 +28,6 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
-
 # ---------------------------
 # Build Streamlit app
 # ---------------------------
@@ -44,7 +43,6 @@ def main():
     # ---------------------------
     st.markdown("""
     <style>
-    /* Page padding */
     .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
     footer {visibility: hidden;}
 
@@ -52,37 +50,57 @@ def main():
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.5rem;
-        max-width: 260px;
+        max-width: 300px;
     }
+    section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     .sidebar-card {
         border: 1px solid #d0d0d0;
-        border-radius: 6px;
-        padding: 4px 6px;
-        margin-top: 0.2rem;
+        border-radius: 8px;
+        padding: 6px;
         background: #fff;
-    }
-
-    /* Compact spacing in filters */
-    .stMultiselect label, .stDateInput label, .stSelectbox label {
-        margin-bottom: 1px;
-        font-size: 12px;
-    }
-    .stDateInput, .stMultiselect, .stSelectbox {
-        margin-top: 1px;
-        margin-bottom: 4px;
+        margin-bottom: 0.5rem;
     }
 
     /* Map container */
     .map-container {
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        margin: 0 auto 1rem auto;
         width: 100%;
-        height: 75vh;
-        overflow: hidden;
+        height: 650px;
     }
 
-    /* Zoom buttons */
+    /* Horizontal colorbar */
+    .colorbar-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 5px;
+    }
+    .colorbar-container {
+        background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+        height: 30px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 0 5px;
+        font-size: 12px;
+        font-weight: bold;
+        max-width: 50%;
+        width: 100%;
+    }
+    .colorbar-labels {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 11px;
+        margin-top: 2px;
+    }
+    .colorbar-labels span {flex: 1; text-align: center;}
+    .colorbar-units {
+        font-size: 12px;
+        color: #000;
+        margin-left: 10px;
+        white-space: nowrap;
+    }
+
+    /* Zoom buttons top-right */
     .leaflet-control-zoom {
         position: absolute !important;
         top: 10px !important;
@@ -94,42 +112,44 @@ def main():
     """, unsafe_allow_html=True)
 
     # ---------------------------
-    # Sidebar: Colorbar + Filters
+    # File paths and data
+    # ---------------------------
+    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
+    coords_csv = "site_coordinates.csv"
+    df = load_data(file_path, coords_csv)
+
+    # ---------------------------
+    # Sidebar: Title, colorbar, filters
     # ---------------------------
     with st.sidebar:
+        # Title
+        st.markdown('<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
+                    'Harmful Algal Bloom Dashboard – South Australia</div>',
+                    unsafe_allow_html=True)
+
         # Colorbar
         st.markdown("""
-        <div style="margin-bottom:1rem;">
-            <div style="font-size:14px; color:#000">
-                <div style="display:flex; align-items:center; justify-content:center; margin-bottom:3px;">
-                    <div style="background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
-                                height:30px; border:1px solid #ccc; border-radius:4px;
-                                padding:0 5px; font-weight:bold; color:#333; width:100%;">
-                        <div style="display:flex; justify-content:space-between; font-size:10px; margin-top:1px;">
-                            <span>0</span><span>100,000</span><span>200,000</span>
-                            <span>300,000</span><span>400,000</span><span>>500,000</span>
-                        </div>
-                    </div>
-                    <div style="font-size:11px; margin-left:8px; white-space:nowrap;">Cell count per L</div>
+        <div class="colorbar-wrapper">
+            <div class="colorbar-container">
+                <div class="colorbar-labels">
+                    <span>0</span><span>100k</span><span>200k</span>
+                    <span>300k</span><span>400k</span><span>>500k</span>
                 </div>
             </div>
+            <div class="colorbar-units">Cell count per L</div>
         </div>
         """, unsafe_allow_html=True)
 
-        # Filters
-        st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
-        st.markdown("**Filters**")
+        st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
 
-        file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
-        coords_csv = "site_coordinates.csv"
-        df = load_data(file_path, coords_csv)
-
+        # Species filter
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = st.multiselect("Select species", options=all_species, default=default_species)
         if not species_selected:
             species_selected = all_species[:1]
 
+        # Date range filter
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
         date_range = st.date_input("Date range", [last_week_start, max_date],
@@ -139,16 +159,17 @@ def main():
         else:
             start_date, end_date = min_date, max_date
 
-        st.markdown('</div>', unsafe_allow_html=True)
+    # ---------------------------
+    # Filter dataset
+    # ---------------------------
+    mask = (
+        df['Result_Name'].isin(species_selected) &
+        df['Date_Sample_Collected'].between(start_date, end_date) &
+        df['Result_Value_Numeric'].notna()
+    )
+    sub_df = df[mask]
 
-        # Filter dataset and show count
-        mask = (
-            df['Result_Name'].isin(species_selected) &
-            df['Date_Sample_Collected'].between(start_date, end_date) &
-            df['Result_Value_Numeric'].notna()
-        )
-        sub_df = df[mask]
-        st.write(f"{len(sub_df)} of {len(df)} records shown")
+    st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
     # Map
@@ -164,9 +185,10 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale for markers
+    # Color scale
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
 
+    # Add markers
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
@@ -185,15 +207,16 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height=None)
-    st.markdown('</div>', unsafe_allow_html=True)
+    # ---------------------------
+    # Map display (undocked)
+    # ---------------------------
+    st_folium(m, width='100%', height=650)
 
     # ---------------------------
     # Disclaimer
     # ---------------------------
     st.markdown("""
-    <div style="font-size:11px; color:#666; margin-top:5px; margin-bottom:10px;">
+    <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px;">
     This application is a research product that utilises publicly available 
     data from the South Australian Government (source). No liability is accepted 
     by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
@@ -205,8 +228,6 @@ def main():
     </div>
     """, unsafe_allow_html=True)
 
-
 if __name__ == "__main__":
     main()
-
 
