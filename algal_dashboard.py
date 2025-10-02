@@ -30,7 +30,7 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 
 
 # ---------------------------
-# Streamlit App
+# Build Streamlit app
 # ---------------------------
 def main():
     st.set_page_config(
@@ -44,7 +44,6 @@ def main():
     # ---------------------------
     st.markdown("""
     <style>
-    /* Page padding */
     .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
     footer {visibility: hidden;}
 
@@ -52,7 +51,7 @@ def main():
     section[data-testid="stSidebar"] {
         font-size: 11px;
         padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 350px;
+        max-width: 360px;
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     .sidebar-card {
@@ -63,7 +62,7 @@ def main():
         margin-bottom: 0.5rem;
     }
 
-    /* Horizontal colorbar */
+    /* Horizontal colorbar in sidebar */
     .colorbar-wrapper {
         display: flex;
         align-items: center;
@@ -78,7 +77,6 @@ def main():
         padding: 0 5px;
         font-size: 12px;
         font-weight: bold;
-        max-width: 95%;
         width: 100%;
     }
     .colorbar-labels {
@@ -92,26 +90,9 @@ def main():
     .colorbar-units {
         font-size: 12px;
         color: #000;
-        margin-top: 2px;
+        margin-top: 2px;  
         text-align: center;
         white-space: nowrap;
-    }
-
-    /* Move zoom + layer buttons further down */
-    .leaflet-control-zoom,
-    .leaflet-control-layers {
-        position: absolute !important;
-        top: 120px !important;  /* adjust as needed */
-        right: 10px !important;
-        left: auto !important;
-        z-index: 10000 !important;
-    }
-
-    /* Target the Streamlit Folium map container */
-    iframe[title="Leaflet"] {
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        height: 650px !important;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -127,7 +108,6 @@ def main():
     # Sidebar: Title, colorbar, filters
     # ---------------------------
     with st.sidebar:
-        # Title
         st.markdown('<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
                     'Harmful Algal Bloom Dashboard – South Australia</div>',
                     unsafe_allow_html=True)
@@ -145,7 +125,6 @@ def main():
         <div class="colorbar-units">Cell count per L</div>
         """, unsafe_allow_html=True)
 
-        # Filters card
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
 
         # Species filter
@@ -174,13 +153,13 @@ def main():
         df['Result_Value_Numeric'].notna()
     )
     sub_df = df[mask]
-
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
     # Map
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
+
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Satellite', overlay=False, control=True
@@ -189,7 +168,9 @@ def main():
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Labels', overlay=True, control=True
     ).add_to(m)
-    folium.LayerControl().add_to(m)
+
+    # Add LayerControl at bottomright
+    folium.LayerControl(position='bottomright').add_to(m)
 
     # Color scale
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
@@ -214,9 +195,9 @@ def main():
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
     # ---------------------------
-    # Display Map (undocked)
+    # Map display (undocked)
     # ---------------------------
-    st_folium(m, width='100%', height=650)
+    st_folium(m, width='100%', height=750)
 
     # ---------------------------
     # Disclaimer
