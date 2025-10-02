@@ -41,62 +41,61 @@ def main():
     # ---------------------------
     # Custom CSS
     # ---------------------------
-    st.markdown("""
-    <style>
-    .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
-    footer {visibility: hidden;}
+st.markdown("""
+<style>
+.block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
+footer {visibility: hidden;}
 
-    /* Sidebar styling */
-    section[data-testid="stSidebar"] {
-        font-size: 11px;
-        padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 350px;
-    }
-    section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
-    .sidebar-card {
-        border: 1px solid #d0d0d0;
-        border-radius: 8px;
-        padding: 6px;
-        background: #fff;
-        margin-bottom: 0.5rem;
-    }
+/* Sidebar styling */
+section[data-testid="stSidebar"] {
+    font-size: 11px;
+    padding: 0.4rem 0.5rem 0.5rem 0.5rem;
+    max-width: 350px;
+}
+section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
+.sidebar-card {
+    border: 1px solid #d0d0d0;
+    border-radius: 8px;
+    padding: 6px;
+    background: #fff;
+    margin-bottom: 0.5rem;
+}
 
-    /* Horizontal colorbar */
-    .colorbar-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 2px;
-    }
-    .colorbar-container {
-        background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
-        height: 30px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 0 5px;
-        font-size: 12px;
-        font-weight: bold;
-        max-width: 95%;
-        width: 100%;
-    }
-    .colorbar-labels {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        font-size: 11px;
-        margin-top: 2px;
-    }
-    .colorbar-labels span {flex: 1; text-align: center;}
-    .colorbar-units {
-        font-size: 12px;
-        color: #000;
-        margin-top: 2px;
-        text-align: center;
-        white-space: nowrap;
-    }
-    
-    </style>
-    """, unsafe_allow_html=True)
+/* Horizontal colorbar */
+.colorbar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2px;
+}
+.colorbar-container {
+    background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0 5px;
+    font-size: 12px;
+    font-weight: bold;
+    max-width: 95%;
+    width: 100%;
+}
+.colorbar-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 11px;
+    margin-top: 2px;
+}
+.colorbar-labels span {flex: 1; text-align: center;}
+.colorbar-units {
+    font-size: 12px;
+    color: #000;
+    margin-top: 2px;
+    text-align: center;
+    white-space: nowrap;
+}
+</style>
+""", unsafe_allow_html=True)
 
     # ---------------------------
     # File paths and data
