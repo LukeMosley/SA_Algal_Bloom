@@ -186,7 +186,13 @@ def main():
     # ---------------------------
     # Map
     # ---------------------------
-    m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
+    m = folium.Map(
+        location=[-34.9, 138.6], 
+        zoom_start=6, 
+        control_scale=True,
+        zoom_control='bottomleft'  # Native positioning for zoom buttons
+    )
+    
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Satellite', overlay=False, control=True
@@ -195,11 +201,11 @@ def main():
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Boundaries_and_Places/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Labels', overlay=True, control=True
     ).add_to(m)
-    folium.LayerControl().add_to(m)
-
+    folium.LayerControl(position='bottomright').add_to(m)  # Native positioning for layers
+    
     # Color scale
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
-
+    
     # Add markers
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
@@ -214,7 +220,7 @@ def main():
                        f"{row['Result_Name']}<br>"
                        f"{value:,} {units}")
             ).add_to(m)
-
+    
     if not sub_df.empty:
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
