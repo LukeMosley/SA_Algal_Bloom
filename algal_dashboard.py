@@ -100,9 +100,9 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     # ---------------------------
     # File paths and data
     # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
-    coords_csv = "site_coordinates.csv"
-    df = load_data(file_path, coords_csv)
+file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
+coords_csv = "site_coordinates.csv"
+df = load_data(file_path, coords_csv)
 
     # ---------------------------
     # Sidebar: Title, colorbar, filters
