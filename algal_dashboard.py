@@ -226,7 +226,7 @@ if not sub_df.empty:
     # ---------------------------
     # Map display (undocked)
     # ---------------------------
-    st_folium(m, width='100%', height=700)
+    st_folium(m, width='100%', height=600)
 
 # ---------------------------
 # Trends Section
