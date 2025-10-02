@@ -52,7 +52,7 @@ def main():
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
-        padding: 0.5rem 0.75rem 0.75rem 0.75rem;
+        padding: 0.4rem 0.5rem 0.5rem 0.5rem;
         max-width: 360px;   /* use max-width instead of fixed width */
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
@@ -237,7 +237,7 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height=650)
+    st_folium(m, width='100%', height='75vh')
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
