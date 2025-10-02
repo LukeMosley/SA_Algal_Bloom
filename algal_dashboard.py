@@ -227,27 +227,28 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    st.markdown("""
-    <div class="sticky-header">
-        <div style="font-size:18px; margin:0 0 6px 0;">
-            <b>Harmful Algal Bloom Dashboard – South Australia</b>
+    st.markdown(
+        """
+        <style>
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 999;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid #ddd;
+        }
+        </style>
+        <div class="sticky-header">
+            Harmful Algal Bloom Dashboard – South Australia
         </div>
-        <div class="colorbar-wrapper">
-            <div class="colorbar-container">
-                <div class="colorbar-labels">
-                    <span>0</span>
-                    <span>100,000</span>
-                    <span>200,000</span>
-                    <span>300,000</span>
-                    <span>400,000</span>
-                    <span>>500,000</span>
-                </div>
-            </div>
-            <div class="colorbar-units">Cell count (cells/L)</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
+        """,
+        unsafe_allow_html=True
+    )
+    
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
     st_folium(m, width='100%', height=500)
@@ -258,14 +259,10 @@ def main():
     # ---------------------------
     st.markdown("""
     <div style="font-size:11px; color:#666; margin-top:0px;">
-    This application is a research product that utilises publicly available 
-    data from the South Australian Government <a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">source</a>). No liability is accepted 
-    by the author (Luke Mosley) or the University of Adelaide for the use 
-    of this system or the data it contains, which may be incomplete, inaccurate, 
-    or out of date. Users should consult the official South Australian Government 
-    information at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
-    https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before 
-    relying on this information.
+    This application is a research product that utilises publicly available data from the South Australian Government <a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">source</a>). No liability is accepted 
+    by the author (Luke Mosley) or the University of Adelaide for the use of this system or the data it contains, which may be incomplete, inaccurate, or out of date. 
+    Users should consult the official South Australian Government information at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
+    https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before relying on this information.
     </div>
     """, unsafe_allow_html=True)
 
