@@ -11,13 +11,11 @@ from datetime import timedelta
 # ---------------------------
 @st.cache_data
 def load_data(file_path, coords_csv="site_coordinates.csv"):
-    # Check if main data file exists (warn but continue if missing)
     if not os.path.exists(file_path):
         st.warning(f"⚠️ Main data file '{file_path}' not found. Using empty dataset.")
-        df = pd.DataFrame()  # Empty DF to proceed
+        df = pd.DataFrame()
     else:
-        # Detect file extension and read accordingly
-        if file_path.endswith('.xlsx') or file_path.endswith('.xls'):
+        if file_path.endswith(('.xlsx', '.xls')):
             df = pd.read_excel(file_path, sheet_name=0)
         else:
             df = pd.read_csv(file_path)
@@ -35,9 +33,9 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 # ---------------------------
 def main():
     st.set_page_config(
-    page_title="HAB Monitoring - South Australia",
-    layout="wide",
-    initial_sidebar_state="expanded"
+        page_title="HAB Monitoring - South Australia",
+        layout="wide",
+        initial_sidebar_state="expanded"
     )
 
     # ---------------------------
@@ -45,15 +43,15 @@ def main():
     # ---------------------------
     st.markdown("""
     <style>
-    /* Remove top/bottom padding and hide footer only */
-    .block-container {padding-top: 2rem; padding-bottom: 0.25rem;}
-    footer {visibility: hidden;}   /* keep header visible so sidebar toggle shows */
+    /* Remove top/bottom padding and hide footer */
+    .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
+    footer {visibility: hidden;}
 
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 360px;   /* use max-width instead of fixed width */
+        max-width: 360px;
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -64,7 +62,7 @@ def main():
         background: #fff;
     }
 
-    /* Multiselect token styling */
+    /* Multiselect styling */
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
     div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 2px 4px !important;}
@@ -72,22 +70,21 @@ def main():
 
     /* Map container styling */
     .map-container {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 4px;
-    margin: 2rem auto 0 auto;  /* top margin ensures space above map */
-    width: 100%;
-    max-width: none;
-    min-height: 650px;
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 4px;
+        margin: 0 auto;
+        width: 100%;
+        max-width: none;
+        height: calc(100vh - 200px); /* fills remaining viewport minus header/colorbar */
     }
 
-
-    /* Horizontal colorbar - 1/2 width, above map */
+    /* Horizontal colorbar */
     .colorbar-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 10px;
+        margin-bottom: 0.5rem;
     }
     .colorbar-container {
         background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
@@ -109,16 +106,8 @@ def main():
         color: #333;
         margin-top: 2px;
     }
-    .colorbar-labels span {
-        flex: 1;
-        text-align: center;
-    }
-    .colorbar-units {
-        font-size: 12px;
-        color: #000000;
-        margin-left: 10px;
-        white-space: nowrap;
-    }
+    .colorbar-labels span {flex:1; text-align:center;}
+    .colorbar-units {font-size: 12px; color: #000; margin-left: 10px; white-space: nowrap;}
 
     /* Move zoom buttons to top-right */
     .leaflet-control-zoom {
@@ -134,10 +123,12 @@ def main():
     # ---------------------------
     # Title
     # ---------------------------
-    st.markdown(
-        '<div style="font-size:18px; margin:3rem 0 6px 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
-        unsafe_allow_html=True
-    )
+    st.markdown("""
+    <div style="font-size:18px; text-align:center; font-weight:bold; margin-bottom:0.5rem;">
+        Harmful Algal Bloom Dashboard – South Australia
+    </div>
+    """, unsafe_allow_html=True)
+
     # ---------------------------
     # File paths and data
     # ---------------------------
@@ -146,7 +137,7 @@ def main():
     df = load_data(file_path, coords_csv)
 
     # ---------------------------
-    # Sidebar filters (always visible)
+    # Sidebar filters
     # ---------------------------
     with st.sidebar:
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
@@ -156,9 +147,8 @@ def main():
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = st.multiselect("Select species", options=all_species, default=default_species)
 
-        # Handle empty selection gracefully
         if not species_selected:
-            species_selected = all_species[:1]  # Default to first if none selected
+            species_selected = all_species[:1]
 
         min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
         last_week_start = max_date - timedelta(days=7)
@@ -177,15 +167,12 @@ def main():
         df['Result_Value_Numeric'].notna()
     )
     sub_df = df[mask]
-
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Map with hybrid style
+    # Folium Map
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
-
-    # Satellite + label layers
     folium.TileLayer(
         tiles="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
         attr='Esri', name='Satellite', overlay=False, control=True
@@ -196,15 +183,13 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale (used for colors only, not added to map)
-    colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
+    colormap = LinearColormap(colors=['green','yellow','red'], vmin=0, vmax=500000)
 
-    # Add markers
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             color = colormap(value if pd.notna(value) else 1)
-            units = row.get('Units', 'cells/L')  # Default to cells/L for consistency
+            units = row.get('Units','cells/L')
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
                 radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
@@ -214,36 +199,34 @@ def main():
                        f"{value:,} {units}")
             ).add_to(m)
 
-    # Fit map to data extent (if records exist)
     if not sub_df.empty:
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    # Display custom horizontal colorbar (1/2 width)
+    # ---------------------------
+    # Colorbar (above map)
+    # ---------------------------
     st.markdown("""
-    <div style="font-size:14px; color:#00000">
     <div class="colorbar-wrapper">
         <div class="colorbar-container">
             <div class="colorbar-labels">
-                <span>0</span>
-                <span>100,000</span>
-                <span>200,000</span>
-                <span>300,000</span>
-                <span>400,000</span>
-                <span>>500,000</span>
+                <span>0</span><span>100,000</span><span>200,000</span>
+                <span>300,000</span><span>400,000</span><span>>500,000</span>
             </div>
         </div>
         <div class="colorbar-units">Cell count per L</div>
     </div>
     """, unsafe_allow_html=True)
 
-    # Display map
+    # ---------------------------
+    # Map container
+    # ---------------------------
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height='500')
+    st_folium(m, width='100%', height='100%')
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
-    # Permanent Disclaimer (bottom of page)
+    # Disclaimer
     # ---------------------------
     st.markdown("""
     <div style="font-size:11px; color:#666; margin-top:15px;">
@@ -260,3 +243,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+
