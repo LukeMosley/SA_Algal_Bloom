@@ -142,7 +142,7 @@ def main():
     # Title
     # ---------------------------
     st.markdown(
-        '<div style="font-size:18px; margin:0 0 6px 0;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
+        '<div style="font-size:18px; margin:0 0 6px 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
         unsafe_allow_html=True
     )
 
@@ -250,7 +250,7 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height=650)
+    st_folium(m, width='100%', height=500)
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
