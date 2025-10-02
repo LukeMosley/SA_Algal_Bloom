@@ -62,12 +62,11 @@ def main():
     }
 
     .map-container {
-        margin-top: 220px;  /* space above map */
+        margin-top: 40px;  /* adjust spacing as needed */
         border: 2px solid #ccc;
         border-radius: 8px;
         padding: 4px;
         width: 100%;
-        max-width: none;
         height: 650px;
     }
 
@@ -108,12 +107,12 @@ def main():
     /* Move zoom + layer buttons further down */
     .leaflet-control-zoom,
     .leaflet-control-layers {
-        position: absolute !important;
-        top: 100px !important;  /* moved further down */
+        top: 10px !important;  /* relative to map container now */
         right: 10px !important;
-        left: auto !important;
         z-index: 10000 !important;
     }
+
+    
     </style>
     """, unsafe_allow_html=True)
 
@@ -217,7 +216,9 @@ def main():
     # ---------------------------
     # Map display (undocked)
     # ---------------------------
+    st.markdown('<div class="map-container">', unsafe_allow_html=True)
     st_folium(m, width='100%', height=650)
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
     # Disclaimer
