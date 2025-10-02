@@ -210,6 +210,43 @@ if not sub_df.empty:
     # ---------------------------
     st_folium(m, width='100%', height=600)
 
+# ---------------------------
+# Trends Section
+# ---------------------------
+if not sub_df.empty:
+    st.subheader("Trends Over Time")
+    
+    # Dropdown for species selection (defaults to first available)
+    available_species = sorted(sub_df['Result_Name'].unique())
+    selected_trend_species = st.selectbox(
+        "Select species for trend chart",
+        options=available_species,
+        index=0  # Defaults to first
+    )
+    
+    # Filter to selected species and prep data for chart
+    trend_data = sub_df[sub_df['Result_Name'] == selected_trend_species][['Date_Sample_Collected', 'Result_Value_Numeric']].copy()
+    trend_data = trend_data.sort_values('Date_Sample_Collected')
+    trend_data['Date_Sample_Collected'] = pd.to_datetime(trend_data['Date_Sample_Collected']).dt.date  # For cleaner x-axis
+    
+    if not trend_data.empty:
+        # Pivot for line chart (dates as index, values as series)
+        chart_df = trend_data.set_index('Date_Sample_Collected')['Result_Value_Numeric']
+        st.line_chart(chart_df, use_container_width=True, height=400)
+        
+        # Quick stats below chart
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            st.metric("Max Count", f"{trend_data['Result_Value_Numeric'].max():,.0f}")
+        with col2:
+            st.metric("Avg Count", f"{trend_data['Result_Value_Numeric'].mean():,.0f}")
+        with col3:
+            st.metric("Recent (Last Sample)", f"{trend_data['Result_Value_Numeric'].iloc[-1]:,.0f}")
+    else:
+        st.info("No data available for the selected species in the current filters.")
+else:
+    st.info("No data to display trends. Adjust filters in the sidebar.")
+    
     # ---------------------------
     # Disclaimer
     # ---------------------------
@@ -217,7 +254,8 @@ if not sub_df.empty:
         """
         <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px;">
         This application is a research product that utilises publicly available 
-        data from the South Australian Government (source). No liability is accepted 
+        data from the South Australian Government (<a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">
+        Algal Data</a>). No liability is accepted 
         by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
         of this system or the data it contains, which may be incomplete, inaccurate, 
         or out of date. Users should consult the official South Australian Government 
