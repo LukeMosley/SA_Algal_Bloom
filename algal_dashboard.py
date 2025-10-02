@@ -72,13 +72,15 @@ def main():
 
     /* Map container styling */
     .map-container {
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        padding: 4px;
-        margin: 0 auto;
-        width: 100%;
-        max-width: none;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 4px;
+    margin: 2rem auto 0 auto;  /* top margin ensures space above map */
+    width: 100%;
+    max-width: none;
+    min-height: 650px;
     }
+
 
     /* Horizontal colorbar - 1/2 width, above map */
     .colorbar-wrapper {
