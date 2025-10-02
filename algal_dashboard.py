@@ -28,8 +28,9 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
+
 # ---------------------------
-# Build Streamlit app
+# Streamlit App
 # ---------------------------
 def main():
     st.set_page_config(
@@ -43,6 +44,7 @@ def main():
     # ---------------------------
     st.markdown("""
     <style>
+    /* Page padding */
     .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
     footer {visibility: hidden;}
 
@@ -61,15 +63,6 @@ def main():
         margin-bottom: 0.5rem;
     }
 
-    .map-container {
-        margin-top: 40px;  /* adjust spacing as needed */
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        padding: 4px;
-        width: 100%;
-        height: 650px;
-    }
-
     /* Horizontal colorbar */
     .colorbar-wrapper {
         display: flex;
@@ -85,7 +78,7 @@ def main():
         padding: 0 5px;
         font-size: 12px;
         font-weight: bold;
-        max-width: 95%;  /* expanded width */
+        max-width: 95%;
         width: 100%;
     }
     .colorbar-labels {
@@ -99,7 +92,7 @@ def main():
     .colorbar-units {
         font-size: 12px;
         color: #000;
-        margin-top: 2px;  
+        margin-top: 2px;
         text-align: center;
         white-space: nowrap;
     }
@@ -107,12 +100,19 @@ def main():
     /* Move zoom + layer buttons further down */
     .leaflet-control-zoom,
     .leaflet-control-layers {
-        top: 10px !important;  /* relative to map container now */
+        position: absolute !important;
+        top: 120px !important;  /* adjust as needed */
         right: 10px !important;
+        left: auto !important;
         z-index: 10000 !important;
     }
 
-    
+    /* Target the Streamlit Folium map container */
+    iframe[title="Leaflet"] {
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        height: 650px !important;
+    }
     </style>
     """, unsafe_allow_html=True)
 
@@ -214,11 +214,9 @@ def main():
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
     # ---------------------------
-    # Map display (undocked)
+    # Display Map (undocked)
     # ---------------------------
-    st.markdown('<div class="map-container">', unsafe_allow_html=True)
     st_folium(m, width='100%', height=650)
-    st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
     # Disclaimer
@@ -235,6 +233,7 @@ def main():
     relying on this information.
     </div>
     """, unsafe_allow_html=True)
+
 
 if __name__ == "__main__":
     main()
