@@ -46,7 +46,7 @@ def main():
     st.markdown("""
     <style>
     /* Remove top/bottom padding and hide footer only */
-    .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
+    .block-container {padding-top: 2rem; padding-bottom: 0.25rem;}
     footer {visibility: hidden;}   /* keep header visible so sidebar toggle shows */
 
     /* Sidebar styling */
