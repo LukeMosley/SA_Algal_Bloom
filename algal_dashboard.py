@@ -238,9 +238,6 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
         index=0
     )
     
-    # Log scale checkbox
-    use_log_scale = st.checkbox("Use log scale for y-axis (for high-range data)")
-    
     # Filter data for plot
     plot_df = df[
         (df['Result_Name'].isin(selected_trend_species)) &
@@ -271,7 +268,7 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
         )
         # No .dt.date here—keep as datetime for Altair
         
-        # Altair chart
+        # Altair chart (linear scale only)
         base = alt.Chart(trend_melted).mark_line().encode(
             x=alt.X('Date_Sample_Collected:T', title='Date', axis=alt.Axis(labelAngle=0)),
             y=alt.Y('Cell_Count:Q', title='Cell Count per L'),
@@ -280,13 +277,8 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
         ).properties(
             width=800,
             height=400,
-            title=f"Trends for Selected Species {'(Log Scale)' if use_log_scale else ''}"
+            title="Trends for Selected Species"
         ).interactive()  # Enables zoom/pan
-        
-        if use_log_scale:
-            base = base.encode(
-                y=alt.Y('Cell_Count:Q', title='Log(Cell Count per L)', scale=alt.Scale(type='log'))
-            )
         
         st.altair_chart(base, use_container_width=True)
         
