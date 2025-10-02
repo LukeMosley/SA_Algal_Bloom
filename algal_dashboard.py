@@ -3,6 +3,7 @@ import folium
 from branca.colormap import LinearColormap
 from streamlit_folium import st_folium
 import streamlit as st
+import altair as alt
 import os
 from datetime import timedelta
 
