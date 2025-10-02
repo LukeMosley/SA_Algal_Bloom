@@ -28,7 +28,6 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     coords_df = pd.read_csv(coords_csv)
     return df.merge(coords_df, on="Site_Description", how="left")
 
-
 # ---------------------------
 # Build Streamlit app
 # ---------------------------
@@ -51,7 +50,7 @@ def main():
     section[data-testid="stSidebar"] {
         font-size: 11px;
         padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 360px;
+        max-width: 350px;
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     .sidebar-card {
@@ -91,37 +90,23 @@ def main():
     .colorbar-units {
         font-size: 12px;
         color: #000;
-        margin-top: 2px;  
+        margin-top: 2px;
         text-align: center;
         white-space: nowrap;
     }
 
-    /* Map container */
-    .map-container {
-        width: 100%;
-        max-width: none;
-        height: 500px;
-        border: 2px solid #ccc;
-        border-radius: 8px;
-        padding: 4px;
-        margin-bottom: 1rem;
-    }
-
-    /* Force zoom + layer buttons to bottom-left inside Streamlit container */
-    .stFolium .leaflet-control-zoom {
-        bottom: 60px !important;
-        top: auto !important;
-        left: 10px !important;
-        right: auto !important;
-        z-index: 10000 !important;
-    }
-    .stFolium .leaflet-control-layers {
+    /* Move zoom + layer buttons to bottom-left */
+    .leaflet-control-zoom,
+    .leaflet-control-layers {
+        position: absolute !important;
         bottom: 10px !important;
-        top: auto !important;
         left: 10px !important;
+        top: auto !important;
         right: auto !important;
         z-index: 10000 !important;
     }
+    </style>
+    """, unsafe_allow_html=True)
 
     # ---------------------------
     # File paths and data
@@ -135,22 +120,27 @@ def main():
     # ---------------------------
     with st.sidebar:
         # Title
-        st.markdown('<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
-                    'Harmful Algal Bloom Dashboard – South Australia</div>',
-                    unsafe_allow_html=True)
+        st.markdown(
+            '<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
+            'Harmful Algal Bloom Dashboard – South Australia</div>',
+            unsafe_allow_html=True
+        )
 
         # Colorbar
-        st.markdown("""
-        <div class="colorbar-wrapper">
-            <div class="colorbar-container">
-                <div class="colorbar-labels">
-                    <span>0</span><span>100,000</span><span>200,000</span>
-                    <span>300,000</span><span>400,000</span><span>>500,000</span>
+        st.markdown(
+            """
+            <div class="colorbar-wrapper">
+                <div class="colorbar-container">
+                    <div class="colorbar-labels">
+                        <span>0</span><span>100,000</span><span>200,000</span>
+                        <span>300,000</span><span>400,000</span><span>>500,000</span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="colorbar-units">Cell count per L</div>
-        """, unsafe_allow_html=True)
+            <div class="colorbar-units">Cell count per L</div>
+            """,
+            unsafe_allow_html=True
+        )
 
         # Filters card
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
@@ -223,23 +213,26 @@ def main():
     # ---------------------------
     # Map display (undocked)
     # ---------------------------
-    st_folium(m, width='100%', height=500)
+    st_folium(m, width='100%', height=600)
 
     # ---------------------------
     # Disclaimer
     # ---------------------------
-    st.markdown("""
-    <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px;">
-    This application is a research product that utilises publicly available 
-    data from the South Australian Government (source). No liability is accepted 
-    by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
-    of this system or the data it contains, which may be incomplete, inaccurate, 
-    or out of date. Users should consult the official South Australian Government 
-    information at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
-    https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before 
-    relying on this information.
-    </div>
-    """, unsafe_allow_html=True)
+    st.markdown(
+        """
+        <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px;">
+        This application is a research product that utilises publicly available 
+        data from the South Australian Government (source). No liability is accepted 
+        by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
+        of this system or the data it contains, which may be incomplete, inaccurate, 
+        or out of date. Users should consult the official South Australian Government 
+        information at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
+        https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before 
+        relying on this information.
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 
 if __name__ == "__main__":
