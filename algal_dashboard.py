@@ -61,10 +61,14 @@ def main():
         margin-bottom: 0.5rem;
     }
 
-    /* Map container */
     .map-container {
+        margin-top: 220px;  /* space above map */
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 4px;
         width: 100%;
-        height: 550px;
+        max-width: none;
+        height: 650px;
     }
 
     /* Horizontal colorbar */
@@ -105,7 +109,7 @@ def main():
     .leaflet-control-zoom,
     .leaflet-control-layers {
         position: absolute !important;
-        top: 220px !important;  /* moved further down */
+        top: 100px !important;  /* moved further down */
         right: 10px !important;
         left: auto !important;
         z-index: 10000 !important;
