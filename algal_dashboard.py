@@ -40,21 +40,20 @@ def main():
     )
 
     # ---------------------------
-    # Custom CSS
+    # Custom styles
     # ---------------------------
     st.markdown("""
     <style>
     /* Page padding */
-    .block-container {padding-top: 2rem; padding-bottom: 0.25rem;}
+    .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
     footer {visibility: hidden;} /* keep header visible */
 
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
-        padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 280px;  /* slightly reduced width */
+        padding: 0.5rem;
+        max-width: 280px;  /* slightly narrower */
     }
-    section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
         border: 1px solid #d0d0d0;
         border-radius: 8px;
@@ -69,55 +68,14 @@ def main():
     div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 2px 4px !important;}
     div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 1px 0 !important;}
 
-    /* Sticky map + colorbar container */
-    .sticky-map-wrapper {
-        position: sticky;
-        top: 5rem; /* distance from top of viewport */
-        z-index: 9999;
-        background-color: #fff;
-        padding: 10px;
-        border-radius: 8px;
-        border: 2px solid #ccc;
-        margin-bottom: 0.5rem;
-    }
-
+    /* Map container */
     .map-container {
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        margin: 0 auto 1rem auto;
         width: 100%;
+        max-width: none;
         height: 650px;
-    }
-
-    .colorbar-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 5px;
-    }
-    .colorbar-container {
-        background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
-        height: 35px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 0 5px;
-        font-size: 12px;
-        font-weight: bold;
-        color: #333;
-        max-width: 50%;
-        width: 100%;
-    }
-    .colorbar-labels {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        font-size: 11px;
-        color: #333;
-        margin-top: 2px;
-    }
-    .colorbar-labels span {flex: 1; text-align: center;}
-    .colorbar-units {
-        font-size: 12px;
-        color: #000000;
-        margin-left: 10px;
-        white-space: nowrap;
     }
 
     /* Move zoom buttons to top-right */
@@ -132,26 +90,21 @@ def main():
     """, unsafe_allow_html=True)
 
     # ---------------------------
-    # Title
-    # ---------------------------
-    st.markdown(
-        '<div style="font-size:18px; margin:1rem 0 0.5rem 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
-        unsafe_allow_html=True
-    )
-
-    # ---------------------------
-    # Load data
-    # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
-    coords_csv = "site_coordinates.csv"
-    df = load_data(file_path, coords_csv)
-
-    # ---------------------------
-    # Sidebar filters
+    # Sidebar: Title + Filters + Colorbar
     # ---------------------------
     with st.sidebar:
+        # Title
+        st.markdown('<div style="font-size:18px; text-align:center; margin-bottom:1rem;"><b>HAB Dashboard – South Australia</b></div>',
+                    unsafe_allow_html=True)
+
+        # Filters
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
         st.markdown("**Filters**")
+
+        file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
+        coords_csv = "site_coordinates.csv"
+        df = load_data(file_path, coords_csv)
+
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = st.multiselect("Select species", options=all_species, default=default_species)
@@ -166,19 +119,39 @@ def main():
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
             start_date, end_date = min_date, max_date
+
         st.markdown('</div>', unsafe_allow_html=True)
 
-    # Filter dataset
-    mask = (
-        df['Result_Name'].isin(species_selected) &
-        df['Date_Sample_Collected'].between(start_date, end_date) &
-        df['Result_Value_Numeric'].notna()
-    )
-    sub_df = df[mask]
-    st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
+        # Sidebar summary
+        mask = (
+            df['Result_Name'].isin(species_selected) &
+            df['Date_Sample_Collected'].between(start_date, end_date) &
+            df['Result_Value_Numeric'].notna()
+        )
+        sub_df = df[mask]
+        st.write(f"{len(sub_df)} of {len(df)} records shown")
+
+        # Colorbar at bottom
+        st.markdown("""
+        <div style="margin-top:2rem;">
+            <div style="font-size:14px; color:#000">
+                <div style="display:flex; align-items:center; justify-content:center; margin-bottom:5px;">
+                    <div style="background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+                                height:35px; border:1px solid #ccc; border-radius:4px;
+                                padding:0 5px; font-weight:bold; color:#333; width:100%;">
+                        <div style="display:flex; justify-content:space-between; font-size:11px; margin-top:2px;">
+                            <span>0</span><span>100,000</span><span>200,000</span>
+                            <span>300,000</span><span>400,000</span><span>>500,000</span>
+                        </div>
+                    </div>
+                    <div style="font-size:12px; margin-left:10px; white-space:nowrap;">Cell count per L</div>
+                </div>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
 
     # ---------------------------
-    # Map creation
+    # Map (undocked, top of page)
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
     folium.TileLayer(
@@ -191,7 +164,7 @@ def main():
     ).add_to(m)
     folium.LayerControl().add_to(m)
 
-    # Color scale
+    # Color scale for markers
     colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
 
     # Add markers
@@ -213,36 +186,15 @@ def main():
         m.fit_bounds([[sub_df['Latitude'].min(), sub_df['Longitude'].min()],
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
-    # ---------------------------
-    # Sticky Map + Colorbar container
-    # ---------------------------
-    sticky_container = st.container()
-    with sticky_container:
-        st.markdown("""
-        <div class="sticky-map-wrapper">
-            <div class="colorbar-wrapper">
-                <div class="colorbar-container">
-                    <div class="colorbar-labels">
-                        <span>0</span>
-                        <span>100,000</span>
-                        <span>200,000</span>
-                        <span>300,000</span>
-                        <span>400,000</span>
-                        <span>>500,000</span>
-                    </div>
-                </div>
-                <div class="colorbar-units">Cell count per L</div>
-            </div>
-        </div>
-        """, unsafe_allow_html=True)
-
-        st_folium(m, width='100%', height=650)
+    st.markdown('<div class="map-container">', unsafe_allow_html=True)
+    st_folium(m, width='100%', height=650)
+    st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
     # Disclaimer
     # ---------------------------
     st.markdown("""
-    <div style="font-size:11px; color:#666; margin-top:5px; margin-bottom:15px;">
+    <div style="font-size:11px; color:#666; margin-top:5px; margin-bottom:20px;">
     This application is a research product that utilises publicly available 
     data from the South Australian Government (source). No liability is accepted 
     by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
