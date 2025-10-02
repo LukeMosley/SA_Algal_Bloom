@@ -165,7 +165,7 @@ sub_df = df[mask]
 st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
 # Disclaimer at sidebar bottom
-st.markdown(
+st.sidebar.markdown(
     """
     <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px; padding:10px; border-top:1px solid #ddd;">
     This application is a research product that utilises publicly available 
