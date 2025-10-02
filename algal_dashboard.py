@@ -250,7 +250,7 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
     if selected_site != "All Sites":
         plot_df = plot_df[plot_df['Site_Description'] == selected_site]
     
-    # Sort by date
+    # Sort by date (keep as datetime)
     plot_df = plot_df.sort_values('Date_Sample_Collected')
     
     if not plot_df.empty:
@@ -262,14 +262,14 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
             aggfunc='mean'  # Average if multiple samples per day/species
         ).reset_index()
         
-        # Prepare for Altair
+        # Melt without date conversion
         trend_melted = trend_df.melt(
             id_vars='Date_Sample_Collected',
             var_name='Species',
             value_name='Cell_Count',
             ignore_index=False
         )
-        trend_melted['Date_Sample_Collected'] = pd.to_datetime(trend_melted['Date_Sample_Collected']).dt.date
+        # No .dt.date here—keep as datetime for Altair
         
         # Altair chart
         base = alt.Chart(trend_melted).mark_line().encode(
@@ -284,10 +284,8 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
         ).interactive()  # Enables zoom/pan
         
         if use_log_scale:
-            base = base.transform_calculate(
-                log_count="log(Cell_Count + 1)"  # +1 to avoid log(0)
-            ).encode(
-                y=alt.Y('log_count:Q', title='Log(Cell Count per L)', scale=alt.Scale(type='log'))
+            base = base.encode(
+                y=alt.Y('Cell_Count:Q', title='Log(Cell Count per L)', scale=alt.Scale(type='log'))
             )
         
         st.altair_chart(base, use_container_width=True)
