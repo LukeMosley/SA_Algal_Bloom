@@ -237,7 +237,7 @@ def main():
 
     # Display map
     st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height='75vh')
+    st_folium(m, width='100%', height='500')
     st.markdown('</div>', unsafe_allow_html=True)
 
     # ---------------------------
