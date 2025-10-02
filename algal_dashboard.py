@@ -34,22 +34,33 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 # Build Streamlit app
 # ---------------------------
 def main():
-    st.set_page_config(page_title="HAB Monitoring - South Australia", layout="centered")
+    st.set_page_config(
+    page_title="HAB Monitoring - South Australia",
+    layout="wide",
+    initial_sidebar_state="expanded"
+    )
+
+    # --- Short visible disclaimer banner (top of page) ---
+    st.warning("""
+    **Disclaimer:** This research app uses publicly available South Australian Government data. 
+    Accuracy is not guaranteed; users should refer to 
+    [algalbloom.sa.gov.au](https://www.algalbloom.sa.gov.au/) for official information.
+    """)
 
     # ---------------------------
     # Custom styles
     # ---------------------------
     st.markdown("""
     <style>
-    /* Remove top padding and footer */
+    /* Remove top/bottom padding and hide footer only */
     .block-container {padding-top: 0.25rem; padding-bottom: 0.25rem;}
-    header, footer {visibility: hidden;}
+    footer {visibility: hidden;}   /* keep header visible so sidebar toggle shows */
 
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.5rem 0.75rem 0.75rem 0.75rem;
-        width: 360px !important;
+        max-width: 360px;   /* use max-width instead of fixed width */
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -89,11 +100,11 @@ def main():
         border: 1px solid #ccc;
         border-radius: 4px;
         padding: 0 5px;
-        font-size: 12px;  /* Bigger labels */
+        font-size: 12px;
         font-weight: bold;
         color: #333;
-        max-width: 50%;  /* Half map width */
-        width: 100%;  /* Responsive within max */
+        max-width: 50%;
+        width: 100%;
     }
     .colorbar-labels {
         display: flex;
@@ -108,8 +119,8 @@ def main():
         text-align: center;
     }
     .colorbar-units {
-        font-size: 10px;
-        color: #666;
+        font-size: 12px;
+        color: #000000;
         margin-left: 10px;
         white-space: nowrap;
     }
@@ -237,15 +248,19 @@ def main():
     st_folium(m, width='100%', height=650)
     st.markdown('</div>', unsafe_allow_html=True)
 
-    # Disclaimer
+    # ---------------------------
+    # Permanent Disclaimer (bottom of page)
+    # ---------------------------
     st.markdown("""
-    <div style="font-size:11px; color:#666; margin-top:10px;">
-    <strong>Disclaimer</strong> – this is a research product that utilises publicly available 
-    South Australian Government data 
-    (<a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">source</a>). 
-    No liability is assumed by the author (A/Prof. Luke Mosley) or the University of Adelaide 
-    for the use of this system or the data, which may be in error and/or out of date. 
-    Users should consult the official SA Government information (https://www.algalbloom.sa.gov.au/) and/or obtain their own independent advice.
+    <div style="font-size:11px; color:#666; margin-top:15px;">
+    This application is a research product that utilises publicly available 
+    data from the South Australian Government (source). No liability is accepted 
+    by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
+    of this system or the data it contains, which may be incomplete, inaccurate, 
+    or out of date. Users should consult the official South Australian Government 
+    information at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
+    https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before 
+    relying on this information.
     </div>
     """, unsafe_allow_html=True)
 
