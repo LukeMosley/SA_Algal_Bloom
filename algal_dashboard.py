@@ -40,7 +40,7 @@ def main():
     )
 
     # ---------------------------
-    # Custom styles
+    # Custom CSS
     # ---------------------------
     st.markdown("""
     <style>
@@ -69,24 +69,28 @@ def main():
     div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 2px 4px !important;}
     div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 1px 0 !important;}
 
-    /* Map container */
-    .map-container {
-        border: 2px solid #ccc;
+    /* Sticky map + colorbar container */
+    .sticky-map-wrapper {
+        position: sticky;
+        top: 5rem; /* distance from top of viewport */
+        z-index: 9999;
+        background-color: #fff;
+        padding: 10px;
         border-radius: 8px;
-        padding: 4px;
-        margin: 1rem auto 0 auto;
-        width: 100%;
-        max-width: none;
-        height: 650px;
-        overflow: hidden;       /* prevents dynamic resizing */
+        border: 2px solid #ccc;
+        margin-bottom: 0.5rem;
     }
 
-    /* Horizontal colorbar - 1/2 width, above map */
+    .map-container {
+        width: 100%;
+        height: 650px;
+    }
+
     .colorbar-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 5px;  /* reduced space */
+        margin-bottom: 5px;
     }
     .colorbar-container {
         background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
@@ -131,12 +135,12 @@ def main():
     # Title
     # ---------------------------
     st.markdown(
-        '<div style="font-size:18px; margin:3rem 0 6px 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
+        '<div style="font-size:18px; margin:1rem 0 0.5rem 0; text-align:center;"><b>Harmful Algal Bloom Dashboard – South Australia</b></div>',
         unsafe_allow_html=True
     )
 
     # ---------------------------
-    # File paths and data
+    # Load data
     # ---------------------------
     file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
     coords_csv = "site_coordinates.csv"
@@ -148,7 +152,6 @@ def main():
     with st.sidebar:
         st.markdown('<div class="sidebar-card">', unsafe_allow_html=True)
         st.markdown("**Filters**")
-
         all_species = sorted(df['Result_Name'].dropna().unique())
         default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
         species_selected = st.multiselect("Select species", options=all_species, default=default_species)
@@ -163,7 +166,6 @@ def main():
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
             start_date, end_date = min_date, max_date
-
         st.markdown('</div>', unsafe_allow_html=True)
 
     # Filter dataset
@@ -212,35 +214,32 @@ def main():
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
     # ---------------------------
-    # Colorbar display
+    # Sticky Map + Colorbar container
     # ---------------------------
-    st.markdown("""
-    <div style="font-size:14px; color:#00000">
-    <div class="colorbar-wrapper">
-        <div class="colorbar-container">
-            <div class="colorbar-labels">
-                <span>0</span>
-                <span>100,000</span>
-                <span>200,000</span>
-                <span>300,000</span>
-                <span>400,000</span>
-                <span>>500,000</span>
+    sticky_container = st.container()
+    with sticky_container:
+        st.markdown("""
+        <div class="sticky-map-wrapper">
+            <div class="colorbar-wrapper">
+                <div class="colorbar-container">
+                    <div class="colorbar-labels">
+                        <span>0</span>
+                        <span>100,000</span>
+                        <span>200,000</span>
+                        <span>300,000</span>
+                        <span>400,000</span>
+                        <span>>500,000</span>
+                    </div>
+                </div>
+                <div class="colorbar-units">Cell count per L</div>
             </div>
         </div>
-        <div class="colorbar-units">Cell count per L</div>
-    </div>
-    </div>
-    """, unsafe_allow_html=True)
+        """, unsafe_allow_html=True)
+
+        st_folium(m, width='100%', height=650)
 
     # ---------------------------
-    # Map display inside a container (Option 2)
-    # ---------------------------
-    map_container = st.container()
-    with map_container:
-        st_folium(m, width='100%', height=550)
-
-    # ---------------------------
-    # Disclaimer (reduced spacing below map)
+    # Disclaimer
     # ---------------------------
     st.markdown("""
     <div style="font-size:11px; color:#666; margin-top:5px; margin-bottom:15px;">
