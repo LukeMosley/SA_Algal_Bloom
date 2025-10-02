@@ -67,8 +67,8 @@ def main():
     /* Multiselect token styling */
     div[data-baseweb="select"] .css-1uccc91-singleValue,
     div[data-baseweb="select"] span {font-size: 11px !important; line-height: 1.1 !important;}
-    div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 4px 6px !important;}
-    div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 2px 0 !important;}
+    div[data-baseweb="select"] .css-1m4v56a {font-size: 11px !important; padding: 2px 4px !important;}
+    div[data-baseweb="select"] .css-1rhbuit-multiValue {margin: 1px 0 !important;}
 
     /* Map container styling */
     .map-container {
