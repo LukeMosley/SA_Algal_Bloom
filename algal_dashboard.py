@@ -48,9 +48,9 @@ def main():
 
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
-        font-size: 12px;
-        padding: 0.5rem;
-        max-width: 300px;
+        font-size: 11px;
+        padding: 0.4rem 0.5rem 0.5rem 0.5rem;
+        max-width: 350px;
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     .sidebar-card {
@@ -64,7 +64,7 @@ def main():
     /* Map container */
     .map-container {
         width: 100%;
-        height: 650px;
+        height: 550px;
     }
 
     /* Horizontal colorbar */
@@ -105,7 +105,7 @@ def main():
     .leaflet-control-zoom,
     .leaflet-control-layers {
         position: absolute !important;
-        top: 150px !important;  /* moved further down */
+        top: 220px !important;  /* moved further down */
         right: 10px !important;
         left: auto !important;
         z-index: 10000 !important;
