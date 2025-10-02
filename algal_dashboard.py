@@ -72,7 +72,7 @@ def main():
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 5px;
+        margin-bottom: 2px;
     }
     .colorbar-container {
         background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
@@ -96,14 +96,16 @@ def main():
     .colorbar-units {
         font-size: 12px;
         color: #000;
-        margin-left: 10px;
+        margin-top: 2px;  /* move to next line */
+        text-align: center;
         white-space: nowrap;
     }
 
-    /* Zoom buttons top-right */
-    .leaflet-control-zoom {
+    /* Move zoom + layer buttons down a bit */
+    .leaflet-control-zoom,
+    .leaflet-control-layers {
         position: absolute !important;
-        top: 10px !important;
+        top: 60px !important;  /* move down to avoid being obscured */
         right: 10px !important;
         left: auto !important;
         z-index: 10000 !important;
@@ -136,10 +138,11 @@ def main():
                     <span>300k</span><span>400k</span><span>>500k</span>
                 </div>
             </div>
-            <div class="colorbar-units">Cell count per L</div>
         </div>
+        <div class="colorbar-units">Cell count per L</div>
         """, unsafe_allow_html=True)
 
+        # Filters card
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
 
         # Species filter
@@ -230,4 +233,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
