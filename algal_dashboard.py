@@ -52,7 +52,7 @@ def main():
     section[data-testid="stSidebar"] {
         font-size: 12px;
         padding: 0.4rem 0.5rem 0.5rem 0.5rem;
-        max-width: 300px;  /* reduced width */
+        max-width: 280px;  /* slightly reduced width */
     }
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.3rem;}
     .sidebar-card {
@@ -71,14 +71,14 @@ def main():
 
     /* Map container */
     .map-container {
-    border: 2px solid #ccc;
-    border-radius: 8px;
-    padding: 4px;
-    margin: 1rem auto 0 auto;
-    width: 100%;
-    max-width: none;
-    height: 650px;          /* fixed height */
-    overflow: hidden;       /* prevent dynamic resizing */
+        border: 2px solid #ccc;
+        border-radius: 8px;
+        padding: 4px;
+        margin: 1rem auto 0 auto;
+        width: 100%;
+        max-width: none;
+        height: 650px;
+        overflow: hidden;       /* prevents dynamic resizing */
     }
 
     /* Horizontal colorbar - 1/2 width, above map */
@@ -176,7 +176,7 @@ def main():
     st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
 
     # ---------------------------
-    # Map
+    # Map creation
     # ---------------------------
     m = folium.Map(location=[-34.9, 138.6], zoom_start=6, control_scale=True)
     folium.TileLayer(
@@ -212,7 +212,7 @@ def main():
                       [sub_df['Latitude'].max(), sub_df['Longitude'].max()]])
 
     # ---------------------------
-    # Colorbar
+    # Colorbar display
     # ---------------------------
     st.markdown("""
     <div style="font-size:14px; color:#00000">
@@ -233,17 +233,17 @@ def main():
     """, unsafe_allow_html=True)
 
     # ---------------------------
-    # Map display
+    # Map display inside a container (Option 2)
     # ---------------------------
-    st.markdown('<div class="map-container">', unsafe_allow_html=True)
-    st_folium(m, width='100%', height=550)
-    st.markdown('</div>', unsafe_allow_html=True)
+    map_container = st.container()
+    with map_container:
+        st_folium(m, width='100%', height=550)
 
     # ---------------------------
-    # Disclaimer
+    # Disclaimer (reduced spacing below map)
     # ---------------------------
     st.markdown("""
-    <div style="font-size:11px; color:#666; margin-top:8px; margin-bottom:20px;">
+    <div style="font-size:11px; color:#666; margin-top:5px; margin-bottom:15px;">
     This application is a research product that utilises publicly available 
     data from the South Australian Government (source). No liability is accepted 
     by the author (A/Prof. Luke Mosley) or the University of Adelaide for the use 
@@ -258,4 +258,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
