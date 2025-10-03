@@ -76,9 +76,9 @@ section[data-testid="stSidebar"] label {
 
 /* Record counter*/
 .records-count {
-    font-size: 12px !important;
+    font-size: 14px !important;
     color: #666; /* Optional: medium grey for subtlety, or keep #000 for black */
-    margin: 0.5rem 0;
+    margin: 0 0;
 }
 
 /* Horizontal colorbar */
