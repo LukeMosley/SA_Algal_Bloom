@@ -192,13 +192,13 @@ mask = (
 )
 sub_df = df[mask]
 
-st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records shown on map</div>', unsafe_allow_html=True)
+st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records selected in this time range</div>', unsafe_allow_html=True)
 
 # Disclaimer at sidebar bottom
 st.sidebar.markdown(
     """
-    <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px; padding:10px; border-top:1px solid #ddd;">
-    This application is a research product that utilises publicly available 
+    <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px; padding:4px; border-top:1px solid #ddd;">
+    Disclaimer: This application is a research product that utilises publicly available 
     data from the South Australian Government. No liability is accepted 
     by the author (A/Prof. Luke Mosley) or Adelaide University for the use 
     of this system or the data it contains, which may be incomplete, inaccurate, 
