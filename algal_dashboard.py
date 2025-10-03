@@ -161,9 +161,9 @@ df = load_data(file_path, coords_csv)
 with st.sidebar:
     # Title
     st.markdown(
-        '<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
-        'Harmful Algal Bloom Dashboard  South Australia</div>',
-        unsafe_allow_html=True
+    '<div style="font-size:18px; font-weight:bold; text-align:center; margin: 0 0 0.5rem 0;">'  # Zeros top margin
+    'Harmful Algal Bloom Dashboard  South Australia</div>',  
+    unsafe_allow_html=True
     )
 
     # Colorbar
