@@ -188,7 +188,7 @@ with st.sidebar:
     # Species filter
     all_species = sorted(df['Result_Name'].dropna().unique())
     default_species = [s for s in all_species if "Karenia" in s] or all_species[:1]
-    species_selected = st.multiselect("Select species", options=all_species, default=default_species)
+    species_selected = st.multiselect("Select species  (via dropdown or start typing)", options=all_species, default=default_species)
     if not species_selected:
         species_selected = all_species[:1]
 
