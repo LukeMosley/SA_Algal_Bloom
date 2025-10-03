@@ -68,11 +68,24 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     text-decoration: underline; /* Adds underline */
 }
 
-/* Sidebar section filters */
+/* Sidebar section filter header labels */
 section[data-testid="stSidebar"] label {
     font-weight: bold !important;
-    font-size: 12px; !important;
     color: #000 !important;
+}
+
+/* Smaller font and padding for sidebar multiselect (species) */
+section[data-testid="stSidebar"] [data-testid="stMultiSelect"] {
+    font-size: 12px !important;
+    padding: 0.2rem 0.3rem !important; /* Reduces internal padding; adjust values as needed */
+    margin: 0.25rem 0 !important; /* Optional: tightens outer margins for less vertical space */
+}
+
+/* Smaller font and padding for sidebar date input (range) */
+section[data-testid="stSidebar"] [data-testid="stDateInput"] {
+    font-size: 12px !important;
+    padding: 0.2rem 0.3rem !important; /* Reduces internal padding; tweak values for fit */
+    margin: 0.25rem 0 !important; /* Optional: tightens outer margins for less vertical space */
 }
 
 /* Record counter*/
