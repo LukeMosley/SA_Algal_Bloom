@@ -87,6 +87,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     width: 100%;
     font-size: 11px;
     margin-top: 2px;
+    color: #D3D3D3; /* Light grey instead of white */
 }
 .colorbar-labels span {flex: 1; text-align: center; color: white;}
 .colorbar-units {
