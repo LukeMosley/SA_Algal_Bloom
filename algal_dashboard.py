@@ -67,6 +67,11 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     font-style: italic; /* Optional: subtle italic tilt */
 }
 
+section[data-testid="stSidebar"] label {
+    font-weight: bold !important;
+    color: #000 !important;
+}
+
 /* Horizontal colorbar */
 .colorbar-wrapper {
     display: flex;
