@@ -93,8 +93,8 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 .colorbar-labels span {
     flex: 1;
     text-align: center;
-    color: #000; /* Black for universal contrast */
-    text-shadow: 0 0 1px rgba(255, 255, 255, 0.8); /* Subtle white glow for readability on dark/light areas */
+    color: #000; /* Keep black base */
+    text-shadow: 0 0 2px rgba(255, 255, 255, 1); /* Thicker, fully opaque white halo */
 }
 .colorbar-units {
     font-size: 12px;
