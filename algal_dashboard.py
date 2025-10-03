@@ -77,7 +77,8 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     border-radius: 4px;
     padding: 0 5px;
     font-size: 12px;
-    font-weight: bold;
+    color: #D3D3D3; /* Light grey text */
+    font-weight: normal;
     max-width: 95%;
     width: 100%;
 }
@@ -92,8 +93,10 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 .colorbar-labels span {flex: 1; text-align: center; color: white;}
 .colorbar-units {
     font-size: 12px;
-    color: #030303;
-    margin-top: 2px;
+    color: #D3D3D3;
+    font-weight: bold;
+    margin-top: 4px;
+    margin-bottom: 4px; /* Added to match doubled top */
     text-align: center;
     white-space: nowrap;
 }
@@ -147,7 +150,7 @@ with st.sidebar:
     # Date range filter
     min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
     last_week_start = max_date - timedelta(days=7)
-    date_range = st.date_input("Date range (year/month/day)", [last_week_start, max_date],
+    date_range = st.date_input("Date range   (year/month/day format)", [last_week_start, max_date],
                                min_value=min_date, max_value=max_date)
     if len(date_range) == 2:
         start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
