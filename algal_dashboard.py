@@ -67,9 +67,17 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     font-style: italic; /* Optional: subtle italic tilt */
 }
 
+/* Sidebar section filters */
 section[data-testid="stSidebar"] label {
     font-weight: bold !important;
     color: #000 !important;
+}
+
+/* Record counter*/
+.records-count {
+    font-size: 10px !important;
+    color: #666; /* Optional: medium grey for subtlety, or keep #000 for black */
+    margin: 0.5rem 0;
 }
 
 /* Horizontal colorbar */
@@ -182,7 +190,7 @@ mask = (
 )
 sub_df = df[mask]
 
-st.sidebar.write(f"{len(sub_df)} of {len(df)} records shown")
+st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records shown</div>', unsafe_allow_html=True)
 
 # Disclaimer at sidebar bottom
 st.sidebar.markdown(
