@@ -91,7 +91,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 .colorbar-labels span {flex: 1; text-align: center; color: white;}
 .colorbar-units {
     font-size: 12px;
-    color: #000;
+    color: #030303;
     margin-top: 2px;
     text-align: center;
     white-space: nowrap;
@@ -146,7 +146,7 @@ with st.sidebar:
     # Date range filter
     min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
     last_week_start = max_date - timedelta(days=7)
-    date_range = st.date_input("Date range", [last_week_start, max_date],
+    date_range = st.date_input("Date range (year/month/day)", [last_week_start, max_date],
                                min_value=min_date, max_value=max_date)
     if len(date_range) == 2:
         start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
