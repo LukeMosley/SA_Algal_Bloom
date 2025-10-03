@@ -77,7 +77,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     border-radius: 4px;
     padding: 0 5px;
     font-size: 12px;
-    color: #D3D3D3; /* Light grey text */
+    color: #333333; /* dark grey text */
     font-weight: normal;
     max-width: 95%;
     width: 100%;
@@ -93,7 +93,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 .colorbar-labels span {flex: 1; text-align: center; color: white;}
 .colorbar-units {
     font-size: 12px;
-    color: #D3D3D3;
+    color: #000;
     font-weight: bold;
     margin-top: 4px;
     margin-bottom: 4px; /* Added to match doubled top */
