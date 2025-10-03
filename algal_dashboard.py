@@ -71,6 +71,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 /* Sidebar section filters */
 section[data-testid="stSidebar"] label {
     font-weight: bold !important;
+    font-size: 12px; !important;
     color: #000 !important;
 }
 
