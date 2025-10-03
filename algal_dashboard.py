@@ -84,14 +84,14 @@ section[data-testid="stSidebar"] span[data-baseweb="tag"] {
 section[data-testid="stSidebar"] [data-testid="stMultiSelect"] {
     font-size: 12px !important;
     padding: 0.2rem 0.3rem !important; /* Reduces internal padding; adjust values as needed */
-    margin: 0.25rem 0 !important; /* Optional: tightens outer margins for less vertical space */
+    margin: 0.1rem 0 0 !important; /* Optional: tightens outer margins for less vertical space */
 }
 
 /* Smaller font and padding for sidebar date input (range) */
 section[data-testid="stSidebar"] [data-testid="stDateInput"] {
     font-size: 12px !important;
     padding: 0.2rem 0.3rem !important; /* Reduces internal padding; tweak values for fit */
-    margin: 0.25rem 0 !important; /* Optional: tightens outer margins for less vertical space */
+    margin: 0.1rem 0 0 !important; /* Optional: tightens outer margins for less vertical space */
 }
 
 /* Record counter*/
