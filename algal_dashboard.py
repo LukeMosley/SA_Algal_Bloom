@@ -1,6 +1,6 @@
 import pandas as pd
 import folium
-from branca.colormap import LinearColormap
+from branca.colormap import linear
 from streamlit_folium import st_folium
 import streamlit as st
 import altair as alt
@@ -202,10 +202,8 @@ folium.TileLayer(
 folium.LayerControl(position='bottomright').add_to(m)  # Native positioning for layers
 
 # Color Map (Viridis)
+# colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)  #old traffic light colormap not used
 colormap = linear.viridis.scale(0, 500000)
-#colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)  #old traffic light colormap
-
-# Add colour map caption + attach colourmap to map
 colormap.caption = "Cells per L"
 colormap.add_to(m)
 
