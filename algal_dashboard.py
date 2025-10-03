@@ -70,7 +70,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     margin-bottom: 2px;
 }
 .colorbar-container {
-    background: linear-gradient(to right, green 0%, yellow 50%, red 100%);
+    background: linear-gradient(to right, #440154 0%, #3b528b 25%, #21908c 50%, #5dc863 75%, #fde725 100%);
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -201,8 +201,10 @@ folium.TileLayer(
 ).add_to(m)
 folium.LayerControl(position='bottomright').add_to(m)  # Native positioning for layers
 
-# Color scale
-colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
+# Color scale (Viridis-inspired: purple → green → yellow)
+viridis_colors = ['#440154', '#3b528b', '#21908c', '#5dc863', '#fde725']
+colormap = LinearColormap(colors=viridis_colors, vmin=0, vmax=500000)
+## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
 
 # Add markers
 for _, row in sub_df.iterrows():
