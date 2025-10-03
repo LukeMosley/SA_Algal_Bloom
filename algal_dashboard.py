@@ -90,7 +90,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     margin-top: 2px;
     color: #333333; /* dark grey instead of white */
 }
-.colorbar-labels span {flex: 1; text-align: center; color: white;}
+.colorbar-labels span {flex: 1; text-align: center; color: #333333;} /* Dark grey instead of white */
 .colorbar-units {
     font-size: 12px;
     color: #000;
