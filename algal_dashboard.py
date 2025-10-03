@@ -56,11 +56,15 @@ section[data-testid="stSidebar"] {
 }
 section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 .sidebar-card {
-    border: 1px solid #d0d0d0;
-    border-radius: 8px;
-    padding: 6px;
-    background: #fff;
-    margin-bottom: 0.5rem;
+    border: none; /* Remove border for subtlety */
+    border-radius: 0; /* Flatten it */
+    padding: 4px 0; /* Reduce vertical padding */
+    background: transparent; /* No background to blend in */
+    margin-bottom: 0.25rem; /* Tighten spacing */
+    font-size: 12px; /* Slightly smaller */
+    font-weight: normal; /* Not bold */
+    color: #666; /* Medium grey for low emphasis */
+    font-style: italic; /* Optional: subtle italic tilt */
 }
 
 /* Horizontal colorbar */
