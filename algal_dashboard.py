@@ -39,9 +39,10 @@ def main():
         initial_sidebar_state="expanded"
     )
 
-    # ---------------------------
-    # Custom CSS
-    # ---------------------------
+# ---------------------------
+# Custom CSS
+# ---------------------------
+
 st.markdown("""
 <style>
 .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
@@ -87,7 +88,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     font-size: 11px;
     margin-top: 2px;
 }
-.colorbar-labels span {flex: 1; text-align: center;}
+.colorbar-labels span {flex: 1; text-align: center; color: white;}
 .colorbar-units {
     font-size: 12px;
     color: #000;
@@ -98,9 +99,9 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 </style>
 """, unsafe_allow_html=True)
 
-    # ---------------------------
-    # File paths and data
-    # ---------------------------
+# ---------------------------
+# File paths and data
+# ---------------------------
 file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
 coords_csv = "site_coordinates.csv"
 df = load_data(file_path, coords_csv)
