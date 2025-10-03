@@ -61,10 +61,11 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     padding: 4px 0; /* Reduce vertical padding */
     background: transparent; /* No background to blend in */
     margin-bottom: 0.25rem; /* Tighten spacing */
-    font-size: 12px; /* Slightly smaller */
+    font-size: 14px; /* Slightly smaller */
     font-weight: normal; /* Not bold */
     color: #666; /* Medium grey for low emphasis */
     font-style: italic; /* Optional: subtle italic tilt */
+    text-decoration: underline; /* Adds underline */
 }
 
 /* Sidebar section filters */
@@ -75,7 +76,7 @@ section[data-testid="stSidebar"] label {
 
 /* Record counter*/
 .records-count {
-    font-size: 10px !important;
+    font-size: 12px !important;
     color: #666; /* Optional: medium grey for subtlety, or keep #000 for black */
     margin: 0.5rem 0;
 }
