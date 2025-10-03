@@ -54,6 +54,7 @@ section[data-testid="stSidebar"] {
     padding: 0.4rem 0.5rem 0.5rem 0.5rem;
     max-width: 350px;
 }
+
 section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 .sidebar-card {
     border: none; /* Remove border for subtlety */
@@ -72,6 +73,11 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
 section[data-testid="stSidebar"] label {
     font-weight: bold !important;
     color: #000 !important;
+}
+
+/* Smaller font for selected chips in sidebar multiselect */
+section[data-testid="stSidebar"] span[data-baseweb="tag"] {
+    font-size: 11px !important; /* Adjust to 10px or 12px as needed for subtlety */
 }
 
 /* Smaller font and padding for sidebar multiselect (species) */
