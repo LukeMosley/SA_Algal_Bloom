@@ -79,6 +79,7 @@ section[data-testid="stSidebar"] label {
     font-size: 14px !important;
     color: #666; /* Optional: medium grey for subtlety, or keep #000 for black */
     margin: 0 0;
+    padding-left: 10px; /* Indents text to the right */
 }
 
 /* Horizontal colorbar */
@@ -191,7 +192,7 @@ mask = (
 )
 sub_df = df[mask]
 
-st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records shown</div>', unsafe_allow_html=True)
+st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records shown on map</div>', unsafe_allow_html=True)
 
 # Disclaimer at sidebar bottom
 st.sidebar.markdown(
