@@ -70,7 +70,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     margin-bottom: 2px;
 }
 .colorbar-container {
-    background: linear-gradient(to right, #440154 0%, #3b528b 25%, #21908c 50%, #5dc863 75%, #fde725 100%);
+    background: linear-gradient(to right, #641478 0%, #3b528b 25%, #21908c 50%, #5dc863 75%, #fde725 100%);
     height: 30px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -118,20 +118,20 @@ with st.sidebar:
 
     # Colorbar
     st.markdown(
-        """
-        <div class="colorbar-wrapper">
-            <div class="colorbar-container">
-                <div class="colorbar-labels">
-                    <span>0</span><span>100,000</span><span>200,000</span>
-                    <span>300,000</span><span>400,000</span><span>>500,000</span>
-                </div>
+    """
+    <div class="colorbar-wrapper">
+        <div class="colorbar-container">
+            <div class="colorbar-labels">
+                <span>0</span><span>100,000</span><span>200,000</span>
+                <span>300,000</span><span>400,000</span><span>>500,000</span>
             </div>
         </div>
-        <div class="colorbar-units">Cell count per L</div>
-        """,
-        unsafe_allow_html=True
+    </div>
+    <div class="colorbar-units">Cell count per L</div>
+    """,
+    unsafe_allow_html=True
     )
-
+    
     # Filters card
     st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
 
@@ -202,7 +202,7 @@ folium.TileLayer(
 folium.LayerControl(position='bottomright').add_to(m)  # Native positioning for layers
 
 # Color scale (Viridis-inspired: purple → green → yellow)
-viridis_colors = ['#440154', '#3b528b', '#21908c', '#5dc863', '#fde725']
+viridis_colors = ['#641478', '#3b528b', '#21908c', '#5dc863', '#fde725']
 colormap = LinearColormap(colors=viridis_colors, vmin=0, vmax=500000)
 ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
 
