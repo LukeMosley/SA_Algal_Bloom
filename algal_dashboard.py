@@ -94,6 +94,7 @@ section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     flex: 1;
     text-align: center;
     color: #000; /* Keep black base */
+    font-weight: bold;
     text-shadow: 0 0 2px rgba(255, 255, 255, 1); /* Thicker, fully opaque white halo */
 }
 .colorbar-units {
