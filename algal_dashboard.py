@@ -77,7 +77,7 @@ section[data-testid="stSidebar"] label {
 
 /* Smaller font for selected chips in sidebar multiselect */
 section[data-testid="stSidebar"] span[data-baseweb="tag"] {
-    font-size: 12px !important; /* Adjust to 10px or 12px as needed for subtlety */
+    font-size: 14px !important; /* Adjust as needed for subtlety */
 }
 
 /* Smaller font and padding for sidebar multiselect (species) */
