@@ -212,7 +212,7 @@ mask = (
 )
 sub_df = df[mask]
 
-st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records located in this date range</div>', unsafe_allow_html=True)
+st.sidebar.markdown(f'<div class="records-count">{len(sub_df)} of {len(df)} records for selected species located in this date range</div>', unsafe_allow_html=True)
 
 # Disclaimer at sidebar bottom
 st.sidebar.markdown(
