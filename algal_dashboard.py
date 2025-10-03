@@ -34,7 +34,7 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
 # ---------------------------
 def main():
     st.set_page_config(
-        page_title="HAB Monitoring - South Australia",
+        page_title="Harmful Algal Bloom Monitoring - South Australia",
         layout="wide",
         initial_sidebar_state="expanded"
     )
@@ -123,7 +123,7 @@ with st.sidebar:
     # Title
     st.markdown(
         '<div style="font-size:18px; font-weight:bold; text-align:center; margin-bottom:0.5rem;">'
-        'Harmful Algal Bloom Dashboard – South Australia</div>',
+        'Harmful Algal Bloom Dashboard  South Australia</div>',
         unsafe_allow_html=True
     )
 
