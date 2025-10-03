@@ -79,7 +79,7 @@ section[data-testid="stSidebar"] label {
     font-size: 14px !important;
     color: #666; /* Optional: medium grey for subtlety, or keep #000 for black */
     margin: 0 0;
-    padding-left: 10px; /* Indents text to the right */
+    padding-left: 4px; /* Indents text to the right */
 }
 
 /* Horizontal colorbar */
