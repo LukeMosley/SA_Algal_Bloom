@@ -201,8 +201,13 @@ folium.TileLayer(
 ).add_to(m)
 folium.LayerControl(position='bottomright').add_to(m)  # Native positioning for layers
 
-# Color scale
-colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)
+# Color Map (Viridis)
+colormap = linear.viridis.scale(0, 500000)
+#colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000)  #old traffic light colormap
+
+# Add colour map caption + attach colourmap to map
+colormap.caption = "Cells per L"
+colormap.add_to(m)
 
 # Add markers
 for _, row in sub_df.iterrows():
