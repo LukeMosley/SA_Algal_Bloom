@@ -223,8 +223,8 @@ st.sidebar.markdown(
     by the creator (A/Prof. Luke Mosley) or Adelaide University for the use 
     of this system or the data it contains, which may be incomplete, inaccurate, 
     or out of date. Users should consult the official South Australian Government 
-    advice at <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
-    https://www.algalbloom.sa.gov.au/</a> and/or obtain independent advice before 
+    advice (see <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
+    https://www.algalbloom.sa.gov.au/</a>) and/or obtain independent advice before 
     relying on information in this application.
     </div>
     """,
