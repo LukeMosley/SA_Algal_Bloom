@@ -269,7 +269,7 @@ for _, row in sub_df.iterrows():
             popup=(f"<b>{row['Site_Description']}</b><br>"
                    f"{row['Date_Sample_Collected'].date()}<br>"
                    f"{row['Result_Name']}<br>"
-                   f"{value:,} {units}")
+                   f"{value:,.0f} {units}")
         ).add_to(m)
 
 if not sub_df.empty:
