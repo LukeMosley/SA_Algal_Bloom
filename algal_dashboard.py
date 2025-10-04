@@ -219,7 +219,8 @@ st.sidebar.markdown(
     """
     <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px; padding:4px; border-top:1px solid #ddd;">
     Disclaimer: This application is a research product that utilises publicly available 
-    data from the South Australian Government. No liability is accepted 
+    <a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">
+    data</a>) from the South Australian Government No liability is accepted 
     by the creator (A/Prof. Luke Mosley) or Adelaide University for the use 
     of this system or the data it contains, which may be incomplete, inaccurate, 
     or out of date. Users should consult the official South Australian Government 
