@@ -347,7 +347,12 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
         ).properties(
             width=800,
             height=400,
-            title="Trends for Selected Species (note: average values will be displayed if 'All Sites' selected)"
+            title=alt.TitleParams(
+                text="Trends for Selected Species (note: average values will be displayed if 'All Sites' selected)",
+                fontSize=14,
+                fontWeight='normal',
+                color='#4c4c4c'  # dark grey
+            )
         ).interactive()  # Enables zoom/pan
 
         st.altair_chart(base, use_container_width=True)
