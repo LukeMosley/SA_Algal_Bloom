@@ -352,9 +352,9 @@ if not df.empty:  # Check full df for options, even if sub_df is filtered
 
         # Custom formatted title above the chart
         st.markdown(
-            "<b>Trends for Selected Species</b> <span style='font-weight: normal;'>(average values will be displayed if 'All Sites' selected in dropdown)</span>", unsafe_allow_html=True
+            "<b>Trends for Selected Species</b> <span style='font-weight: normal;'>(average values will be displayed if 'All Sites' selected in dropdown)</span>",
+            unsafe_allow_html=True
         )
-        
         st.altair_chart(base, use_container_width=True)
         
         # Show filtered row count for transparency
