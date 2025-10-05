@@ -27,6 +27,10 @@ Site coodinates are read from the site_coordinates.csv file (note an additional 
 
 The script is then called from streamlit, and implemented on the streamlit community cloud platform (https://sa-algal-bloom.streamlit.app/).
 
+## Planned development
+- automate data collation
+- integrate community phytoplankton data
+
 ## Disclaimer
 This application is a research product that utilises publicly available data from the South Australian Government. No liability is accepted by the author (A/Prof. Luke Mosley) or Adelaide University for the use of this system or the data it contains, which may be incomplete, inaccurate, or out of date. 
 Users should consult the official South Australian Government information at https://www.algalbloom.sa.gov.au/ and/or obtain independent advice before relying on this information.
