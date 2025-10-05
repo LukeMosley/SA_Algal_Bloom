@@ -30,38 +30,60 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     return df.merge(coords_df, on="Site_Description", how="left")
 
 @st.cache_data
-def load_community(file_path="community_algal_data.xls"):
+def load_community(file_path="community_algae.csv", coords_csv="site_coordinates.csv"):
     if not os.path.exists(file_path):
         st.warning(f"⚠️ Community data file '{file_path}' not found. Using empty dataset.")
         return pd.DataFrame()
     
-    # Adjust column names below to match your community Excel file structure
-    # Assumed columns: 'Date' (for date), 'Site' (for site name), 'Species' (for species), 
-    # 'Cell_Count' (for value), 'Latitude', 'Longitude'
-    # Also assumes 'Units' column if present, otherwise defaults to 'cells/L'
-    df = pd.read_excel(file_path, sheet_name=0)
-    df['Date_Sample_Collected'] = pd.to_datetime(df['Date'])  # Adjust 'Date' to your date column name
+    df = pd.read_csv(file_path)
     
-    # Rename columns to match main data structure for consistency
-    df = df.rename(columns={
-        'Site': 'Site_Description', 
-        'Species': 'Result_Name', 
-        'Cell_Count': 'Result_Value_Numeric'
-    })
+    # Identify species columns: everything after 'Salinity (ppt)' up to before 'Notes'
+    salinity_idx = df.columns.get_loc('Salinity (ppt)')
+    notes_idx = df.columns.get_loc('Notes')
+    species_cols = df.columns[salinity_idx + 1 : notes_idx].tolist()
+    
+    # Melt to long format: one row per species per sample
+    melted_df = pd.melt(df, 
+                        id_vars=['Location', 'Date', 'Time', 'Temp', 'Salinity (ppt)', 'Notes'], 
+                        value_vars=species_cols, 
+                        var_name='Result_Name', 
+                        value_name='Result_Value_Numeric')
+    
+    # Rename columns to match main data structure
+    melted_df['Site_Description'] = melted_df['Location']
+    melted_df['Date_Sample_Collected'] = pd.to_datetime(melted_df['Date'], dayfirst=True)
+    
+    # Drop original Location and Date
+    melted_df = melted_df.drop(['Location', 'Date'], axis=1)
     
     # Add units if not present
-    if 'Units' not in df.columns:
-        df['Units'] = 'cells/L'
+    melted_df['Units'] = 'cells/L'
+    
+    # Optional: Filter to non-zero values to reduce noise (uncomment if desired)
+    # melted_df = melted_df[melted_df['Result_Value_Numeric'] > 0]
     
     # Species name mapping: Map community-specific species names to main dataset names
-    # Add mappings here as needed, e.g., {'Community Species A': 'Main Species X'}
+    # Add mappings here as needed, e.g., {'Karenia sp.': 'Karenia mikimotoi'}
     species_mapping = {
-        # Example: 'Karenia sp.': 'Karenia mikimotoi',
+        # 'Karenia sp.': 'Karenia mikimotoi',
+        # 'Gymnoids': 'Gymnodinium sp.',
         # Add your mappings...
     }
-    df['Result_Name'] = df['Result_Name'].map(species_mapping).fillna(df['Result_Name'])
+    melted_df['Result_Name'] = melted_df['Result_Name'].map(species_mapping).fillna(melted_df['Result_Name'])
     
-    return df
+    # Merge with coordinates (assumes Site_Description matches or can be cleaned to match coords)
+    # If site names don't match exactly, add a site_mapping dict below and apply similarly
+    if os.path.exists(coords_csv):
+        coords_df = pd.read_csv(coords_csv)
+        melted_df = melted_df.merge(coords_df, on="Site_Description", how="left")
+    else:
+        st.warning(f"⚠️ Coordinates file '{coords_csv}' not found. Community sites will not have lat/long.")
+    
+    # Optional: Site name standardization/cleaning
+    # site_mapping = {'Wright Is/ Yilki Bay/reef': 'Wright Island Yilki Bay', ...}
+    # melted_df['Site_Description'] = melted_df['Site_Description'].map(site_mapping).fillna(melted_df['Site_Description'])
+    
+    return melted_df
 
 # ---------------------------
 # Build Streamlit app
