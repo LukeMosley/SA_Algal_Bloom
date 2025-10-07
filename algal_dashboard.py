@@ -22,6 +22,16 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
             df = pd.read_csv(file_path)
         df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'])
 
+        # Normalize Result_Name for consistent uniqueness as consistency issues in govt data
+        if 'Result_Name' in df.columns:
+            df['Result_Name'] = (
+                df['Result_Name']
+                .astype(str)  # Ensure string type
+                .str.strip()  # Remove leading/trailing whitespace
+                .str.replace(r'\s+', ' ', regex=True)  # Collapse multiple spaces
+                .str.replace('\xa0', ' ', regex=False)  # Replace non-breaking spaces (U+00A0)
+                # Add more replacements if needed, e.g., .str.replace('.', '') for punctuation testing
+            )    
     if not os.path.exists(coords_csv):
         st.error(f"⚠️ Coordinates file '{coords_csv}' not found. Please generate site_coordinates.csv first.")
         st.stop()
