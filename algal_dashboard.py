@@ -204,7 +204,7 @@ with st.sidebar:
 
     # Date range filter
     min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
-    last_week_start = max_date - timedelta(days=7)
+    last_week_start = max_date - timedelta(days=14)
     date_range = st.date_input("Date range   (year/month/day format)", [last_week_start, max_date],
                                min_value=min_date, max_value=max_date)
     if len(date_range) == 2:
