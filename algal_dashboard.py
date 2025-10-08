@@ -183,7 +183,7 @@ with st.sidebar:
         <div class="colorbar-container">
             <div class="colorbar-labels">
                 <span>0</span><span>100,000</span><span>200,000</span>
-                <span>300,000</span><span>400,000</span><span>>500,000</span>
+                <span>300,000</span><span>400,000</span><span> >500,000</span>
             </div>
         </div>
     </div>
