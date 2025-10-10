@@ -3,7 +3,7 @@ import pandas as pd
 # ---------------------------
 # Settings
 # ---------------------------
-input_file = "MonitoringSites_Summary_29092025.xlsx"
+input_file = "MonitoringSites_Summary_10102025.xlsx"
 output_file = "site_coordinates.csv"
 
 # ---------------------------
