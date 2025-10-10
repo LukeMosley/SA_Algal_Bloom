@@ -363,6 +363,7 @@ def main():
     st.sidebar.markdown(
         """
         <div style="font-size:11px; color:#666; margin-top:10px; margin-bottom:20px; padding:4px; border-top:1px solid #ddd;">
+        <p style="margin-bottom: 10px;">An instructional video on use of this dashboard can be found <a href="https://vimeo.com/manage/videos/1126101537" target="_blank">here</a>.</p>
         <p>Disclaimer: This application is a research product that utilises publicly available 
         <a href="https://experience.arcgis.com/experience/5f0d6b22301a47bf91d198cabb030670" target="_blank">
         data</a> from the South Australian Government No liability is accepted 
