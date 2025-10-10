@@ -21,7 +21,7 @@ The code is written in Python.
 
 The main script to implement the dashboard is algal_dashboard.py with the accompanying requirements.txt file for the python libaries used at run time.
 
-The script reads in the latest (manually uploaded) csv file of SA government algal data present in the main folder (HarmfulAlgalBloom_MonitoringSites....csv).
+The script reads in the latest (currently manually uploaded approximately weeklyu) csv file of SA government algal data present in the main folder (HarmfulAlgalBloom_MonitoringSites....csv).
 
 Site coodinates are read from the site_coordinates.csv file (note an additional folder is present in the main repository that contains another script to generate this file from SA government supplies excel file of sites - this only needs to be run if more sites are added by SA Government).
 
