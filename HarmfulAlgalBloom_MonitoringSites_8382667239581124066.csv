@@ -25690,3 +25690,451 @@
 27265,HAB 26 Surface,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,612,cells/L,612 cells/L
 27266,HAB 26 Bottom,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,84960,cells/L,"84,960 cells/L"
 27267,SARDI Caisson Intake,2025-10-30,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27268,Port MacDonnell Jetty,2025-10-28,Algal Count - Total,,Results summary,"Planktonic diatoms (Grammatophora, Thalassionema) and small flagellates (dinoflagellates, euglenoids, ochromonads).  High levels of sediment and organic detritus.",,,"Planktonic diatoms (Grammatophora, Thalassionema) and small flagellates (dinoflagellates, euglenoids, ochromonads).  High levels of sediment and organic detritus."
+27269,Port MacDonnell Jetty,2025-10-28,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27270,Port MacDonnell Jetty,2025-10-28,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,290000,Cells/L,"290,000 Cells/L"
+27271,Port MacDonnell Jetty,2025-10-28,Algal Identification,Dinoflagellates,Karlodinium spp.,,500,Cells/L,500 Cells/L
+27272,Encounter Bay Boat Ramp,2025-10-30,Algal Count - Partial,,Geosmin-MIB producing BGA - Total,not detected,0,cells/L,0 cells/L
+27273,Encounter Bay Boat Ramp,2025-10-30,Algal Count - Partial,,Toxin producing BGA - Total,not detected,0,cells/L,0 cells/L
+27274,Encounter Bay Boat Ramp,2025-10-30,Algal Identification,,Nitzschia,,20000,cells/L,"20,000 cells/L"
+27275,Encounter Bay Boat Ramp,2025-10-30,Algal Identification,,Chroomonas,Low Abundance (approx. 10 to 100 cells/mL),,,Low Abundance (approx. 10 to 100 cells/mL)
+27276,Encounter Bay Boat Ramp,2025-10-30,Algal Identification,,Pennate diatoms,Very Low Abundance (approx. 1 to10 cells/mL),,,Very Low Abundance (approx. 1 to10 cells/mL)
+27277,Encounter Bay Boat Ramp,2025-10-30,Algal Identification,,Inorganic Particles,Abundant,,,Abundant
+27278,Port Elliot Jetty,2025-10-30,Algal Count - Partial,,Geosmin-MIB producing BGA - Total,not detected,0,cells/L,0 cells/L
+27279,Port Elliot Jetty,2025-10-30,Algal Count - Partial,,Toxin producing BGA - Total,not detected,0,cells/L,0 cells/L
+27280,Port Elliot Jetty,2025-10-30,Algal Identification,,Asterionellopsis,,416000,cells/L,"416,000 cells/L"
+27281,Port Elliot Jetty,2025-10-30,Algal Identification,,Planctonema,Moderately Low Abundance (approx. 100 to 1 000 cells/mL),,,Moderately Low Abundance (approx. 100 to 1 000 cells/mL)
+27282,Port Elliot Jetty,2025-10-30,Algal Identification,,Cyanobacterial Filaments (Narrow),,47000,cells/L,"47,000 cells/L"
+27283,Port Elliot Jetty,2025-10-30,Algal Identification,,Chroomonas,Low Abundance (approx. 10 to 100 cells/mL),,,Low Abundance (approx. 10 to 100 cells/mL)
+27284,Port Elliot Jetty,2025-10-30,Algal Identification,,Unicellular green algae,Low Abundance (approx. 10 to 100 cells/mL),,,Low Abundance (approx. 10 to 100 cells/mL)
+27285,SARDI Caisson Intake,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27286,West Beach Boat Ramp,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27287,Patawalonga King St Bridge,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27288,Glenelg Jetty,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27289,West Lakes Exit,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27290,Grange Jetty,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27291,West Lakes Bartley Tce Footbridge,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27292,Henley Beach Jetty,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,0,cells/L,0 cells/L
+27293,Ardrossan Jetty,2025-10-31,Algal count,Dinoflagellates,Karenia spp.,,1848,cells/L,"1,848 cells/L"
+27294,Goolwa Recreational Beach (1),2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27295,Goolwa Recreational Beach (2),2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27296,Goolwa Recreational Beach (3),2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27297,Coorong (COR-2A),2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27298,Coorong (COR-4A),2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27299,Coorong (COR-8A),2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27300,Coorong (COR-10A),2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27301,Coorong (COR-12A),2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27302,Coorong (COR-13A),2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27303,Stansbury,2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,600,cells/L,600 cells/L
+27304,Coobowie ,2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27305,Port Vincent ,2025-10-27,Algal count,Dinoflagellates,Karenia sp.,,2900,cells/L,"2,900 cells/L"
+27306,American River,2025-10-28,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27307,Proper Bay,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27308,Bickers Island ,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27309,Boston Bay ,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,800,cells/L,800 cells/L
+27310,Lower Eyre,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27311,Port Douglas,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27312,Mount Dutton Bay,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27313,Kellidie Bay East ,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27314,Coffin Bay ,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27315,Denial Bay,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27316,St Peters Island ,2025-10-29,Algal count,Dinoflagellates,Karenia sp.,,0,cells/L,0 cells/L
+27317,Ardrossan Jetty,2025-10-31,Algal Count - Total,,Results summary,"A mix of planktonic diatoms (Leptocylindrus), benthic diatoms (Amphora) and small flagellates (dinoflagellates, ochromonads).  Some sediment and organic detritus including macroalgae.",,,"A mix of planktonic diatoms (Leptocylindrus), benthic diatoms (Amphora) and small flagellates (dinoflagellates, ochromonads).  Some sediment and organic detritus including macroalgae."
+27318,Ardrossan Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27319,Ardrossan Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,380000,Cells/L,"380,000 Cells/L"
+27320,Ardrossan Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27321,Ardrossan Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27322,Ardrossan Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,500,Cells/L,500 Cells/L
+27323,Ardrossan Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia mikimotoi,,,Cells/L,Not detected
+27324,Ardrossan Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,2600,Cells/L,"2,600 Cells/L"
+27325,Ardrossan Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27326,Ardrossan Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,1000,Cells/L,"1,000 Cells/L"
+27327,Ardrossan Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27328,Ardrossan Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),x,,Cells/L,Detected in sample but not observed during cell counts 
+27329,Ardrossan Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,500,Cells/L,500 Cells/L
+27330,Ardrossan Jetty,2025-10-31,Algal Identification,Other,Trichodesmium  erythraeum (filaments),,2000,Cells/L,"2,000 Cells/L"
+27331,Marion Bay Jetty,2025-10-31,Algal Count - Total,,Results summary,"Benthic diatoms (Navicula) and small flagellates (dinoflagellates, pedinellids, ochromonads).  Some sediment and organic detritus.",,,"Benthic diatoms (Navicula) and small flagellates (dinoflagellates, pedinellids, ochromonads).  Some sediment and organic detritus."
+27332,Marion Bay Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27333,Marion Bay Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,66000,Cells/L,"66,000 Cells/L"
+27334,Marion Bay Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27335,Marion Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27336,Marion Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,500,Cells/L,500 Cells/L
+27337,Marion Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia mikimotoi,,,Cells/L,Not detected
+27338,Marion Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,50,Cells/L,50 Cells/L
+27339,Marion Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27340,Marion Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27341,Marion Bay Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27342,Marion Bay Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27343,Marion Bay Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27344,Marion Bay Jetty,2025-10-31,Algal Identification,Other,Trichodesmium  erythraeum (filaments),,,Cells/L,Not detected
+27345,Port Victoria Jetty,2025-10-31,Algal Count - Total,,Results summary,"Mainly small flagellates (dinoflagellates, euglenoids, ochromonads).  ",,,"Mainly small flagellates (dinoflagellates, euglenoids, ochromonads).  "
+27346,Port Victoria Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27347,Port Victoria Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,96000,Cells/L,"96,000 Cells/L"
+27348,Port Victoria Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27349,Port Victoria Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,1000,Cells/L,"1,000 Cells/L"
+27350,Port Victoria Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27351,Port Victoria Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia mikimotoi,,,Cells/L,Not detected
+27352,Port Victoria Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,50,Cells/L,50 Cells/L
+27353,Port Victoria Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,500,Cells/L,500 Cells/L
+27354,Port Victoria Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27355,Port Victoria Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27356,Port Victoria Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27357,Port Victoria Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27358,Port Victoria Jetty,2025-10-31,Algal Identification,Other,Trichodesmium  erythraeum (filaments),,,Cells/L,Not detected
+27359,Point Turton Jetty,2025-10-31,Algal Count - Total,,Results summary,"Mainly small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, ochromonads) with benthic diatoms (Cylindrotheca).  Some sediment and organic detritus.",,,"Mainly small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, ochromonads) with benthic diatoms (Cylindrotheca).  Some sediment and organic detritus."
+27360,Point Turton Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27361,Point Turton Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,240000,Cells/L,"240,000 Cells/L"
+27362,Point Turton Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27363,Point Turton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27364,Point Turton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,2000,Cells/L,"2,000 Cells/L"
+27365,Point Turton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia mikimotoi,,250,Cells/L,250 Cells/L
+27366,Point Turton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27367,Point Turton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27368,Point Turton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27369,Point Turton Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,500,Cells/L,500 Cells/L
+27370,Point Turton Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27371,Point Turton Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27372,Point Turton Jetty,2025-10-31,Algal Identification,Other,Trichodesmium  erythraeum (filaments),,,Cells/L,Not detected
+27373,Wallaroo Jetty,2025-10-31,Algal Count - Total,,Results summary,"Mainly small flagellates (dinoflagellates, prasinophytes, prymnesiophytes, ochromonads).  Some sediment and organic detritus.",,,"Mainly small flagellates (dinoflagellates, prasinophytes, prymnesiophytes, ochromonads).  Some sediment and organic detritus."
+27374,Wallaroo Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27375,Wallaroo Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,370000,Cells/L,"370,000 Cells/L"
+27376,Wallaroo Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27377,Wallaroo Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27378,Wallaroo Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,8500,Cells/L,"8,500 Cells/L"
+27379,Wallaroo Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia mikimotoi,,,Cells/L,Not detected
+27380,Wallaroo Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,50,Cells/L,50 Cells/L
+27381,Wallaroo Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27382,Wallaroo Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27383,Wallaroo Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27384,Wallaroo Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27385,Wallaroo Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27386,Wallaroo Jetty,2025-10-31,Algal Identification,Other,Trichodesmium  erythraeum (filaments),,,Cells/L,Not detected
+27387,Port Augusta Wharf,2025-10-30,Algal Count - Total,,Results summary,"Mainly small flagellates (cryptomonads, prymnesiophytes, ochromonads) with planktonic diatoms (Skeletonema) and benthic diatoms (Cylindrotheca, Navicula).  High levels of sediment and organic detritus.",,,"Mainly small flagellates (cryptomonads, prymnesiophytes, ochromonads) with planktonic diatoms (Skeletonema) and benthic diatoms (Cylindrotheca, Navicula).  High levels of sediment and organic detritus."
+27388,Port Augusta Wharf,2025-10-30,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27389,Port Augusta Wharf,2025-10-30,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,680000,Cells/L,"680,000 Cells/L"
+27390,Port Augusta Wharf,2025-10-30,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,x,,Cells/L,Detected in sample but not observed during cell counts 
+27391,Port Augusta Wharf,2025-10-30,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27392,Port Augusta Wharf,2025-10-30,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27393,Port Augusta Wharf,2025-10-30,Algal Identification,Dinoflagellates,Karenia mikimotoi,,,Cells/L,Not detected
+27394,Port Augusta Wharf,2025-10-30,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27395,Port Augusta Wharf,2025-10-30,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27396,Port Augusta Wharf,2025-10-30,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27397,Port Augusta Wharf,2025-10-30,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27398,Port Augusta Wharf,2025-10-30,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27399,Port Augusta Wharf,2025-10-30,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27400,Port Augusta Wharf,2025-10-30,Algal Identification,Other,Trichodesmium  erythraeum (filaments),,,Cells/L,Not detected
+27401,West Beach Boat Ramp,2025-10-31,Algal Count - Total,,Results Summary,"High levels of  benthic diatoms (Cylindrotheca) and small flagellates (mainly prasinophytes with dinoflagellates, prymnesiophytes).  ",,,"High levels of  benthic diatoms (Cylindrotheca) and small flagellates (mainly prasinophytes with dinoflagellates, prymnesiophytes).  "
+27402,West Beach Boat Ramp,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27403,West Beach Boat Ramp,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,3300000,Cells/L,"3,300,000 Cells/L"
+27404,West Beach Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27405,West Beach Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27406,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27407,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,12000,Cells/L,"12,000 Cells/L"
+27408,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,50,Cells/L,50 Cells/L
+27409,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27410,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,1500,Cells/L,"1,500 Cells/L"
+27411,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27412,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,50,Cells/L,50 Cells/L
+27413,West Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27414,West Beach Boat Ramp,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,500,Cells/L,500 Cells/L
+27415,West Beach Boat Ramp,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27416,West Beach Boat Ramp,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27417,West Beach Boat Ramp,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27418,West Beach Boat Ramp,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27419,SARDI Caisson Intake,2025-10-31,Algal Count - Total,,Results Summary,"A mix of planktonic diatoms (Leptocylindrus, Chaetoceros), benthic diatoms (Pleurosigma, Cylindrotheca) and small flagellates (dinoflagellates, prymnesiophytes, ochromonads). Some sediment and organic detritus.",,,"A mix of planktonic diatoms (Leptocylindrus, Chaetoceros), benthic diatoms (Pleurosigma, Cylindrotheca) and small flagellates (dinoflagellates, prymnesiophytes, ochromonads). Some sediment and organic detritus."
+27420,SARDI Caisson Intake,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27421,SARDI Caisson Intake,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,1100000,Cells/L,"1,100,000 Cells/L"
+27422,SARDI Caisson Intake,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27423,SARDI Caisson Intake,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27424,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27425,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,500,Cells/L,500 Cells/L
+27426,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,,Cells/L,Not detected
+27427,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,50,Cells/L,50 Cells/L
+27428,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27429,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27430,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27431,SARDI Caisson Intake,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27432,SARDI Caisson Intake,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27433,SARDI Caisson Intake,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27434,SARDI Caisson Intake,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27435,SARDI Caisson Intake,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27436,SARDI Caisson Intake,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27437,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Count - Total,,Results Summary,"Planktonic diatoms (Leptocylindrus) and small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, ochromonads).  ",,,"Planktonic diatoms (Leptocylindrus) and small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, ochromonads).  "
+27438,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27439,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,2000000,Cells/L,"2,000,000 Cells/L"
+27440,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27441,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,1000,Cells/L,"1,000 Cells/L"
+27442,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27443,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27444,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,,Cells/L,Not detected
+27445,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,9900,Cells/L,"9,900 Cells/L"
+27446,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27447,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27448,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27449,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27450,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27451,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27452,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27453,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27454,O'Sullivan Beach Boat Ramp,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27455,Onkaparinga Rowing Club,2025-10-31,Algal Count - Total,,Results Summary,"Mainly small flagellates (dinoflagellates, prymnesiophytes, pedinellids, ochromonads).  High levels of sediment and organic detritus.",,,"Mainly small flagellates (dinoflagellates, prymnesiophytes, pedinellids, ochromonads).  High levels of sediment and organic detritus."
+27456,Onkaparinga Rowing Club,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27457,Onkaparinga Rowing Club,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,520000,Cells/L,"520,000 Cells/L"
+27458,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27459,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27460,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27461,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27462,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,,Cells/L,Not detected
+27463,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27464,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27465,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27466,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27467,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27468,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,x,,Cells/L,Detected in sample but not observed during cell counts 
+27469,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27470,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),x,,Cells/L,Detected in sample but not observed during cell counts 
+27471,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27472,Onkaparinga Rowing Club,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,500,Cells/L,500 Cells/L
+27473,Henley Beach Jetty,2025-10-31,Algal Count - Total,,Results Summary,"High levels of  benthic diatoms (Cylindrotheca) and small flagellates (cryptomonads, dinoflagellates, prasinophytes, ochromonads).",,,"High levels of  benthic diatoms (Cylindrotheca) and small flagellates (cryptomonads, dinoflagellates, prasinophytes, ochromonads)."
+27474,Henley Beach Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27475,Henley Beach Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,1800000,Cells/L,"1,800,000 Cells/L"
+27476,Henley Beach Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27477,Henley Beach Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27478,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27479,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,1500,Cells/L,"1,500 Cells/L"
+27480,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,,Cells/L,Not detected
+27481,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,200,Cells/L,200 Cells/L
+27482,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,2500,Cells/L,"2,500 Cells/L"
+27483,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27484,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27485,Henley Beach Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,500,Cells/L,500 Cells/L
+27486,Henley Beach Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27487,Henley Beach Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),x,,Cells/L,Detected in sample but not observed during cell counts 
+27488,Henley Beach Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27489,Henley Beach Jetty,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27490,Henley Beach Jetty,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27491,Port Noarlunga,2025-10-31,Algal Count - Total,,Results Summary,"Mainly small flagellates (mainly prymnesiophytes with dinoflagellates) with planktonic diatoms (Leptocylindrus, Haslea) and benthic diatoms (Pleurosigma, Licmophora, Navicula). ",,,"Mainly small flagellates (mainly prymnesiophytes with dinoflagellates) with planktonic diatoms (Leptocylindrus, Haslea) and benthic diatoms (Pleurosigma, Licmophora, Navicula). "
+27492,Port Noarlunga,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27493,Port Noarlunga,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,1100000,Cells/L,"1,100,000 Cells/L"
+27494,Port Noarlunga,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,1000,Cells/L,"1,000 Cells/L"
+27495,Port Noarlunga,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27496,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27497,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27498,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,,Cells/L,Not detected
+27499,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,3000,Cells/L,"3,000 Cells/L"
+27500,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27501,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,500,Cells/L,500 Cells/L
+27502,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,50,Cells/L,50 Cells/L
+27503,Port Noarlunga,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,450,Cells/L,450 Cells/L
+27504,Port Noarlunga,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27505,Port Noarlunga,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27506,Port Noarlunga,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27507,Port Noarlunga,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27508,Port Noarlunga,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27509,Wirrina Breakwater,2025-10-31,Algal Count - Total,,Results Summary,"Mainly small flagellates (cryptomonads, dinoflagellates, prymnesiophytes) with benthic diatoms (Cylindrotheca). Some sediment and organic detritus.",,,"Mainly small flagellates (cryptomonads, dinoflagellates, prymnesiophytes) with benthic diatoms (Cylindrotheca). Some sediment and organic detritus."
+27510,Wirrina Breakwater,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27511,Wirrina Breakwater,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,430000,Cells/L,"430,000 Cells/L"
+27512,Wirrina Breakwater,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27513,Wirrina Breakwater,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27514,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27515,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,5500,Cells/L,"5,500 Cells/L"
+27516,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,,Cells/L,Not detected
+27517,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,100000,Cells/L,"100,000 Cells/L"
+27518,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27519,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27520,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27521,Wirrina Breakwater,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27522,Wirrina Breakwater,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27523,Wirrina Breakwater,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27524,Wirrina Breakwater,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27525,Wirrina Breakwater,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),x,,Cells/L,Detected in sample but not observed during cell counts 
+27526,Wirrina Breakwater,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27527,Brighton Jetty,2025-10-31,Algal Count - Total,,Results Summary,"Benthic diatoms (Cylindrotheca) and small flagellates (dinoflagellates, prasinophytes, prymnesiophytes, ochromonads). Some sediment and organic detritus.",,,"Benthic diatoms (Cylindrotheca) and small flagellates (dinoflagellates, prasinophytes, prymnesiophytes, ochromonads). Some sediment and organic detritus."
+27528,Brighton Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27529,Brighton Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,2100000,Cells/L,"2,100,000 Cells/L"
+27530,Brighton Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27531,Brighton Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27532,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27533,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,500,Cells/L,500 Cells/L
+27534,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis caudata,,50,Cells/L,50 Cells/L
+27535,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,300,Cells/L,300 Cells/L
+27536,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27537,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Levanderina fissa,,,Cells/L,Not detected
+27538,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27539,Brighton Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27540,Brighton Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27541,Brighton Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27542,Brighton Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27543,Brighton Jetty,2025-10-31,Algal Identification,Other,cf. Planktothrix sp. (filaments),,,Cells/L,Not detected
+27544,Brighton Jetty,2025-10-31,Algal Identification,Other,Phormidium  sp. (filaments),,,Cells/L,Not detected
+27545,Grange Jetty,2025-10-31,Algal Count - Total,,Results Summary,"A mix of planktonic diatoms (Guinardia, Leptocylindrus), benthic diatoms (Cylindrotheca, Pleurosigma) and small flagellates (dinoflagellates, ochromonads).  ",,,"A mix of planktonic diatoms (Guinardia, Leptocylindrus), benthic diatoms (Cylindrotheca, Pleurosigma) and small flagellates (dinoflagellates, ochromonads).  "
+27546,Grange Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Not Detected,,,Not Detected
+27547,Grange Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,2900000,Cells/L,"2,900,000 Cells/L"
+27548,Grange Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27549,Grange Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27550,Grange Jetty,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27551,Grange Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27552,Grange Jetty,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27553,Grange Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27554,Grange Jetty,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27555,Grange Jetty,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27556,Grange Jetty,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27557,Patawalonga King St Bridge,2025-10-31,Algal Count - Total,,Results Summary,"Sample dominated by Cylindrotheca sp., with small flagellates (dinoflagellates, prasinophytes, ochromonads).  ",,,"Sample dominated by Cylindrotheca sp., with small flagellates (dinoflagellates, prasinophytes, ochromonads).  "
+27558,Patawalonga King St Bridge,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27559,Patawalonga King St Bridge,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,58000000,Cells/L,"58,000,000 Cells/L"
+27560,Patawalonga King St Bridge,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27561,Patawalonga King St Bridge,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27562,Patawalonga King St Bridge,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27563,Patawalonga King St Bridge,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,2300,Cells/L,"2,300 Cells/L"
+27564,Patawalonga King St Bridge,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27565,Patawalonga King St Bridge,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27566,Patawalonga King St Bridge,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27567,Patawalonga King St Bridge,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,500,Cells/L,500 Cells/L
+27568,Patawalonga King St Bridge,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27569,Port River Dock One,2025-10-31,Algal Count - Total,,Results Summary,"Sample dominated by Cylindrotheca sp., with small flagellates (cryptomonads, dinoflagellates, prasinophytes, euglenoids, ochromonads).  ",,,"Sample dominated by Cylindrotheca sp., with small flagellates (cryptomonads, dinoflagellates, prasinophytes, euglenoids, ochromonads).  "
+27570,Port River Dock One,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27571,Port River Dock One,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,9100000,Cells/L,"9,100,000 Cells/L"
+27572,Port River Dock One,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,x,,Cells/L,Detected in sample but not observed during cell counts 
+27573,Port River Dock One,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27574,Port River Dock One,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,50,Cells/L,50 Cells/L
+27575,Port River Dock One,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27576,Port River Dock One,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,1000,Cells/L,"1,000 Cells/L"
+27577,Port River Dock One,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27578,Port River Dock One,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27579,Port River Dock One,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,x,,Cells/L,Detected in sample but not observed during cell counts 
+27580,Port River Dock One,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27581,Port River North Haven Boat Ramp,2025-10-31,Algal Count - Total,,Results Summary,"Mainly small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, pedinellids, ochromonads), with planktonic (Chaetoceros, Rhizosolenia) and benthic diatoms (Cylindrotheca). ",,,"Mainly small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, pedinellids, ochromonads), with planktonic (Chaetoceros, Rhizosolenia) and benthic diatoms (Cylindrotheca). "
+27582,Port River North Haven Boat Ramp,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27583,Port River North Haven Boat Ramp,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,1400000,Cells/L,"1,400,000 Cells/L"
+27584,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,1500,Cells/L,"1,500 Cells/L"
+27585,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27586,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27587,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,150,Cells/L,150 Cells/L
+27588,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,1000,Cells/L,"1,000 Cells/L"
+27589,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,250,Cells/L,250 Cells/L
+27590,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27591,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27592,Port River North Haven Boat Ramp,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27593,Port River St Kilda Boat Ramp,2025-10-31,Algal Count - Total,,Results Summary,"Planktonic diatoms (Rhizosolenia) and small flagellates (cryptomonads, dinoflagellates, euglenoids, ochromonads).  ",,,"Planktonic diatoms (Rhizosolenia) and small flagellates (cryptomonads, dinoflagellates, euglenoids, ochromonads).  "
+27594,Port River St Kilda Boat Ramp,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27595,Port River St Kilda Boat Ramp,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,670000,Cells/L,"670,000 Cells/L"
+27596,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27597,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27598,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27599,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27600,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,1000,Cells/L,"1,000 Cells/L"
+27601,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27602,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27603,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,34000,Cells/L,"34,000 Cells/L"
+27604,Port River St Kilda Boat Ramp,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27605,West Lakes Inlet,2025-10-31,Algal Count - Total,,Results Summary,"Sample dominated by Cylindrotheca sp., with small flagellates (including high levels of Gymnodiniod species (690,000 cells/L), other dinoflagellates, euglenoids, ochromonads).  ",,,"Sample dominated by Cylindrotheca sp., with small flagellates (including high levels of Gymnodiniod species (690,000 cells/L), other dinoflagellates, euglenoids, ochromonads).  "
+27606,West Lakes Inlet,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27607,West Lakes Inlet,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,18000000,Cells/L,"18,000,000 Cells/L"
+27608,West Lakes Inlet,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27609,West Lakes Inlet,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,500,Cells/L,500 Cells/L
+27610,West Lakes Inlet,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27611,West Lakes Inlet,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27612,West Lakes Inlet,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,500,Cells/L,500 Cells/L
+27613,West Lakes Inlet,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27614,West Lakes Inlet,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27615,West Lakes Inlet,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27616,West Lakes Inlet,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27617,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Count - Total,,Results Summary,"Sample dominated by Cylindrotheca sp., with small flagellates (including high levels of Gymnodiniod species (290,000 cells/L), prymnesiophytes, with prasinophytes, ochromonads).  ",,,"Sample dominated by Cylindrotheca sp., with small flagellates (including high levels of Gymnodiniod species (290,000 cells/L), prymnesiophytes, with prasinophytes, ochromonads).  "
+27618,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27619,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,25000000,Cells/L,"25,000,000 Cells/L"
+27620,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27621,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,8500,Cells/L,"8,500 Cells/L"
+27622,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27623,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27624,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,2000,Cells/L,"2,000 Cells/L"
+27625,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27626,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,930000,Cells/L,"930,000 Cells/L"
+27627,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27628,West Lakes Bartley Tce Footbridge,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27629,West Lakes Lochside Footbridge,2025-10-31,Algal Count - Total,,Results Summary,"Sample dominated by Cylindrotheca sp., with small flagellates (including high levels of Gymnodiniod species (270,000 cells/L)).  ",,,"Sample dominated by Cylindrotheca sp., with small flagellates (including high levels of Gymnodiniod species (270,000 cells/L)).  "
+27630,West Lakes Lochside Footbridge,2025-10-31,Algal Count - Total,,Potentially harmful species,Not Detected,,,Not Detected
+27631,West Lakes Lochside Footbridge,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,13000000,Cells/L,"13,000,000 Cells/L"
+27632,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27633,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27634,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27635,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27636,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27637,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27638,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,,Cells/L,Not detected
+27639,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27640,West Lakes Lochside Footbridge,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),,,Cells/L,Not detected
+27641,West Lakes Exit,2025-10-31,Algal Count - Total,,Results Summary,"Benthic diatoms (Cylindrotheca) and small flagellates (dinoflagellates, prymnesiophytes, ochromonads).  ",,,"Benthic diatoms (Cylindrotheca) and small flagellates (dinoflagellates, prymnesiophytes, ochromonads).  "
+27642,West Lakes Exit,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27643,West Lakes Exit,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,6300000,Cells/L,"6,300,000 Cells/L"
+27644,West Lakes Exit,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27645,West Lakes Exit,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27646,West Lakes Exit,2025-10-31,Algal Identification,Dinoflagellates,Dinophysis acuminata,,,Cells/L,Not detected
+27647,West Lakes Exit,2025-10-31,Algal Identification,Dinoflagellates,Karenia sp.,,,Cells/L,Not detected
+27648,West Lakes Exit,2025-10-31,Algal Identification,Dinoflagellates,Karlodinium spp.,,,Cells/L,Not detected
+27649,West Lakes Exit,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27650,West Lakes Exit,2025-10-31,Algal Identification,Other,Chrysochromulina sp.,,310000,Cells/L,"310,000 Cells/L"
+27651,West Lakes Exit,2025-10-31,Algal Identification,Other,Heterosigma akashiwo,,,Cells/L,Not detected
+27652,West Lakes Exit,2025-10-31,Algal Identification,Other,Oscillatoria sp. (filaments),x,,Cells/L,Detected in sample but not observed during cell counts 
+27653,Largs Bay Jetty,2025-10-31,Algal Count - Total,,Results Summary,"A mix of planktonic diatoms (Rhizosolenia), benthic diatoms (Cylindrotheca) and small flagellates (cryptomonads, prasinophytes, prymnesiophytes).  High levels of sediment and organic detritus.",,,"A mix of planktonic diatoms (Rhizosolenia), benthic diatoms (Cylindrotheca) and small flagellates (cryptomonads, prasinophytes, prymnesiophytes).  High levels of sediment and organic detritus."
+27654,Largs Bay Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27655,Largs Bay Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,1300000,Cells/L,"1,300,000 Cells/L"
+27656,Largs Bay Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,1500,Cells/L,"1,500 Cells/L"
+27657,Largs Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,500,Cells/L,500 Cells/L
+27658,Largs Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27659,Largs Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,50,Cells/L,50 Cells/L
+27660,Largs Bay Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27661,Largs Bay Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,500,Cells/L,500 Cells/L
+27662,Glenelg Jetty,2025-10-31,Algal Count - Total,,Results Summary,"A mix of planktonic diatoms (Chaetoceros, Leptocylindrus) benthic diatoms (Cylindrotheca, Pleurosigma) and small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, ochromonads).  ",,,"A mix of planktonic diatoms (Chaetoceros, Leptocylindrus) benthic diatoms (Cylindrotheca, Pleurosigma) and small flagellates (cryptomonads, dinoflagellates, prasinophytes, prymnesiophytes, ochromonads).  "
+27663,Glenelg Jetty,2025-10-31,Algal Count - Total,,Potentially harmful species,Not Detected,,,Not Detected
+27664,Glenelg Jetty,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,2700000,Cells/L,"2,700,000 Cells/L"
+27665,Glenelg Jetty,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27666,Glenelg Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27667,Glenelg Jetty,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,,Cells/L,Not detected
+27668,Glenelg Jetty,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27669,Glenelg Jetty,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27670,Glenelg Jetty,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27671,Port River Garden Island Boat Ramp,2025-10-31,Algal Count - Total,,Results Summary,"A mix of planktonic diatoms (Rhizosolenia), benthic diatoms (Cylindrotheca) and small flagellates (cryptomonads, dinoflagellates, ochromonads).  ",,,"A mix of planktonic diatoms (Rhizosolenia), benthic diatoms (Cylindrotheca) and small flagellates (cryptomonads, dinoflagellates, ochromonads).  "
+27672,Port River Garden Island Boat Ramp,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27673,Port River Garden Island Boat Ramp,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,580000,Cells/L,"580,000 Cells/L"
+27674,Port River Garden Island Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27675,Port River Garden Island Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27676,Port River Garden Island Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27677,Port River Garden Island Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27678,Port River Garden Island Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,,,Cells/L,Not detected
+27679,Port River Garden Island Boat Ramp,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27680,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Count - Total,,Results Summary,"Planktonic diatoms (Rhizosolenia, Chaetoceros) and small flagellates (cryptomonads, dinoflagellates, prymnesiophytes).  ",,,"Planktonic diatoms (Rhizosolenia, Chaetoceros) and small flagellates (cryptomonads, dinoflagellates, prymnesiophytes).  "
+27681,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27682,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,420000,Cells/L,"420,000 Cells/L"
+27683,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27684,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium sp.,,,Cells/L,Not detected
+27685,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Azadinium/Heterocapsa sp.,,1000,Cells/L,"1,000 Cells/L"
+27686,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27687,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Identification,Dinoflagellates,Takayama spp.,x,,Cells/L,Detected in sample but not observed during cell counts 
+27688,Port River Outer Harbour Boat Ramp,2025-10-31,Algal Identification,Other,Lyngbya  sp. (filaments),,,Cells/L,Not detected
+27689,Myponga,2025-10-31,Algal Count - Total,,Results Summary,"A mix of planktonic diatoms (Leptocylindrus), benthic diatoms (Pleurosigma, Cylindrotheca, Licmophora) and small flagellates (dinoflagellates, pedinellids, ochromonads). Some sediment and organic detritus.",,,"A mix of planktonic diatoms (Leptocylindrus), benthic diatoms (Pleurosigma, Cylindrotheca, Licmophora) and small flagellates (dinoflagellates, pedinellids, ochromonads). Some sediment and organic detritus."
+27690,Myponga,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27691,Myponga,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,200000,Cells/L,"200,000 Cells/L"
+27692,Myponga,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27693,Myponga,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27694,Myponga,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia pungens/multiseries,,,Cells/L,Not detected
+27695,Myponga,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27696,Myponga,2025-10-31,Algal Identification,Dinoflagellates,Phalacroma mitra,,,Cells/L,Not detected
+27697,Myponga,2025-10-31,Algal Identification,Dinoflagellates,Phalacroma rotundatum,,50,Cells/L,50 Cells/L
+27698,Hallett Cove,2025-10-31,Algal Count - Total,,Results Summary,"Mainly small flagellates (predominantly prymnesiophytes with dinoflagellates) with benthic diatoms (Cylindrotheca, Entomoneis, Pleurosigma). Some sediment and organic detritus.",,,"Mainly small flagellates (predominantly prymnesiophytes with dinoflagellates) with benthic diatoms (Cylindrotheca, Entomoneis, Pleurosigma). Some sediment and organic detritus."
+27699,Hallett Cove,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27700,Hallett Cove,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,810000,Cells/L,"810,000 Cells/L"
+27701,Hallett Cove,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,,Cells/L,Not detected
+27702,Hallett Cove,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,,Cells/L,Not detected
+27703,Hallett Cove,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia pungens/multiseries,,,Cells/L,Not detected
+27704,Hallett Cove,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,50,Cells/L,50 Cells/L
+27705,Hallett Cove,2025-10-31,Algal Identification,Dinoflagellates,Phalacroma mitra,,,Cells/L,Not detected
+27706,Hallett Cove,2025-10-31,Algal Identification,Dinoflagellates,Phalacroma rotundatum,,50,Cells/L,50 Cells/L
+27707,Aldinga Beach,2025-10-31,Algal Count - Total,,Results Summary,"Mainly small flagellates (predominantly prymnesiophytes with dinoflagellates, cryptomonads) with planktonic diatoms (Leptocylindrus) and benthic diatoms (Licmophora).",,,"Mainly small flagellates (predominantly prymnesiophytes with dinoflagellates, cryptomonads) with planktonic diatoms (Leptocylindrus) and benthic diatoms (Licmophora)."
+27708,Aldinga Beach,2025-10-31,Algal Count - Total,,Potentially harmful species,Detected,,,Detected
+27709,Aldinga Beach,2025-10-31,Algal Count - Total,,Total Phytoplankton > 5 micrometres,,420000,Cells/L,"420,000 Cells/L"
+27710,Aldinga Beach,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia delicatissima group,,1500,Cells/L,"1,500 Cells/L"
+27711,Aldinga Beach,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia fraudulenta/australis,,1000,Cells/L,"1,000 Cells/L"
+27712,Aldinga Beach,2025-10-31,Algal Identification,Diatoms,Pseudo-nitzschia pungens/multiseries,x,,Cells/L,Detected in sample but not observed during cell counts 
+27713,Aldinga Beach,2025-10-31,Algal Identification,Dinoflagellates,Noctiluca  scintillans,,,Cells/L,Not detected
+27714,Aldinga Beach,2025-10-31,Algal Identification,Dinoflagellates,Phalacroma mitra,,50,Cells/L,50 Cells/L
+27715,Aldinga Beach,2025-10-31,Algal Identification,Dinoflagellates,Phalacroma rotundatum,,,Cells/L,Not detected
