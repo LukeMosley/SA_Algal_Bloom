@@ -266,6 +266,13 @@ def main():
         )
         # Checkbox for including community data (placed here, above Filters)
         include_community = st.checkbox('Include community data')
+
+        if 'prev_include_community' not in st.session_state:
+        st.session_state.prev_include_community = False
+
+        if include_community != st.session_state.prev_include_community:
+        st.session_state.date_range = []  # Reset to trigger default last-2-weeks load
+        st.session_state.prev_include_community = include_community
        
         # Filters card (moved up to appear above Select species)
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
