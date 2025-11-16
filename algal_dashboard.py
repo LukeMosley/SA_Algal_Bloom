@@ -391,9 +391,15 @@ def main():
         attr='Esri', name='Labels', overlay=True, control=True
     ).add_to(m)
     folium.LayerControl(position='bottomright').add_to(m) # Native positioning for layers
-    # Color scale (Viridis-inspired: purple → green → yellow)
+    # Color scale (updated to match CSS colors and transition points)
     viridis_colors = ['#641478', '#89CFF0', '#21908c', '#5dc863', '#fde725']
-    colormap = LinearColormap(colors=viridis_colors, vmin=0, vmax=500000)
+    colormap = LinearColormap(
+        colors=viridis_colors,
+        index=[0, 100000, 200000, 300000, 500000],  # Matches CSS % stops (0%, 20%, 40%, 60%, 100%)
+        vmin=0,
+        vmax=500000
+    )
+    
     ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
     # Add markers for main data
     for _, row in sub_df.iterrows():
