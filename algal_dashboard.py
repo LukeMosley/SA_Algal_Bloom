@@ -392,7 +392,7 @@ def main():
     ).add_to(m)
     folium.LayerControl(position='bottomright').add_to(m) # Native positioning for layers
     # Color scale (Viridis-inspired: purple → green → yellow)
-    viridis_colors = ['#641478', '#3b528b', '#21908c', '#5dc863', '#fde725']
+    viridis_colors = ['#641478', '#89CFF0', '#21908c', '#5dc863', '#fde725']
     colormap = LinearColormap(colors=viridis_colors, vmin=0, vmax=500000)
     ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
     # Add markers for main data
