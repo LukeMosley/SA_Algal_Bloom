@@ -190,11 +190,17 @@ def main():
         margin-bottom: 2px;
     }
     .colorbar-container {
-        background: linear-gradient(to right, #641478 0%, #3b528b 25%, #21908c 50%, #5dc863 75%, #fde725 100%);
-        height: 20px; /* Reduced height since labels are now below */
+        background: linear-gradient(to right, 
+            #641478 0%,   /* 0-10 */
+            #3b528b 20%,  /* 10-100 */
+            #21908c 40%,  /* 100-1,000 */
+            #5dc863 60%,  /* 1,000-10,000 */
+            #fde725 100%  /* 10,000-500,000+ */
+        );
+        height: 20px;
         border: 1px solid #ccc;
         border-radius: 4px;
-        padding: 0; /* No padding needed now */
+        padding: 0;
         max-width: 95%;
         width: 100%;
     }
