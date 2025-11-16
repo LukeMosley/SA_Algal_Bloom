@@ -10,7 +10,6 @@ from datetime import timedelta
 # Load data + coordinates
 # ---------------------------
 @st.cache_data
-@st.cache_data
 def load_data(file_path, coords_csv="site_coordinates.csv"):
     if not os.path.exists(file_path):
         st.warning(f"⚠️ Main data file '{file_path}' not found. Using empty dataset.")
@@ -35,7 +34,7 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
     if not os.path.exists(coords_csv):
         st.error(f"⚠️ Coordinates file '{coords_csv}' not found. Please generate site_coordinates.csv first.")
         st.stop()
-    coords_df = pd.read_csv(coords_csv)
+    coords_df = pd.read_csv(coords_csv, encoding='utf-8-sig')  # Updated with encoding to handle BOM/special chars
     df = df.merge(coords_df, on="Site_Description", how="left")
     df['Latitude'] = pd.to_numeric(df['Latitude'], errors='coerce')
     df['Longitude'] = pd.to_numeric(df['Longitude'], errors='coerce')
