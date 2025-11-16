@@ -19,26 +19,36 @@ def load_data(file_path, coords_csv="site_coordinates.csv"):
             df = pd.read_excel(file_path, sheet_name=0)
         else:
             df = pd.read_csv(file_path)
-        df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'], errors='coerce') # Added error handling
+        df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'], errors='coerce')
         # Normalize Result_Name for consistent uniqueness due to issues in govt data consistency of naming
         if 'Result_Name' in df.columns:
             df['Result_Name'] = (
                 df['Result_Name']
-                .astype(str) # Ensure string type
-                .str.strip() # Remove leading/trailing whitespace
-                .str.replace(r'\s+', ' ', regex=True) # Collapse multiple spaces
-                .str.replace('\xa0', ' ', regex=False) # Replace non-breaking spaces (U+00A0)
-                # Add more replacements if needed, e.g., .str.replace('.', '') for punctuation testing
+                .astype(str)
+                .str.strip()
+                .str.replace(r'\s+', ' ', regex=True)
+                .str.replace('\xa0', ' ', regex=False)
             )
-   
+  
     if not os.path.exists(coords_csv):
         st.error(f"⚠️ Coordinates file '{coords_csv}' not found. Please generate site_coordinates.csv first.")
         st.stop()
     coords_df = pd.read_csv(coords_csv)
-    df = df.merge(coords_df, on="Site_Description", how="left")
+    
+    # NEW: Normalize site names for merge by stripping ' Surface' or ' Bottom' (case-sensitive, regex)
+    df['Site_Base'] = df['Site_Description'].str.replace(r' (Surface|Bottom)$', '', regex=True).str.strip()
+    coords_df['Site_Base'] = coords_df['Site_Description'].str.strip()  # No change needed for coords
+    
+    # Merge on the base name
+    df = df.merge(coords_df, on="Site_Base", how="left", suffixes=('', '_coord'))
+    
+    # Drop temp columns (keep original Site_Description for display)
+    df = df.drop(['Site_Base', 'Site_Base_coord'] if 'Site_Base_coord' in df else ['Site_Base'], axis=1)
+    
     df['Latitude'] = pd.to_numeric(df['Latitude'], errors='coerce')
     df['Longitude'] = pd.to_numeric(df['Longitude'], errors='coerce')
     return df
+    
 @st.cache_data
 def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
     if not os.path.exists(file_path):
