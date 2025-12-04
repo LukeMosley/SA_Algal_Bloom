@@ -236,7 +236,8 @@ def main():
     # ---------------------------
     # File paths and data (load always, but filters conditional)
     # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv"
+    file_path = "HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv"
+    #file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv" #commented out original code
     coords_csv = "site_coordinates.csv"
     df = load_data(file_path, coords_csv)
     community_df = load_community()
