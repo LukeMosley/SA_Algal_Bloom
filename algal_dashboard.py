@@ -324,8 +324,22 @@ def main():
                     filtered_previous = ["Karenia spp subcount *"]
        
         default_species = filtered_previous if filtered_previous else karenia_defaults
-        species_selected = st.multiselect("Select species (via dropdown or start typing, *denotes community data)", options=all_species, default=default_species, key='species_multiselect')
+
+        # Force multiselect state update when community toggles on
+        if include_community:
+            if "Karenia spp subcount *" in all_species:
+                current = st.session_state.get("species_multiselect", [])
+                if "Karenia spp subcount *" not in current:
+                    st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
+
+        species_selected = st.multiselect(
+            "Select species (via dropdown or start typing, *denotes community data)",
+            options=all_species,
+            key="species_multiselect"
+        )
+
         st.session_state.species_selected = species_selected # Update state
+
         # FIXED: Persist date range—use previous if available, clamp to new min/max
         previous_date_range = st.session_state.date_range
         last_week_start = max_date - timedelta(days=14)
