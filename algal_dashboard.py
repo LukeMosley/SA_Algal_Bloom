@@ -316,6 +316,11 @@ def main():
                 min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
        
         all_species = sorted(combined_df['Result_Name'].dropna().unique())
+
+        # Separate main vs community species
+        main_species = set(df['Result_Name'].dropna().unique())
+        community_species = set(community_df['Result_Name'].dropna().unique())
+
        
         # FIXED: Persist species selection—default to Karenia if no valid previous (instead of empty)
         previous_selected = st.session_state.species_selected
@@ -349,10 +354,12 @@ def main():
         
         # If empty, seed with ALL Karenia variants (gov + community)
         if not cleaned:
-            cleaned = sorted({
+            cleaned = sorted(
                 s for s in all_species
-                if "Karenia" in s
-            })
+                if "Karenia" in s and (
+                    s in main_species or s in community_species
+                )
+            )
 
         
         st.session_state["species_multiselect"] = cleaned
