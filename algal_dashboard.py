@@ -291,13 +291,13 @@ def main():
             if not combined_df.empty:
                 min_date, max_date = combined_df['Date_Sample_Collected'].min(), combined_df['Date_Sample_Collected'].max()
             else:
-                min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
+                min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
         else:
             combined_df = df.copy()
             if not df.empty:
                 min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
             else:
-                min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
+                min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
        
         all_species = sorted(combined_df['Result_Name'].dropna().unique())
        
