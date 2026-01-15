@@ -257,10 +257,6 @@ def main():
     if 'date_range' not in st.session_state:
         # Initial default: will be set based on data below
         st.session_state.date_range = []
-    if "include_community" not in st.session_state:
-        st.session_state.include_community = True
-        # default community data box ticked
-   
     # ---------------------------
     # Sidebar: Title, colorbar, filters
     # ---------------------------
@@ -285,11 +281,7 @@ def main():
         unsafe_allow_html=True
         )
         # Checkbox for including community data (placed here, above Filters)
-        include_community = st.checkbox(
-            "Include community data",
-            key="include_community"
-        )
-        # include_community = st.checkbox('Include community data') #old code line
+        include_community = st.checkbox('Include community data')
 
         if 'prev_include_community' not in st.session_state:
             st.session_state.prev_include_community = False
@@ -316,11 +308,6 @@ def main():
                 min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
        
         all_species = sorted(combined_df['Result_Name'].dropna().unique())
-
-        # Separate main vs community species
-        main_species = set(df['Result_Name'].dropna().unique())
-        community_species = set(community_df['Result_Name'].dropna().unique())
-
        
         # FIXED: Persist species selection—default to Karenia if no valid previous (instead of empty)
         previous_selected = st.session_state.species_selected
@@ -338,6 +325,13 @@ def main():
        
         default_species = filtered_previous if filtered_previous else karenia_defaults
 
+        # Force multiselect state update when community toggles on
+        if include_community:
+            if "Karenia spp subcount *" in all_species:
+                current = st.session_state.get("species_multiselect", [])
+                if "Karenia spp subcount *" not in current:
+                    st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
+
         # --- HARD SYNC multiselect state to available species ---
         valid_species = set(all_species)
         current = st.session_state.get("species_multiselect", [])
@@ -345,15 +339,9 @@ def main():
         # Remove anything no longer valid (e.g. community species when toggled off)
         cleaned = [s for s in current if s in valid_species]
         
-        # If empty, seed with ALL Karenia variants (gov + community)
+        # If empty, seed with sensible defaults
         if not cleaned:
-            cleaned = sorted(
-                s for s in all_species
-                if "Karenia" in s and (
-                    s in main_species or s in community_species
-                )
-            )
-
+            cleaned = [s for s in all_species if "Karenia" in s]
         
         st.session_state["species_multiselect"] = cleaned
         
