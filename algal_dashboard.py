@@ -257,6 +257,10 @@ def main():
     if 'date_range' not in st.session_state:
         # Initial default: will be set based on data below
         st.session_state.date_range = []
+    if "include_community" not in st.session_state:
+        st.session_state.include_community = True
+        # default community data box ticked
+   
     # ---------------------------
     # Sidebar: Title, colorbar, filters
     # ---------------------------
@@ -281,7 +285,11 @@ def main():
         unsafe_allow_html=True
         )
         # Checkbox for including community data (placed here, above Filters)
-        include_community = st.checkbox('Include community data')
+        include_community = st.checkbox(
+            "Include community data",
+            key="include_community"
+        )
+        # include_community = st.checkbox('Include community data') #old code line
 
         if 'prev_include_community' not in st.session_state:
             st.session_state.prev_include_community = False
