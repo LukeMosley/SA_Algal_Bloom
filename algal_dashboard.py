@@ -88,9 +88,7 @@ def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
     melted_df['Units'] = 'cells/L'
    
     # FIXED: Append '*' to Result_Name to denote community data (e.g., "Karenia spp subcount *")
-    #melted_df['Result_Name'] = melted_df['Result_Name'].astype(str) + ' *'
-    # instead:
-    melted_df['Result_Name'] = melted_df['Result_Name'].astype(str).str.strip()
+    melted_df['Result_Name'] = melted_df['Result_Name'].astype(str) + ' *'
    
     # Convert Latitude and Longitude to numeric
     melted_df['Latitude'] = pd.to_numeric(melted_df['Latitude'], errors='coerce')
@@ -255,54 +253,39 @@ def main():
     # Sidebar: Title, colorbar, filters
     # ---------------------------
     with st.sidebar:
-        # Title and colorbar (unchanged)
+        # Title
         st.markdown(
-            '<div style="font-size:18px; font-weight:bold; text-align:center; margin: 0 0 0.5rem 0;">'
-            'Harmful Algal Bloom Dashboard South Australia</div>',
-            unsafe_allow_html=True
+        '<div style="font-size:18px; font-weight:bold; text-align:center; margin: 0 0 0.5rem 0;">' # Zeros top margin
+        'Harmful Algal Bloom Dashboard South Australia</div>',
+        unsafe_allow_html=True
         )
+        # Colorbar
         st.markdown(
-            """
-            <div class="colorbar-wrapper">
-                <div class="colorbar-container"></div>
-                <div class="colorbar-labels">
-                    <span>0</span><span>100,000</span><span>200,000</span><span>300,000</span><span>400,000</span><span>>500,000</span>
-                </div>
+        """
+        <div class="colorbar-wrapper">
+            <div class="colorbar-container"></div> <!-- Just the gradient, no labels inside -->
+            <div class="colorbar-labels">
+                <span>0</span><span>100,000</span><span>200,000</span><span>300,000</span><span>400,000</span><span>>500,000</span>
             </div>
-            <div class="colorbar-units">Cell count per L</div>
-            """,
-            unsafe_allow_html=True
+        </div>
+        <div class="colorbar-units">Cell count per L</div>
+        """,
+        unsafe_allow_html=True
         )
-        
-        # Checkbox
+        # Checkbox for including community data (placed here, above Filters)
         include_community = st.checkbox('Include community data')
+
         if 'prev_include_community' not in st.session_state:
             st.session_state.prev_include_community = False
-        
-        # Detect change and update states
+
         if include_community != st.session_state.prev_include_community:
-            # Reset date range (as before)
-            st.session_state.date_range = []
-            
-            # Update species selections programmatically
-            current_selected = st.session_state.get('species_multiselect', st.session_state.get('species_selected', []))
-            filtered_selected = [s for s in current_selected if s in all_species]  # Filter to current available species
-            
-            # If turning ON community, append "Karenia spp subcount" if available and missing
-            if include_community:
-                if "Karenia spp subcount" in all_species and "Karenia spp subcount" not in filtered_selected:
-                    filtered_selected.append("Karenia spp subcount")
-            
-            # Set the widget state
-            st.session_state['species_multiselect'] = filtered_selected
-            
-            # Update previous checkbox state
+            st.session_state.date_range = []  # Reset to trigger default last-2-weeks load
             st.session_state.prev_include_community = include_community
-        
-        # Filters card (unchanged)
+       
+        # Filters card (moved up to appear above Select species)
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
-        
-        # Conditional combined data and date range (unchanged)
+       
+        # Conditional combined data and date range
         if include_community:
             combined_df = pd.concat([df, community_df], ignore_index=True)
             if not combined_df.empty:
@@ -315,32 +298,43 @@ def main():
                 min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
             else:
                 min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
-    
-    all_species = sorted(combined_df['Result_Name'].dropna().unique())
-    
-    # No need for previous_selected/filtered_previous/default_species here anymore—handled in change block
-    
-    # Multiselect (remove default=; controlled by session_state)
-    species_selected = st.multiselect("Select species (via dropdown or start typing, *denotes community data)", options=all_species, key='species_multiselect')
-    st.session_state.species_selected = species_selected  # Update state
-    
-    # Date input logic (unchanged)
-    previous_date_range = st.session_state.date_range
-    last_week_start = max_date - timedelta(days=14)
-    if previous_date_range and len(previous_date_range) == 2:
-        clamped_start = max(min_date.date(), min(previous_date_range[0], max_date.date()))
-        clamped_end = max(clamped_start, min(max_date.date(), previous_date_range[1]))
-        date_range = st.date_input("Date range (year/month/day format)", [clamped_start, clamped_end],
-                                   min_value=min_date.date(), max_value=max_date.date(), key='date_input')
-    else:
-        date_range = st.date_input("Date range (year/month/day format)", [last_week_start.date(), max_date.date()],
-                                   min_value=min_date.date(), max_value=max_date.date(), key='date_input')
-    st.session_state.date_range = date_range
-    
-    if len(date_range) == 2:
-        start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
-    else:
-        start_date, end_date = min_date, max_date
+       
+        all_species = sorted(combined_df['Result_Name'].dropna().unique())
+       
+        # FIXED: Persist species selection—default to Karenia if no valid previous (instead of empty)
+        previous_selected = st.session_state.species_selected
+        # Filter previous to current options (removes unavailable on toggle off)
+        filtered_previous = [s for s in previous_selected if s in all_species]
+       
+        # NEW: When community is included, ensure "Karenia spp subcount *" is in defaults if available
+        karenia_defaults = [s for s in all_species if "Karenia" in s]
+        if include_community and "Karenia spp subcount *" in all_species:
+            if "Karenia spp subcount *" not in filtered_previous:
+                if filtered_previous:
+                    filtered_previous.append("Karenia spp subcount *")
+                else:
+                    filtered_previous = ["Karenia spp subcount *"]
+       
+        default_species = filtered_previous if filtered_previous else karenia_defaults
+        species_selected = st.multiselect("Select species (via dropdown or start typing, *denotes community data)", options=all_species, default=default_species, key='species_multiselect')
+        st.session_state.species_selected = species_selected # Update state
+        # FIXED: Persist date range—use previous if available, clamp to new min/max
+        previous_date_range = st.session_state.date_range
+        last_week_start = max_date - timedelta(days=14)
+        # If previous exists and valid, use it (clamped); else default
+        if previous_date_range and len(previous_date_range) == 2:
+            clamped_start = max(min_date.date(), min(previous_date_range[0], max_date.date()))
+            clamped_end = max(clamped_start, min(max_date.date(), previous_date_range[1]))
+            date_range = st.date_input("Date range (year/month/day format)", [clamped_start, clamped_end],
+                                       min_value=min_date.date(), max_value=max_date.date(), key='date_input')
+        else:
+            date_range = st.date_input("Date range (year/month/day format)", [last_week_start.date(), max_date.date()],
+                                       min_value=min_date.date(), max_value=max_date.date(), key='date_input')
+        st.session_state.date_range = date_range # Update state
+        if len(date_range) == 2:
+            start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
+        else:
+            start_date, end_date = min_date, max_date
     # ---------------------------
     # Filter dataset
     # ---------------------------
