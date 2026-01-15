@@ -347,9 +347,13 @@ def main():
         # Remove anything no longer valid (e.g. community species when toggled off)
         cleaned = [s for s in current if s in valid_species]
         
-        # If empty, seed with sensible defaults
+        # If empty, seed with ALL Karenia variants (gov + community)
         if not cleaned:
-            cleaned = [s for s in all_species if "Karenia" in s]
+            cleaned = sorted({
+                s for s in all_species
+                if "Karenia" in s
+            })
+
         
         st.session_state["species_multiselect"] = cleaned
         
