@@ -254,67 +254,67 @@ def main():
     # ---------------------------
     # Sidebar: Title, colorbar, filters
     # ---------------------------
-with st.sidebar:
-    # Title and colorbar (unchanged)
-    st.markdown(
-        '<div style="font-size:18px; font-weight:bold; text-align:center; margin: 0 0 0.5rem 0;">'
-        'Harmful Algal Bloom Dashboard South Australia</div>',
-        unsafe_allow_html=True
-    )
-    st.markdown(
-        """
-        <div class="colorbar-wrapper">
-            <div class="colorbar-container"></div>
-            <div class="colorbar-labels">
-                <span>0</span><span>100,000</span><span>200,000</span><span>300,000</span><span>400,000</span><span>>500,000</span>
+    with st.sidebar:
+        # Title and colorbar (unchanged)
+        st.markdown(
+            '<div style="font-size:18px; font-weight:bold; text-align:center; margin: 0 0 0.5rem 0;">'
+            'Harmful Algal Bloom Dashboard South Australia</div>',
+            unsafe_allow_html=True
+        )
+        st.markdown(
+            """
+            <div class="colorbar-wrapper">
+                <div class="colorbar-container"></div>
+                <div class="colorbar-labels">
+                    <span>0</span><span>100,000</span><span>200,000</span><span>300,000</span><span>400,000</span><span>>500,000</span>
+                </div>
             </div>
-        </div>
-        <div class="colorbar-units">Cell count per L</div>
-        """,
-        unsafe_allow_html=True
-    )
-    
-    # Checkbox
-    include_community = st.checkbox('Include community data')
-    if 'prev_include_community' not in st.session_state:
-        st.session_state.prev_include_community = False
-    
-    # Detect change and update states
-    if include_community != st.session_state.prev_include_community:
-        # Reset date range (as before)
-        st.session_state.date_range = []
+            <div class="colorbar-units">Cell count per L</div>
+            """,
+            unsafe_allow_html=True
+        )
         
-        # Update species selections programmatically
-        current_selected = st.session_state.get('species_multiselect', st.session_state.get('species_selected', []))
-        filtered_selected = [s for s in current_selected if s in all_species]  # Filter to current available species
+        # Checkbox
+        include_community = st.checkbox('Include community data')
+        if 'prev_include_community' not in st.session_state:
+            st.session_state.prev_include_community = False
         
-        # If turning ON community, append "Karenia spp subcount" if available and missing
+        # Detect change and update states
+        if include_community != st.session_state.prev_include_community:
+            # Reset date range (as before)
+            st.session_state.date_range = []
+            
+            # Update species selections programmatically
+            current_selected = st.session_state.get('species_multiselect', st.session_state.get('species_selected', []))
+            filtered_selected = [s for s in current_selected if s in all_species]  # Filter to current available species
+            
+            # If turning ON community, append "Karenia spp subcount" if available and missing
+            if include_community:
+                if "Karenia spp subcount" in all_species and "Karenia spp subcount" not in filtered_selected:
+                    filtered_selected.append("Karenia spp subcount")
+            
+            # Set the widget state
+            st.session_state['species_multiselect'] = filtered_selected
+            
+            # Update previous checkbox state
+            st.session_state.prev_include_community = include_community
+        
+        # Filters card (unchanged)
+        st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
+        
+        # Conditional combined data and date range (unchanged)
         if include_community:
-            if "Karenia spp subcount" in all_species and "Karenia spp subcount" not in filtered_selected:
-                filtered_selected.append("Karenia spp subcount")
-        
-        # Set the widget state
-        st.session_state['species_multiselect'] = filtered_selected
-        
-        # Update previous checkbox state
-        st.session_state.prev_include_community = include_community
-    
-    # Filters card (unchanged)
-    st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
-    
-    # Conditional combined data and date range (unchanged)
-    if include_community:
-        combined_df = pd.concat([df, community_df], ignore_index=True)
-        if not combined_df.empty:
-            min_date, max_date = combined_df['Date_Sample_Collected'].min(), combined_df['Date_Sample_Collected'].max()
+            combined_df = pd.concat([df, community_df], ignore_index=True)
+            if not combined_df.empty:
+                min_date, max_date = combined_df['Date_Sample_Collected'].min(), combined_df['Date_Sample_Collected'].max()
+            else:
+                min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
         else:
-            min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
-    else:
-        combined_df = df.copy()
-        if not df.empty:
-            min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
-        else:
-            min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
+            combined_df = df.copy()
+            if not df.empty:
+                min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
+            else:
+                min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2025-12-31')
     
     all_species = sorted(combined_df['Result_Name'].dropna().unique())
     
