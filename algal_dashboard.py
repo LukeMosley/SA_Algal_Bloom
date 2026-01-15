@@ -86,9 +86,17 @@ def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
    
     # Add units
     melted_df['Units'] = 'cells/L'
-   
-    # FIXED: Append '*' to Result_Name to denote community data (e.g., "Karenia spp subcount *")
-    melted_df['Result_Name'] = melted_df['Result_Name'].astype(str) + ' *'
+
+    melted_df['Result_Name'] = (
+        melted_df['Result_Name']
+            .astype(str)
+            .str.strip()
+            .str.replace(r'\s+', ' ', regex=True)
+            .str.replace('\xa0', ' ', regex=False)
+    )
+    
+    melted_df['Result_Name'] += ' *'
+
    
     # Convert Latitude and Longitude to numeric
     melted_df['Latitude'] = pd.to_numeric(melted_df['Latitude'], errors='coerce')
