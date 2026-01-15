@@ -332,13 +332,24 @@ def main():
                 if "Karenia spp subcount *" not in current:
                     st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
 
+        # --- HARD SYNC multiselect state to available species ---
+        valid_species = set(all_species)
+        current = st.session_state.get("species_multiselect", [])
+        
+        # Remove anything no longer valid (e.g. community species when toggled off)
+        cleaned = [s for s in current if s in valid_species]
+        
+        # If empty, seed with sensible defaults
+        if not cleaned:
+            cleaned = [s for s in all_species if "Karenia" in s]
+        
+        st.session_state["species_multiselect"] = cleaned
+        
         species_selected = st.multiselect(
             "Select species (via dropdown or start typing, *denotes community data)",
             options=all_species,
             key="species_multiselect"
         )
-
-        st.session_state.species_selected = species_selected # Update state
 
         # FIXED: Persist date range—use previous if available, clamp to new min/max
         previous_date_range = st.session_state.date_range
