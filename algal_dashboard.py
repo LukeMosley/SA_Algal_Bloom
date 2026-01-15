@@ -310,13 +310,13 @@ def main():
        
         # NEW: When community is included, ensure "Karenia spp subcount *" is in defaults if available
         karenia_defaults = [s for s in all_species if "Karenia" in s]
-        if include_community and "Karenia spp subcount *" in all_species:
-            if "Karenia spp subcount *" not in filtered_previous:
-                if filtered_previous:
-                    filtered_previous.append("Karenia spp subcount *")
-                else:
-                    filtered_previous = ["Karenia spp subcount *"]
-       
+            if include_community and "Karenia spp subcount" in all_species:  # Updated: removed space and *
+                if "Karenia spp subcount" not in filtered_previous:  # Updated: removed space and *
+                    if filtered_previous:
+                        filtered_previous.append("Karenia spp subcount")  # Updated: removed space and *
+                    else:
+                        filtered_previous = ["Karenia spp subcount"]  # Updated: removed space and *
+
         default_species = filtered_previous if filtered_previous else karenia_defaults
         species_selected = st.multiselect("Select species (via dropdown or start typing, *denotes community data)", options=all_species, default=default_species, key='species_multiselect')
         st.session_state.species_selected = species_selected # Update state
