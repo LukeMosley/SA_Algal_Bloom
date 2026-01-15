@@ -338,13 +338,6 @@ def main():
        
         default_species = filtered_previous if filtered_previous else karenia_defaults
 
-        # Force multiselect state update when community toggles on
-        if include_community:
-            if "Karenia spp subcount *" in all_species:
-                current = st.session_state.get("species_multiselect", [])
-                if "Karenia spp subcount *" not in current:
-                    st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
-
         # --- HARD SYNC multiselect state to available species ---
         valid_species = set(all_species)
         current = st.session_state.get("species_multiselect", [])
