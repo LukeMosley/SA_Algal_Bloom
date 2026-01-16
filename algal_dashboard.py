@@ -308,7 +308,13 @@ def main():
                 min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
        
         all_species = sorted(combined_df['Result_Name'].dropna().unique())
-       
+
+        # ---- FIRST LOAD SPECIES SEED (critical) ----
+        if "species_multiselect" not in st.session_state:
+            st.session_state["species_multiselect"] = [
+                s for s in all_species if "Karenia" in s
+            ]
+        
         # FIXED: Persist species selection—default to Karenia if no valid previous (instead of empty)
         previous_selected = st.session_state.species_selected
         # Filter previous to current options (removes unavailable on toggle off)
