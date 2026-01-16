@@ -284,7 +284,7 @@ def main():
         include_community = st.checkbox('Include community data', value=True)
 
         if 'prev_include_community' not in st.session_state:
-            st.session_state.prev_include_community = False
+            st.session_state.prev_include_community = True
 
         if include_community != st.session_state.prev_include_community:
             st.session_state.date_range = []  # Reset to trigger default last-2-weeks load
