@@ -281,7 +281,7 @@ def main():
         unsafe_allow_html=True
         )
         # Checkbox for including community data (placed here, above Filters)
-        include_community = st.checkbox('Include community data')
+        include_community = st.checkbox('Include community data', value=True)
 
         if 'prev_include_community' not in st.session_state:
             st.session_state.prev_include_community = False
