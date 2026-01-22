@@ -408,7 +408,7 @@ def main():
         advice (see <a href="https://www.algalbloom.sa.gov.au/" target="_blank">
         https://www.algalbloom.sa.gov.au/</a>) and/or obtain independent advice before
         relying on information in this application.</p>
-        <p style="margin-top: 10px;">The many community volunteers who contributed data and feedback for this dashboard are kindly thanked, in particular: Peri Coleman, Samantha Sea, Carey Hannaford, Kathryn Lewis, Troy Johnson, Lyndon Zimmermann, Faith Coleman, Anthony Rowland, Phil Bamford, Jane Power, Lochie Cameron, and Wendy Lambert.</p>
+        <p style="margin-top: 10px;">The many community volunteers who contributed data and feedback for this dashboard are kindly thanked, in particular: Peri Coleman, Samantha Sea, Carey Hannaford, Kathryn Lewis, Troy Johnson, Lyndon Zimmermann, Faith Coleman, Anthony Rowland, Phil Bamford, Jane Power, Lochie Cameron, Wendy Lambert, and Letitia Dahl-Helm.</p>
         </div>
         """,
         unsafe_allow_html=True
