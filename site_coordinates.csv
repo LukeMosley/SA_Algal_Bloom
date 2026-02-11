@@ -502,8 +502,8 @@ Boston Aquawatch Bottom,-34.715889999999995,135.90019
 Boston Aquawatch Surface,-34.71789,135.90019
 West Cape Offshore Surface,-35.32404,136.89325
 West Cape Offshore Bottom,-35.322039999999994,136.89325
-Daly Head Surface,-35.44683,136.91185
-Daly Head Bottom,-35.444829999999996,136.91185
+Daily Head Surface,-35.044683,136.91185
+Daily Head Bottom,-35.042683,136.91185
 Lake Macquarie Bank Surface,-35.3125,136.641653
 Lake Macquarie Bank Bottom,-35.3105,136.641653
 HAB 44 Bottom,-35.306999999999995,136.5197667
@@ -530,8 +530,8 @@ HAB 52 Bottom,-35.024231,136.06174
 HAB 52 Surface,-35.026231,136.06174
 HAB 53 Bottom,-35.060981999999996,136.320689
 HAB 53 Surface,-35.062982,136.320689
-HAB 55 Bottom,-35.06098,136.93375
-HAB 55 Surface,-35.06298,136.93375
+HAB 55 Bottom,-34.9188,136.9338
+HAB 55 Surface,-34.9208,136.9338
 Neptune 50 Bottom,-35.330149999999996,136.10416
 Neptune 50 Surface,-35.33215,136.10416
 Neptune North Bottom,-35.313182999999995,136.113633
@@ -554,8 +554,8 @@ Spilsby Ad Hoc 1 Bottom,-34.668589999999995,136.43011
 Spilsby Ad Hoc 1 Surface,-34.67059,136.43011
 Spilsby Ad Hoc 2 Bottom,-34.601929999999996,136.43184
 Spilsby Ad Hoc 2 Surface,-34.60393,136.43184
-North Neptune,-35.1331,136.0409
-Low Rocks,-35.11,136.028
+North Neptune,-35.225,136.074167
+Low Rocks,-35.183333,136.033333
 Tiperra Lighthouse,-34.04545961,137.3999999
 Curta Rocks Bottom,-34.9237,135.8485
 Curta Rocks Surface,-34.9257,135.8485
@@ -579,5 +579,4 @@ Point Turton 1 Bottom,-34.8653,137.2673
 Point Turton 1 Surface,-34.8673,137.2673
 Point Turton 2 Bottom,-34.690283,137.3247
 Point Turton 2 Surface,-34.692283,137.3247
-
-
+Dany Beach,-34.913212,137.062757
