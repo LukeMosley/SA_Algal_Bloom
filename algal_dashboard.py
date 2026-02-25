@@ -265,55 +265,11 @@ def main():
     # ---------------------------
     # File paths and data (load always, but filters conditional)
     # ---------------------------
-    file_path = "HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv"
-    #file_path = "HarmfulAlgalBloom_MonitoringSites_8382667239581124066.csv" #commented out original code
-    coords_csv = "site_coordinates.csv"
-    df = load_data(file_path, coords_csv)
-
-    # =========================
-    # DIAGNOSTIC: Check merge failures
-    # =========================
-    
-    st.subheader("Merge Diagnostics (temporary)")
-    
-    # Reload coordinates separately
-    coords_check = pd.read_csv("site_coordinates.csv", encoding="utf-8-sig")
-    coords_check.columns = coords_check.columns.str.strip()
-    
-    # Clean both sides the SAME way (important)
-    def clean_site(series):
-        return (
-            series.astype(str)
-            .str.strip()
-            .str.replace('\xa0', ' ', regex=False)
-            .str.replace('’', "'", regex=False)
-            .str.replace('‘', "'", regex=False)
-            .str.replace(r'\s+', ' ', regex=True)
-        )
-    
-    df_check = df.copy()
-    df_check["clean_name"] = clean_site(df_check["Site_Description"])
-    coords_check["clean_name"] = clean_site(coords_check["Site_Description"])
-    
-    # Sites present in monitoring data but NOT in coordinates
-    missing_sites = sorted(
-        set(df_check["clean_name"].unique())
-        - set(coords_check["clean_name"].unique())
+    df = load_data(
+        "HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv",
+        "HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"
     )
-    
-    if missing_sites:
-        st.error(f"❌ {len(missing_sites)} site names do not match coordinates file")
-        st.write(missing_sites)
-    else:
-        st.success("✅ All site names match coordinates file")
-    
-    # Also show rows where Latitude is NaN after merge
-    missing_coords_rows = df[df["Latitude"].isna()]
-    
-    if not missing_coords_rows.empty:
-        st.warning("Rows with missing Latitude after merge:")
-        st.write(missing_coords_rows["Site_Description"].unique())
-    #####
+
     
     community_df = load_community()
     # ---------------------------
