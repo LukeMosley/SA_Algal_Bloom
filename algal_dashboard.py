@@ -256,7 +256,7 @@ def main():
 st.subheader("Merge Diagnostics (temporary)")
 
 # Reload coordinates separately
-coords_check = pd.read_csv(coords_csv, encoding="utf-8-sig")
+coords_check = pd.read_csv("site_coordinates.csv", encoding="utf-8-sig")
 coords_check.columns = coords_check.columns.str.strip()
 
 # Clean both sides the SAME way (important)
