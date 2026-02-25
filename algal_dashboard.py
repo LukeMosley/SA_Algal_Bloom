@@ -89,9 +89,9 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.
     df = df.merge(sites, on="site_key", how="left")
     
     # Log unmatched sites for debugging (optional but helpful)
-    unmatched = df[df['Latitude'].isna()]['Site_Description'].unique()
-    if len(unmatched) > 0:
-        st.warning(f"Unmatched sites (no coords): {', '.join(unmatched)}")
+    #unmatched = df[df['Latitude'].isna()]['Site_Description'].unique()
+    #if len(unmatched) > 0:
+    #    st.warning(f"Unmatched sites (no coords): {', '.join(unmatched)}")
     
     return df
     
