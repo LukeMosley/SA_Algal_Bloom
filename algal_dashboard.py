@@ -10,34 +10,55 @@ from datetime import timedelta
 # Load data + coordinates
 # ---------------------------
 @st.cache_data
-def load_data(file_path, coords_csv="site_coordinates.csv"):
-    if not os.path.exists(file_path):
-        st.warning(f"⚠️ Main data file '{file_path}' not found. Using empty dataset.")
-        df = pd.DataFrame()
-    else:
-        if file_path.endswith(('.xlsx', '.xls')):
-            df = pd.read_excel(file_path, sheet_name=0)
-        else:
-            df = pd.read_csv(file_path)
-        df['Date_Sample_Collected'] = pd.to_datetime(df['Date_Sample_Collected'], errors='coerce') # Added error handling
-        # Normalize Result_Name for consistent uniqueness due to issues in govt data consistency of naming
-        if 'Result_Name' in df.columns:
-            df['Result_Name'] = (
-                df['Result_Name']
-                .astype(str) # Ensure string type
-                .str.strip() # Remove leading/trailing whitespace
-                .str.replace(r'\s+', ' ', regex=True) # Collapse multiple spaces
-                .str.replace('\xa0', ' ', regex=False) # Replace non-breaking spaces (U+00A0)
-                # Add more replacements if needed, e.g., .str.replace('.', '') for punctuation testing
-            )
-  
-    if not os.path.exists(coords_csv):
-        st.error(f"⚠️ Coordinates file '{coords_csv}' not found. Please generate site_coordinates.csv first.")
-        st.stop()
-    coords_df = pd.read_csv(coords_csv, encoding='utf-8')  # Updated to standard UTF-8
-    df = df.merge(coords_df, on="Site_Description", how="left")
-    df['Latitude'] = pd.to_numeric(df['Latitude'], errors='coerce')
-    df['Longitude'] = pd.to_numeric(df['Longitude'], errors='coerce')
+def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv", site_file="HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"):
+
+    # -----------------------
+    # Load algal results
+    # -----------------------
+    df = pd.read_csv(algal_file, encoding="utf-8-sig")
+    df.columns = df.columns.str.strip()
+
+    df['Date_Sample_Collected'] = pd.to_datetime(
+        df['Date_Sample_Collected'], errors='coerce'
+    )
+
+    # -----------------------
+    # Load site metadata
+    # -----------------------
+    sites = pd.read_csv(site_file, encoding="utf-8-sig")
+    sites.columns = sites.columns.str.strip()
+
+    sites = sites.rename(columns={"SiteName": "Site_Description"})
+
+    # -----------------------
+    # Cleaning function
+    # -----------------------
+    def clean_site(series):
+        return (
+            series.astype(str)
+            .str.strip()
+            .str.replace('\xa0', ' ', regex=False)
+            .str.replace('’', "'", regex=False)
+            .str.replace('‘', "'", regex=False)
+            .str.replace(r'\s+', ' ', regex=True)
+            .str.lower()
+        )
+
+    df["site_key"] = clean_site(df["Site_Description"])
+    sites["site_key"] = clean_site(sites["Site_Description"])
+
+    # Keep only needed site columns
+    sites = (
+        sites[["site_key", "Latitude", "Longitude"]]
+        .dropna(subset=["Latitude", "Longitude"])
+        .drop_duplicates(subset=["site_key"])
+    )
+
+    # -----------------------
+    # Merge
+    # -----------------------
+    df = df.merge(sites, on="site_key", how="left")
+
     return df
     
 @st.cache_data
