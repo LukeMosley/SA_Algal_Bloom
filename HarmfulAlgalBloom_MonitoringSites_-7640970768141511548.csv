@@ -1,0 +1,624 @@
+﻿OBJECTID,SiteName,SiteNumber,Longitude,Latitude,Region,Sampling_Type,Location_Notes,x,y
+1,Largs Bay Jetty,1000001,138.4827,-34.82386667,Metropolitan,Full scan (presence of all species),,138.4827,-34.82386667
+2,Grange Jetty,1000002,138.4857833,-34.90266667,Metropolitan,Quick scan (presence of potentially harmful species),,138.4857833,-34.90266667
+3,Glenelg Jetty,1000003,138.5080333,-34.9805,Metropolitan,Full scan (presence of all species),,138.5080333,-34.9804999999999
+4,O’Sullivan Beach Boat Ramp,1000004,138.46725,-35.11966667,Metropolitan,Quick scan (presence of potentially harmful species),,138.46725,-35.11966667
+5,Onkaparinga Rowing Club,1000005,138.4719833,-35.152,Metropolitan,Quick scan (presence of potentially harmful species),,138.4719833,-35.1519999999999
+6,Patawalonga King St Bridge,1000006,138.5128333,-34.9715,Metropolitan,Quick scan (presence of potentially harmful species),,138.5128333,-34.9714999999999
+7,Port River Dock One,1000007,138.5074667,-34.841,Metropolitan,Quick scan (presence of potentially harmful species),,138.5074667,-34.841
+8,Port River Garden Island Boat Ramp,1000008,138.54025,-34.80466667,Metropolitan,Full scan (presence of all species),,138.54025,-34.80466667
+9,Port River North Haven Boat Ramp,1000009,138.4867667,-34.79466667,Metropolitan,Quick scan (presence of potentially harmful species),,138.4867667,-34.79466667
+10,Port River Outer Harbour Boat Ramp,1000010,138.4860833,-34.774,Metropolitan,Full scan (presence of all species),,138.4860833,-34.7739999999999
+11,Port River St Kilda Boat Ramp,1000011,138.53585,-34.74333333,Metropolitan,Quick scan (presence of potentially harmful species),,138.53585,-34.74333333
+12,West Lakes Inlet,1000012,138.4899333,-34.89383333,Metropolitan,Quick scan (presence of potentially harmful species),,138.4899333,-34.8938333299999
+13,West Lakes Bartley Tce Footbridge,1000013,138.48845,-34.881,Metropolitan,Quick scan (presence of potentially harmful species),"Long term DIT monitoring site, but no longer sampled from the footbridge.  Point location has been updated to reflect current sampling location.",138.48845,-34.881
+14,West Lakes Lochside Footbridge,1000014,138.4997333,-34.87533333,Metropolitan,Quick scan (presence of potentially harmful species),"Long term DIT monitoring site, but no longer sampled from the footbridge.  Point location has been updated to reflect current sampling location.",138.4997333,-34.8753333299999
+15,West Lakes Exit,1000015,138.4983833,-34.8525,Metropolitan,Full scan (presence of all species),,138.4983833,-34.8525
+16,West Beach Boat Ramp,1000016,138.5039667,-34.95783333,Metropolitan,Quick scan (presence of potentially harmful species),,138.5039667,-34.95783333
+17,SARDI Caisson Intake,1000017,138.49469724,-34.95643574,Metropolitan,Quick scan (presence of potentially harmful species),,138.494697242,-34.95643574
+18,Mundoo Barrage Upstream,11884,138.905548,-35.541673,Ad hoc - Coorong,,,138.905548,-35.5416729999999
+19,Mundoo Barrage Downstream,11885,138.905273,-35.541668,Regional - Coorong,Quick scan (presence of potentially harmful species),,138.905273,-35.541668
+20,Parnka Point Boat Ramp,31513,139.395848,-35.902023,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.395848,-35.9020229999999
+21,Stoney Well,31514,139.503803,-35.974997,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.503803,-35.974997
+22,Snipe Point,31515,139.604581,-36.110445,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.604581,-36.110445
+23,1.8km West Salt Creek,31517,139.620593,-36.132537,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.620593,-36.132537
+24,Mark Point,31522,139.075728,-35.634235,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.075728,-35.6342349999999
+25,Long Point,31523,139.161775,-35.695781,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.161775,-35.695781
+26,Bonneys,31524,139.317545,-35.796612,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.317545,-35.796612
+27,Villa de Yumpa,31525,139.438969,-35.928158,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.438969,-35.9281579999999
+28,Nth Jack Point,31526,139.54967,-36.037024,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.54967,-36.037024
+29,Salt Creek Outlet,31528,139.635705,-36.134558,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.635705,-36.134558
+30,Noonameena,53032,139.261728,-35.758163,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.261728,-35.758163
+31,Lake Alexandrina at 7km SE Milang,308742,139.03982,-35.43727,Ad hoc - Coorong,,,139.03982,-35.43727
+32,Lake Alexandrina at Milang Jetty,3087421,138.97741,-35.40595,Ad hoc - Coorong,,,138.97741,-35.40595
+34,Murray Mouth,351213,138.881804,-35.556691,Regional - Coorong,Quick scan (presence of potentially harmful species),,138.881804,-35.5566909999999
+35,Tauwitchere Barrage Downstream,353177,139.015597,-35.590186,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.015597,-35.590186
+36,Tauwitchere Barrage Upstream,353179,139.015651,-35.589763,Ad hoc - Coorong,,,139.015651,-35.5897629999999
+37,Sth Policeman Point,531012,139.583338,-36.085134,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.583338,-36.085134
+38,Lake Alexandrina at 4km West Pomanda Point,308741,139.26869,-35.42976,Ad hoc - Coorong,,,139.26869,-35.4297599999999
+39,Lake Alexandrina at Beacon 95,312651,139.06475,-35.51481,Ad hoc - Coorong,,,139.06475,-35.51481
+40,McGrath Flat adjacent Rabbit Island,315121,139.38696391,-35.85268467,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.386963912,-35.852684672
+41,Morella Creek @ gauge,315191,139.65327384,-36.12488564,Regional - Coorong,Quick scan (presence of potentially harmful species),,139.65327384,-36.124885637
+42,Port Noarlunga,1000023,138.46433864,-35.14927412,Metropolitan,Quick scan (presence of potentially harmful species),Sampled 80m to the south-east of this site from 26 Aug to 31 Oct 2025,138.464338643,-35.149274122
+43,Wirrina Breakwater,1000020,138.23857904,-35.49958681,Regional - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.238579035,-35.4995868089999
+44,Rapid Bay Jetty,1000019,138.18538594,-35.52132562,Regional - Southern Fleurieu,Full scan (presence of all species),,138.185385936,-35.5213256169999
+45,Whyalla Marina,5000011,137.59133297,-33.04057135,Ad hoc - Eyre Peninsula,Full scan (presence of all species),,137.591332971,-33.0405713489999
+47,Black Point,5000010,137.72027746,-32.99138572,Ad hoc - Eyre Peninsula,Full scan (presence of all species),,137.720277456,-32.991385716
+48,GSV25_036,5000001,138.04926601,-34.53092293,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.049266014,-34.530922932
+49,GSV25_066,5000002,138.11341024,-34.63020837,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.113410239,-34.6302083699999
+50,GSV25_090,5000003,138.35755727,-34.67424998,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.357557274,-34.674249979
+51,GSV25_129,5000004,138.36062638,-34.74928951,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.360626376,-34.7492895139999
+52,GSV25_203,5000005,138.12185027,-34.88049361,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.121850268,-34.880493609
+53,GSV25_466,5000006,138.44057647,-35.2484789,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.440576474,-35.2484788959999
+54,GSV25_517,5000007,138.35280017,-35.35114035,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.352800167,-35.351140346
+55,GSV25_552,5000008,138.14241325,-35.45671744,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.142413249,-35.456717442
+56,GSV25_571,5000009,138.20517638,-35.50520925,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,138.205176378,-35.505209248
+57,Spencer Gulf Site 1,5000013,137.481947,-33.22442,Ad hoc - offshore,Full scan (presence of all species),,137.481947,-33.22442
+58,Spencer Gulf Site 2,5000014,137.471722,-33.239247,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.471722,-33.239247
+59,Spencer Gulf Site 3,5000015,137.469654,-33.257524,Ad hoc - offshore,Full scan (presence of all species),,137.469654,-33.2575239999999
+60,Spencer Gulf Site 4,5000016,137.478715,-33.260413,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.478715,-33.260413
+61,Spencer Gulf Site 5,5000017,137.482709,-33.244989,Ad hoc - offshore,Full scan (presence of all species),,137.482709,-33.244989
+62,Spencer Gulf Site 6,5000018,137.497223,-33.230874,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.497223,-33.230874
+63,Ardrossan Jetty,2000001,137.92582193,-34.42513435,Regional - Yorke Peninsula,Full scan (presence of all species),,137.925821927,-34.425134348
+64,Marion Bay Jetty,2000002,136.98445464,-35.23796753,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.984454641,-35.237967528
+65,Port Victoria Jetty,2000003,137.4792946,-34.49507446,Regional - Yorke Peninsula,Full scan (presence of all species),,137.479294599,-34.495074464
+66,Point Turton Jetty,2000004,137.35304854,-34.93330647,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,137.353048536,-34.933306467
+67,Wallaroo Jetty,2000005,137.61821009,-33.92636007,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,137.618210094,-33.926360068
+68,Port Augusta Wharf,2000006,137.75869799,-32.49073841,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,137.75869799,-32.490738413
+69,Encounter Bay Boat Ramp,2000007,138.598833,-35.58528251,Regional - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.598832996,-35.5852825109999
+70,Port Elliot Jetty,2000008,138.68442018,-35.53520013,Regional - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.684420176,-35.53520013
+71,American River,4000001,137.79085,-35.77803333,Regional - Kangaroo Island,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site AR-3A,137.79085,-35.77803333
+72,Boston Bay,4000002,135.8986,-34.65716667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site BB-13A,135.8986,-34.65716667
+73,Bickers Island,4000003,135.9533167,-34.7509,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site BI-3A,135.9533167,-34.7508999999999
+74,Coffin Bay,4000004,135.4743833,-34.61835,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COB-1,135.4743833,-34.61835
+75,Coorong (COR-8A),4000005,139.165566,-35.731924,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-8A,139.165566,-35.7319239999999
+76,Coobowie,4000006,137.75245,-35.05815,Regional - Yorke Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site CW-4A,137.75245,-35.05815
+77,Denial Bay,4000007,133.5992333,-32.1271,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site DB-10A,133.5992333,-32.1271
+78,Haslam,4000008,134.1947667,-32.53053333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site HA-90A,134.1947667,-32.53053333
+79,Kellidie Bay East,4000009,135.4907167,-34.60816667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site KEL-7A,135.4907167,-34.6081666699999
+80,Lower Eyre,4000010,135.9499,-34.65773333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site LE-1A,135.9499,-34.6577333299999
+81,Mount Dutton Bay,4000011,135.4367167,-34.57441667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site MDB-09A,135.4367167,-34.5744166699999
+82,Proper Bay,4000012,135.88075,-34.78833333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site PB-6A,135.88075,-34.7883333299999
+83,Port Douglas,4000013,135.3783833,-34.54616667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site PD-90A,135.3783833,-34.5461666699999
+84,Port Vincent,4000014,137.89155,-34.76426667,Regional - Yorke Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site PV-5A,137.89155,-34.76426667
+85,Smoky Bay,4000015,133.8951667,-32.33841667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SMB-10A,133.8951667,-32.33841667
+86,Smoky Bay - Waterwitch,4000016,133.8885167,-32.37596667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SMB-13A,133.8885167,-32.37596667
+87,St Peters Island,4000017,133.6883667,-32.21595,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SP-2A,133.6883667,-32.21595
+88,Stansbury,4000018,137.82555,-34.89845,Regional - Yorke Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site ST-5A,137.82555,-34.89845
+89,Streaky Bay - Blancheport,4000019,134.2298833,-32.73713333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site STB-11A,134.2298833,-32.7371333299999
+90,Franklin Harbour (SWB-1),4000020,136.9359833,-33.70248333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SWB-1,136.9359833,-33.70248333
+91,Franklin Harbour (SWB-2),4000021,136.92615,-33.70796667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SWB-2,136.92615,-33.70796667
+92,Franklin Harbour (SWB-3),4000022,136.90825,-33.72748333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SWB-3,136.90825,-33.72748333
+93,Franklin Harbour (SWB-4),4000023,136.9141667,-33.7473,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SWB-4,136.9141667,-33.7472999999999
+94,Franklin Harbour (SWB-9),4000024,136.9021167,-33.7396,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SWB-9,136.9021167,-33.7395999999999
+95,Franklin Harbour (SWB-90A),4000025,136.9048833,-33.75216667,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site SWB-90A,136.9048833,-33.75216667
+96,Venus Bay,4000026,134.6725667,-33.22236667,Ad hoc - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site VB-1A,134.6725667,-33.2223666699999
+97,Wardang Island,4000027,137.4246654,-34.50707911,Ad hoc - Yorke Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site WI-01A,137.424665401,-34.5070791099999
+98,Western Cove,4000028,137.65728333,-35.72761667,Ad hoc - Kangaroo Island,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site WK-03A,137.657283333,-35.7276166679999
+99,Streaky Bay - Hummocks,4000029,134.20141667,-32.7184,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site STB-12A,134.201416667,-32.718400001
+100,Streaky Bay - Eba Island,4000030,134.24031667,-32.64208333,Regional - Eyre Peninsula,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site STB-16A,134.240316667,-32.6420833339999
+101,Whyalla WH-A Surface,6000002,137.46897,-33.27901,Offshore,Karenia counts,,137.46897,-33.27901
+102,Whyalla WH-B Surface,6000003,137.54828,-33.11425,Offshore,Karenia counts,,137.54828,-33.11425
+103,Whyalla WH-C Surface,6000004,137.62698,-33.06566,Offshore,Karenia counts,,137.62698,-33.06566
+104,Whyalla WH-D Surface,6000005,137.696,-33.02539,Offshore,Karenia counts,,137.696,-33.02539
+105,Whyalla WH-E Surface,6000006,137.74773,-32.9967,Offshore,Karenia counts,,137.74773,-32.9967
+106,Tumby Bay Jetty,2000012,136.10705408,-34.37745919,Regional - Eyre Peninsula,Full scan (presence of all species),,136.10705408,-34.377459191
+107,Whyalla Jetty,2000011,137.59372698,-33.0430623,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,137.593726983,-33.043062301
+108,Arno Bay Jetty,2000009,136.57627252,-33.91850647,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,136.576272524,-33.9185064719999
+109,Point Lowly Marina,2000010,137.78327571,-32.99264147,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,137.783275708,-32.9926414729999
+111,Kingscote Jetty,2000014,137.64655721,-35.65579751,Regional - Kangaroo Island,Full scan (presence of all species),,137.646557213,-35.655797514
+112,Emu Bay Jetty,2000013,137.5067461,-35.59091602,Regional - Kangaroo Island,Quick scan (presence of potentially harmful species),,137.5067461,-35.590916019
+113,Brighton Jetty,1000021,138.5120937,-35.01748807,Metropolitan,Quick scan (presence of potentially harmful species),,138.512093696,-35.017488075
+114,Myponga,1000025,138.384517,-35.37055,Regional - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.384517,-35.37055
+115,Hallett Cove,1000022,138.494139,-35.073528,Metropolitan,Quick scan (presence of potentially harmful species),,138.494139,-35.073528
+117,Aldinga Snapper Point,5000027,138.433117,-35.269067,Ad hoc - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.433117,-35.2690669999999
+118,Aldinga Beach,1000024,138.456019,-35.263435,Regional - Southern Fleurieu,Full scan (presence of all species),,138.456019,-35.263435
+119,Munyaroo MD1,5000019,137.39168333,-33.43658333,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.391683333,-33.4365833329999
+120,Munyaroo MD2,5000020,137.4136,-33.37246667,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.4136,-33.372466667
+121,Munyaroo MD3,5000021,137.40211667,-33.31946667,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.402116667,-33.319466667
+122,Munyaroo MD4,5000022,137.45598333,-33.40051667,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.455983333,-33.400516667
+123,Munyaroo MD5,5000023,137.47265,-33.33025,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.47265,-33.33025
+124,Munyaroo MD6,5000024,137.46836667,-33.23376667,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.468366667,-33.2337666669999
+125,Munyaroo MD7,5000025,137.41771667,-33.4726,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.417716667,-33.4725999999999
+126,Munyaroo MD8,5000026,137.34875,-33.49923333,Ad hoc - offshore,Quick scan (presence of potentially harmful species),,137.34875,-33.4992333329999
+128,Penneshaw Breakwater,2000015,137.94413995,-35.71659788,Regional - Kangaroo Island,Quick scan (presence of potentially harmful species),,137.944139946,-35.7165978849999
+129,Port MacDonnell Jetty,2000016,140.70264129,-38.05665173,Regional - South East,Quick scan (presence of potentially harmful species),,140.70264129,-38.0566517299999
+130,Cable Bay,6000019,136.89943,-35.28627,Ad hoc - Yorke Peninsula,Karenia counts,,136.89943,-35.2862699999999
+131,Henley Beach Jetty 300 m Offshore,6000020,138.48489,-34.920092,Ad hoc - metropolitan,Karenia counts,,138.48489,-34.920092
+132,Henley Beach Jetty 500 m Offshore,6000021,138.4807,-34.920228,Ad hoc - metropolitan,Karenia counts,,138.4807,-34.920228
+133,Henley Beach Jetty Surf Zone,6000022,138.492928,-34.91956,Ad hoc - metropolitan,Karenia counts,,138.492928,-34.9195599999999
+134,Henley Beach Jetty 1 NM Offshore,6000023,138.470558,-34.92068,Ad hoc - metropolitan,Karenia counts,,138.470558,-34.9206799999999
+135,Marino 1,6000024,138.50813,-35.04461,Ad hoc - metropolitan,Karenia counts,,138.50813,-35.04461
+136,Marino 2,6000025,138.50806,-35.0452,Ad hoc - metropolitan,Karenia counts,,138.50806,-35.0452
+137,Marino 3,6000026,138.5084,-35.0439,Ad hoc - metropolitan,Karenia counts,,138.5084,-35.0439
+138,Port Lincoln Salmon Pty Ltd,6000027,136.18889,-35.00861,Ad hoc - Eyre Peninsula,Karenia counts,,136.18889,-35.00861
+139,Robe Breakwater,2000018,139.75290614,-37.15932824,Regional - South East,Full scan (presence of all species),,139.752906137,-37.159328237
+140,Cape Jaffa Jetty,2000017,139.68792754,-36.93968694,Regional - South East,Quick scan (presence of potentially harmful species),,139.687927538,-36.939686937
+141,Seacliff 1,6000037,138.51652,-35.0342,Ad hoc - metropolitan,Karenia counts,,138.51652,-35.0342000009999
+142,Seacliff 2,6000038,138.51577,-35.03648,Ad hoc - metropolitan,Karenia counts,,138.51577,-35.036480001
+143,Seacliff 3,6000039,138.5163,-35.03337,Ad hoc - metropolitan,Karenia counts,,138.5163,-35.033370001
+144,Henley Beach 1,6000028,138.49114,-34.91439,Ad hoc - metropolitan,Karenia counts,,138.49114,-34.914390001
+145,Henley Beach 2,6000029,138.49057,-34.91371,Ad hoc - metropolitan,Karenia counts,,138.49057,-34.913710001
+146,Henley Beach 3,6000030,138.49134,-34.91559,Ad hoc - metropolitan,Karenia counts,,138.49134,-34.9155900009999
+147,Parham 1,6000031,138.25647,-34.43724,Ad hoc - metropolitan,Karenia counts,,138.25647,-34.437240001
+148,Parham 2,6000032,138.25613,-34.43104,Ad hoc - metropolitan,Karenia counts,,138.25613,-34.4310400009999
+149,Parham 3,6000033,138.25672,-34.43378,Ad hoc - metropolitan,Karenia counts,,138.25672,-34.4337800009999
+150,Port Noarlunga 1,6000034,138.468806,-35.152999,Ad hoc - metropolitan,Karenia counts,,138.468806,-35.152999001
+151,Port Noarlunga 2,6000035,138.468712,-35.154041,Ad hoc - metropolitan,Karenia counts,,138.468712,-35.1540410009999
+152,Port Noarlunga 3,6000036,138.468877,-35.152205,Ad hoc - metropolitan,Karenia counts,,138.468877,-35.152205001
+153,West Beach 1,6000043,138.49839,-34.9421,Ad hoc - metropolitan,Karenia counts,,138.49839,-34.9421
+154,West Beach 2,6000044,138.49832,-34.94112,Ad hoc - metropolitan,Karenia counts,,138.49832,-34.94112
+155,West Beach 3,6000045,138.49881,-34.94279,Ad hoc - metropolitan,Karenia counts,,138.49881,-34.9427899999999
+156,Port River 1,6000040,138.4957,-34.84211,Ad hoc - metropolitan,Karenia counts,,138.4957,-34.8421099999999
+157,Port River 2,6000041,138.49604,-34.84345,Ad hoc - metropolitan,Karenia counts,,138.49604,-34.84345
+158,Port River 3,6000042,138.49577,-34.84525,Ad hoc - metropolitan,Karenia counts,,138.49577,-34.84525
+159,Stansbury ad hoc,6000046,137.84987,-34.92895,Ad hoc - Yorke Peninsula,Karenia counts,,137.84987,-34.9289499999999
+167,Aldinga Fishkill 3,6000055,138.4475,-35.31512,Ad hoc - Southern Fleurieu,Karenia counts,,138.4475,-35.31512
+168,Aldinga Fishkill 1,6000053,138.44753,-35.31607,Ad hoc - Southern Fleurieu,Karenia counts,,138.44753,-35.31607
+169,Aldinga Fishkill 2,6000054,138.44772,-35.31695,Ad hoc - Southern Fleurieu,Karenia counts,,138.44772,-35.31695
+170,Largs Fishkill 1,6000047,138.48588,-34.82079,Ad hoc - metropolitan,Karenia counts,,138.48588,-34.8207899999999
+171,Largs Fishkill 2,6000048,138.48513,-34.82004,Ad hoc - metropolitan,Karenia counts,,138.48513,-34.8200399999999
+172,Largs Fishkill 3,6000049,138.48562,-34.82156,Ad hoc - metropolitan,Karenia counts,,138.48562,-34.82156
+173,Robe Long Beach Boatswains Point,6000050,139.752,-37.163,Ad hoc - South East,Karenia counts,,139.752,-37.163
+174,Robe Long Beach Middle,6000051,139.803,-37.157,Ad hoc - South East,Karenia counts,,139.803,-37.157
+175,Robe Long Beach South Town End,6000052,139.781,-37.165,Ad hoc - South East,Karenia counts,,139.781,-37.165
+176,Pt. Clinton 1,6000056,138.01483,-34.229,Ad hoc - Yorke Peninsula,Karenia counts,,138.01483,-34.2289999999999
+177,Pt. Clinton 2,6000057,138.01613,-34.22914,Ad hoc - Yorke Peninsula,Karenia counts,,138.01613,-34.22914
+178,Pt. Clinton 3,6000058,138.01423,-34.2299,Ad hoc - Yorke Peninsula,Karenia counts,,138.01423,-34.2298999999999
+179,Coorong (COR-4A),4000031,138.99736944,-35.62632389,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-4A,138.997369444,-35.6263238889999
+180,Coorong (COR-12A),4000032,139.32745333,-35.85587944,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-12A,139.327453333,-35.855879444
+181,Moana 1 Fish Kill,6000059,138.47021,-35.20121,Ad hoc - metropolitan,Karenia counts,,138.47021,-35.2012099999999
+182,Moana 2 Fish Kill,6000060,138.47031,-35.20215,Ad hoc - metropolitan,Karenia counts,,138.47031,-35.20215
+183,Moana 3 Fish Kill,6000061,138.47011,-35.20061,Ad hoc - metropolitan,Karenia counts,,138.47011,-35.20061
+184,North Brighton 1 Fish Kill,6000062,138.51614,-35.03103,Ad hoc - metropolitan,Karenia counts,,138.51614,-35.0310299999999
+185,North Brighton 2 Fish Kill,6000063,138.51615,-35.02991,Ad hoc - metropolitan,Karenia counts,,138.51615,-35.02991
+186,North Brighton 3 Fish Kill,6000064,138.51624,-35.03196,Ad hoc - metropolitan,Karenia counts,,138.51624,-35.03196
+187,Coorong (COR-2A),4000033,138.91596365,-35.58039054,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-2A,138.91596365,-35.5803905399999
+188,Vivonne Bay,2000019,137.18470155,-35.99569941,Ad hoc - Kangaroo Island,Quick scan (presence of potentially harmful species),,137.184701547,-35.9956994089999
+189,Coorong (COR-1M),4000034,138.88048059,-35.55664412,Ad hoc - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-1M,138.88048059,-35.5566441199999
+190,Port Clinton Fishkill 1,6000070,138.0281,-34.2287,Ad hoc - Yorke Peninsula,Karenia counts,,138.0281,-34.2286999999999
+191,Port Clinton Fishkill 2,6000071,138.029,-34.26103,Ad hoc - Yorke Peninsula,Karenia counts,,138.029,-34.2610299999999
+192,Port Clinton Fishkill 3,6000072,138.0296,-34.2275,Ad hoc - Yorke Peninsula,Karenia counts,,138.0296,-34.2275
+193,Christies Beach Fishkill 1,6000065,138.4703,-35.1317,Ad hoc - metropolitan,Karenia counts,,138.4703,-35.1317
+194,Christies Beach Fishkill 2,6000066,138.47,-35.1333,Ad hoc - metropolitan,Karenia counts,,138.47,-35.1333
+195,Christies Beach Fishkill 3,6000067,138.4692,-35.136,Ad hoc - metropolitan,Karenia counts,,138.4692,-35.136
+196,Tailem Bend Fishkill 2,6000068,139.4539,-35.2569,Ad hoc - Coorong,Karenia counts,,139.4539,-35.2569
+197,Tailem Bend Fishkill 3,6000069,139.4546,-35.2581,Ad hoc - Coorong,Karenia counts,,139.4546,-35.2581
+198,Coorong (COR-2M),4000035,138.91306329,-35.58652278,Ad hoc - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-2M,138.91306329,-35.5865227799999
+199,Coorong (COR-14A),4000036,139.386535,-35.910349,Ad hoc - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-14A,139.386535,-35.9103489999999
+200,Henley Beach Jetty,1000026,138.49085,-34.9198,Metropolitan,Quick scan (presence of potentially harmful species),,138.49085,-34.9198
+201,Washpool Rd Fishkill 1,6000073,139.43367,-35.2949,Ad hoc - Coorong,Karenia counts,,139.43367,-35.2949
+202,Washpool Rd Fishkill 2,6000074,139.43071,-35.29609,Ad hoc - Coorong,Karenia counts,,139.43071,-35.2960899999999
+203,Washpool Rd Fishkill 3,6000075,139.42803,-35.29702,Ad hoc - Coorong,Karenia counts,,139.42803,-35.29702
+204,HAB 01 Surface,7000001,137.47,-33.6,Offshore,Karenia counts,,137.47,-33.6
+205,HAB 02 Surface,7000002,137.3139994,-33.72501553,Offshore,Karenia counts,,137.3139994,-33.72501553
+206,HAB 03 Surface,7000003,137.1575665,-33.84983168,Offshore,Karenia counts,,137.1575665,-33.84983168
+207,HAB 04 Surface,7000004,137.0007,-33.97444711,Offshore,Karenia counts,,137.0007,-33.97444711
+208,HAB 05 Surface,7000005,136.843399,-34.09886048,Offshore,Karenia counts,,136.843399,-34.0988604799999
+209,HAB 06 Surface,7000006,136.6856621,-34.22307045,Offshore,Karenia counts,,136.6856621,-34.22307045
+210,HAB 07 Surface,7000007,136.5274884,-34.34707568,Offshore,Karenia counts,,136.5274884,-34.3470756799999
+211,HAB 08 Surface,7000008,136.3688767,-34.47087486,Offshore,Karenia counts,,136.3688767,-34.47087486
+212,HAB 09 Surface,7000009,137.4113664,-33.77390225,Offshore,Karenia counts,,137.4113664,-33.7739022499999
+213,HAB 10 Surface,7000010,137.3525063,-33.94775676,Offshore,Karenia counts,,137.3525063,-33.9477567599999
+214,HAB 11 Surface,7000011,137.2934185,-34.12156176,Offshore,Karenia counts,,137.2934185,-34.12156176
+215,HAB 12 Surface,7000012,137.2341016,-34.29531547,Offshore,Karenia counts,,137.2341016,-34.2953154699999
+216,HAB 13 Surface,7000013,137.1745545,-34.46901609,Offshore,Karenia counts,,137.1745545,-34.46901609
+217,HAB 14 Surface,7000014,137.1147757,-34.64266186,Offshore,Karenia counts,,137.1147757,-34.64266186
+218,HAB 15 Surface,7000015,137.054764,-34.81625097,Offshore,Karenia counts,,137.054764,-34.8162509699999
+219,HAB 16 Surface,7000016,138,-34.4594474,Offshore,Karenia counts,,138,-34.4594473999999
+220,HAB 17 Surface,7000017,138.056,-34.66,Offshore,Karenia counts,,138.056,-34.66
+221,HAB 18 Surface,7000018,137.9900956,-34.83212659,Offshore,Karenia counts,,137.9900956,-34.83212659
+222,HAB 19 Surface,7000019,137.9239361,-35.00418943,Offshore,Karenia counts,,137.9239361,-35.0041894299999
+223,HAB 20 Surface,7000020,137.8575199,-35.17618675,Offshore,Karenia counts,,137.8575199,-35.1761867499999
+224,HAB 21 Surface,7000021,137.7908458,-35.34811678,Offshore,Karenia counts,,137.7908458,-35.3481167799999
+225,HAB 22 Surface,7000022,137.7239122,-35.51997774,Offshore,Karenia counts,,137.7239122,-35.5199777399999
+226,HAB 23 Surface,7000023,138.2,-34.66,Offshore,Karenia counts,,138.2,-34.66
+227,HAB 24 Surface,7000024,138.1566392,-34.83693429,Offshore,Karenia counts,,138.1566392,-34.8369342899999
+228,HAB 25 Surface,7000025,138.1131059,-35.01382193,Offshore,Karenia counts,,138.1131059,-35.0138219299999
+229,HAB 26 Surface,7000026,138.069399,-35.19066111,Offshore,Karenia counts,,138.069399,-35.19066111
+230,HAB 27 Surface,7000027,138.0255174,-35.36745,Offshore,Karenia counts,,138.0255174,-35.36745
+231,HAB 28 Surface,7000028,137.9814602,-35.54418679,Offshore,Karenia counts,,137.9814602,-35.54418679
+232,HAB 29 Surface,7000029,138.35,-34.75,Offshore,Karenia counts,,138.35,-34.7499999999999
+233,HAB 30 Surface,7000030,138.3208017,-34.92888853,Offshore,Karenia counts,,138.3208017,-34.9288885299999
+234,HAB 31 Surface,7000031,138.2914858,-35.10773664,Offshore,Karenia counts,,138.2914858,-35.10773664
+235,HAB 32 Surface,7000032,138.2620515,-35.28654251,Offshore,Karenia counts,,138.2620515,-35.2865425099999
+236,HAB 33 Surface,7000033,138.2324982,-35.46530429,Offshore,Karenia counts,,138.2324982,-35.4653042899999
+237,HAB 34 Surface,7000034,138.1511298,-35.72053375,Offshore,Karenia counts,,138.1511298,-35.72053375
+238,HAB 35 Surface,7000035,138.3691161,-35.69048623,Offshore,Karenia counts,,138.3691161,-35.69048623
+239,HAB 36 Surface,7000036,138.586953,-35.66007894,Offshore,Karenia counts,,138.586953,-35.6600789399999
+240,HAB 37 Surface,7000037,138.8046388,-35.62931222,Offshore,Karenia counts,,138.8046388,-35.62931222
+241,CW3,6000076,137.73862,-35.0624,Ad hoc - Yorke Peninsula,Karenia counts,,137.73862,-35.0624
+242,CW4,6000077,137.73582,-34.94383,Ad hoc - Yorke Peninsula,Karenia counts,,137.73582,-34.9438299999999
+243,CW6,6000078,137.55135,-34.94788,Ad hoc - Yorke Peninsula,Karenia counts,,137.55135,-34.9478799999999
+244,CW6A,6000079,137.7428,-34.95092,Ad hoc - Yorke Peninsula,Karenia counts,,137.7428,-34.9509199999999
+245,ST3,6000080,137.80805,-33.0944,Ad hoc - Eyre Peninsula,Karenia counts,,137.80805,-33.0944
+246,ST4,6000081,137.80217,-33.09928,Ad hoc - Eyre Peninsula,Karenia counts,,137.80217,-33.09928
+247,ST8,6000082,137.83265,-33.10838,Ad hoc - Eyre Peninsula,Karenia counts,,137.83265,-33.10838
+248,ST9,6000083,137.82598,-33.09915,Ad hoc - Eyre Peninsula,Karenia counts,,137.82598,-33.09915
+249,PV2,6000084,137.8741,-33.22808,Ad hoc - Yorke Peninsula,Karenia counts,,137.8741,-33.22808
+250,PV4,6000085,137.88643,-33.22958,Ad hoc - Yorke Peninsula,Karenia counts,,137.88643,-33.2295799999999
+251,PV3,6000086,137.8691,-33.23092,Ad hoc - Yorke Peninsula,Karenia counts,,137.8691,-33.23092
+252,Carrickalinga 1,6000087,138.3207028,-35.4250461,Ad hoc - Southern Fleurieu,Karenia counts,,138.3207028,-35.4250461
+253,Carrickalinga 2,6000088,138.3202113,-35.4260632,Ad hoc - Southern Fleurieu,Karenia counts,,138.3202113,-35.4260631999999
+254,Carrickalinga 3,6000089,138.319559,-35.4267391,Ad hoc - Southern Fleurieu,Karenia counts,,138.319559,-35.4267391
+255,Coorong (COR-10A),4000037,139.2517264,-35.79600559,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-10A,139.2517264,-35.7960055899999
+256,Goolwa Recreational Beach (1),4000039,138.83008,-35.54078,Regional - Southern Fleurieu,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site Goolwa 1,138.83008,-35.540780001
+257,Goolwa Recreational Beach (2),4000040,138.79291,-35.52872,Regional - Southern Fleurieu,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site Goolwa 2,138.79291,-35.528720001
+258,Goolwa Recreational Beach (3),4000041,138.74363,-35.51693,Regional - Southern Fleurieu,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site Goolwa 3,138.74363,-35.5169300009999
+259,Coorong (COR-13A),4000038,139.3536,-35.8713,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-13A,139.3536,-35.871300001
+260,Serenity Campsite S1,6000093,136.83785,-33.79951667,Ad hoc - Eyre Peninsula,Karenia counts,,136.83785,-33.799516668
+261,Serenity Campsite S3,6000095,136.83785,-33.79876667,Ad hoc - Eyre Peninsula,Karenia counts,,136.83785,-33.798766668
+262,Serenity Campsite S5,6000097,136.83785,-33.79801667,Ad hoc - Eyre Peninsula,Karenia counts,,136.83785,-33.7980166679999
+263,Serenity Campsite S2,6000094,136.83785,-33.79951667,Ad hoc - Eyre Peninsula,Karenia counts,,136.83785,-33.799516668
+264,Serenity Campsite S4,6000096,136.83785,-33.79876667,Ad hoc - Eyre Peninsula,Karenia counts,,136.83785,-33.798766668
+265,Serenity Campsite S6,6000098,136.83785,-33.79801667,Ad hoc - Eyre Peninsula,Karenia counts,,136.83785,-33.7980166679999
+266,Hallet Cove Fishkill 1,6000102,138.49429,-35.08411,Ad hoc - metropolitan,Karenia counts,,138.49429,-35.0841100009999
+267,Hallet Cove Fishkill 2,6000103,138.49394,-35.0826,Ad hoc - metropolitan,Karenia counts,,138.49394,-35.0826000009999
+268,Hallet Cove Fishkill 3,6000104,138.49541,-35.0809,Ad hoc - metropolitan,Karenia counts,,138.49541,-35.080900001
+269,Seacliff Fishkill 1,6000108,138.51649,-35.0293,Ad hoc - metropolitan,Karenia counts,,138.51649,-35.029300001
+270,Seacliff Fishkill 2,6000109,138.51654,-35.02978,Ad hoc - metropolitan,Karenia counts,,138.51654,-35.0297800009999
+271,Seacliff Fishkill 3,6000110,138.51647,-35.0291,Ad hoc - metropolitan,Karenia counts,,138.51647,-35.029100001
+272,Henley Beach Fishkill 1,6000105,138.49609,-34.93145,Ad hoc - metropolitan,Karenia counts,,138.49609,-34.931450001
+273,Henley Beach Fishkill 2,6000106,138.49616,-34.93232,Ad hoc - metropolitan,Karenia counts,,138.49616,-34.9323200009999
+274,Henley Beach Fishkill 3,6000107,138.49595,-34.93079,Ad hoc - metropolitan,Karenia counts,,138.49595,-34.9307900009999
+275,"Glenelg Fishkill 1
+",6000099,138.51105,-34.97882,Ad hoc - metropolitan,Karenia counts,,138.51105,-34.978820001
+276,Glenelg Fishkill 2,6000100,138.50977,-34.98035,Ad hoc - metropolitan,Karenia counts,,138.50977,-34.980350001
+277,Glenelg Fishkill 3,6000101,138.50992,-34.98157,Ad hoc - metropolitan,Karenia counts,,138.50992,-34.981570001
+278,HAB 01 Bottom,7100001,137.47,-33.6,Offshore,Karenia counts,,137.47,-33.6
+279,HAB 02 Bottom,7100002,137.3139994,-33.72501553,Offshore,Karenia counts,,137.3139994,-33.72501553
+280,HAB 03 Bottom,7100003,137.1575665,-33.84983168,Offshore,Karenia counts,,137.1575665,-33.84983168
+281,HAB 04 Bottom,7100004,137.0007,-33.97444711,Offshore,Karenia counts,,137.0007,-33.97444711
+282,HAB 05 Bottom,7100005,136.843399,-34.09886048,Offshore,Karenia counts,,136.843399,-34.0988604799999
+283,HAB 06 Bottom,7100006,136.6856621,-34.22307045,Offshore,Karenia counts,,136.6856621,-34.22307045
+284,HAB 07 Bottom,7100007,136.5274884,-34.34707568,Offshore,Karenia counts,,136.5274884,-34.3470756799999
+285,HAB 08 Bottom,7100008,136.3688767,-34.47087486,Offshore,Karenia counts,,136.3688767,-34.47087486
+286,HAB 09 Bottom,7100009,137.4113664,-33.77390225,Offshore,Karenia counts,,137.4113664,-33.7739022499999
+287,HAB 10 Bottom,7100010,137.3525063,-33.94775676,Offshore,Karenia counts,,137.3525063,-33.9477567599999
+288,HAB 11 Bottom,7100011,137.2934185,-34.12156176,Offshore,Karenia counts,,137.2934185,-34.12156176
+289,HAB 12 Bottom,7100012,137.2341016,-34.29531547,Offshore,Karenia counts,,137.2341016,-34.2953154699999
+290,HAB 13 Bottom,7100013,137.1745545,-34.46901609,Offshore,Karenia counts,,137.1745545,-34.46901609
+291,HAB 14 Bottom,7100014,137.1147757,-34.64266186,Offshore,Karenia counts,,137.1147757,-34.64266186
+292,HAB 15 Bottom,7100015,137.054764,-34.81625097,Offshore,Karenia counts,,137.054764,-34.8162509699999
+293,HAB 16 Bottom,7100016,138,-34.4594474,Offshore,Karenia counts,,138,-34.4594473999999
+294,HAB 17 Bottom,7100017,138.056,-34.66,Offshore,Karenia counts,,138.056,-34.66
+295,HAB 18 Bottom,7100018,137.9900956,-34.83212659,Offshore,Karenia counts,,137.9900956,-34.83212659
+296,HAB 19 Bottom,7100019,137.9239361,-35.00418943,Offshore,Karenia counts,,137.9239361,-35.0041894299999
+297,HAB 20 Bottom,7100020,137.8575199,-35.17618675,Offshore,Karenia counts,,137.8575199,-35.1761867499999
+298,HAB 21 Bottom,7100021,137.7908458,-35.34811678,Offshore,Karenia counts,,137.7908458,-35.3481167799999
+299,HAB 22 Bottom,7100022,137.7239122,-35.51997774,Offshore,Karenia counts,,137.7239122,-35.5199777399999
+300,HAB 23 Bottom,7100023,138.2,-34.66,Offshore,Karenia counts,,138.2,-34.66
+301,HAB 24 Bottom,7100024,138.1566392,-34.83693429,Offshore,Karenia counts,,138.1566392,-34.8369342899999
+302,HAB 25 Bottom,7100025,138.1131059,-35.01382193,Offshore,Karenia counts,,138.1131059,-35.0138219299999
+303,HAB 26 Bottom,7100026,138.069399,-35.19066111,Offshore,Karenia counts,,138.069399,-35.19066111
+304,HAB 27 Bottom,7100027,138.0255174,-35.36745,Offshore,Karenia counts,,138.0255174,-35.36745
+305,HAB 28 Bottom,7100028,137.9814602,-35.54418679,Offshore,Karenia counts,,137.9814602,-35.54418679
+306,HAB 29 Bottom,7100029,138.35,-34.75,Offshore,Karenia counts,,138.35,-34.7499999999999
+307,HAB 30 Bottom,7100030,138.3208017,-34.92888853,Offshore,Karenia counts,,138.3208017,-34.9288885299999
+308,HAB 31 Bottom,7100031,138.2914858,-35.10773664,Offshore,Karenia counts,,138.2914858,-35.10773664
+309,HAB 32 Bottom,7100032,138.2620515,-35.28654251,Offshore,Karenia counts,,138.2620515,-35.2865425099999
+310,HAB 33 Bottom,7100033,138.2324982,-35.46530429,Offshore,Karenia counts,,138.2324982,-35.4653042899999
+311,HAB 34 Bottom,7100034,138.1511298,-35.72053375,Offshore,Karenia counts,,138.1511298,-35.72053375
+312,HAB 35 Bottom,7100035,138.3691161,-35.69048623,Offshore,Karenia counts,,138.3691161,-35.69048623
+313,HAB 36 Bottom,7100036,138.586953,-35.66007894,Offshore,Karenia counts,,138.586953,-35.6600789399999
+314,HAB 37 Bottom,7100037,138.8046388,-35.62931222,Offshore,Karenia counts,,138.8046388,-35.62931222
+763,Klein Point Fishkill 1,6000111,137.77402,-34.95984,Ad hoc - Yorke Peninsula,Karenia counts,,137.77402,-34.959840001
+764,Klein Point Fishkill 2,6000112,137.77397,-34.95943,Ad hoc - Yorke Peninsula,Karenia counts,,137.77397,-34.9594300009999
+765,Klein Point Fishkill 3,6000113,137.77452,-34.95881,Ad hoc - Yorke Peninsula,Karenia counts,,137.77452,-34.958810001
+766,Port Clinton Fishkill 1 (Oct),6000114,138.02551,-34.22393,Ad hoc - Yorke Peninsula,Karenia counts,,138.02551,-34.2239300009999
+767,Port Clinton Fishkill 2 (Oct),6000115,138.02434,-34.22486,Ad hoc - Yorke Peninsula,Karenia counts,,138.02434,-34.224860001
+768,Port Clinton Fishkill 3 (Oct),6000116,138.02244,-34.22645,Ad hoc - Yorke Peninsula,Karenia counts,,138.02244,-34.2264500009999
+769,Ardrossan Fishkill 1,6000117,137.91636,-34.43547,Ad hoc - Yorke Peninsula,Karenia counts,,137.91636,-34.4354700009999
+770,Ardrossan Fishkill 2,6000118,137.91784,-34.43505,Ad hoc - Yorke Peninsula,Karenia counts,,137.91784,-34.435050001
+771,Ardrossan Fishkill 3,6000119,137.9175,-34.4347,Ad hoc - Yorke Peninsula,Karenia counts,,137.9175,-34.434700001
+772,Second Valley Fishkill 1,6000120,138.21771667,-35.5114,Ad hoc - Southern Fleurieu,Karenia counts,,138.217716667,-35.511400001
+773,Second Valley Fishkill 2,6000121,138.21675,-35.5105,Ad hoc - Southern Fleurieu,Karenia counts,,138.21675,-35.510500001
+774,Second Valley Fishkill 3,6000122,138.21843333,-35.51133333,Ad hoc - Southern Fleurieu,Karenia counts,,138.218433333,-35.511333334
+775,Port Noarlunga Fishkill 1,6000123,138.46763333,-35.16558333,Ad hoc - metropolitan,Karenia counts,,138.467633333,-35.165583334
+776,Port Noarlunga Fishkill 2,6000124,138.46706667,-35.1664,Ad hoc - metropolitan,Karenia counts,,138.467066667,-35.1664000009999
+777,Port Noarlunga Fishkill 3,6000125,138.46818,-35.16494667,Ad hoc - metropolitan,Karenia counts,,138.46818,-35.164946668
+778,Myponga Beach Fishkill 1,6000126,138.38235,-35.37113333,Ad hoc - Southern Fleurieu,Karenia counts,,138.38235,-35.371133334
+779,Myponga Beach Fishkill 2,6000127,138.3819,-35.371,Ad hoc - Southern Fleurieu,Karenia counts,,138.3819,-35.371000001
+780,Myponga Beach Fishkill 3,6000128,138.38331667,-35.37148333,Ad hoc - Southern Fleurieu,Karenia counts,,138.383316667,-35.3714833339999
+781,Morgans Beach Fishkill 1,6000129,138.10574,-35.59454,Ad hoc - Southern Fleurieu,Karenia counts,,138.10574,-35.594540001
+782,Morgans Beach Fishkill 2,6000130,138.10654,-35.59402,Ad hoc - Southern Fleurieu,Karenia counts,,138.10654,-35.5940200009999
+783,Morgans Beach Fishkill 3,6000131,138.10526,-35.59518,Ad hoc - Southern Fleurieu,Karenia counts,,138.10526,-35.595180001
+784,Fishery Beach Fishkill 1,6000132,138.11476,-35.63272,Ad hoc - Southern Fleurieu,Karenia counts,,138.11476,-35.6327200009999
+785,Fishery Beach Fishkill 2,6000133,138.11357,-35.63299,Ad hoc - Southern Fleurieu,Karenia counts,,138.11357,-35.6329900009999
+786,Fishery Beach Fishkill 3,6000134,138.11511,-35.63342,Ad hoc - Southern Fleurieu,Karenia counts,,138.11511,-35.6334200009999
+787,Moana Fishkill 1,6000135,138.47029,-35.20304,Ad hoc - metropolitan,Karenia counts,,138.47029,-35.203040001
+788,Moana Fishkill 2,6000136,138.47007,-35.20366,Ad hoc - metropolitan,Karenia counts,,138.47007,-35.2036600009999
+789,Moana Fishkill 3,6000137,138.47016,-35.20267,Ad hoc - metropolitan,Karenia counts,,138.47016,-35.2026700009999
+790,Marion Bay Fishkill 1 (Nov),6000156,136.97951667,-35.24376667,Ad hoc - Yorke Peninsula,Karenia counts,,136.979516667,-35.243766668
+791,Marion Bay Fishkill 2 (Nov),6000157,136.98041085,-35.24376927,Ad hoc - Yorke Peninsula,Karenia counts,,136.980410851,-35.243769275
+792,Marion Bay Fishkill 3 (Nov),6000158,136.97861973,-35.2437655,Ad hoc - Yorke Peninsula,Karenia counts,,136.97861973,-35.2437655049999
+793,Aldinga Beach Fishkill 1 (Nov),6000138,138.442544,-35.287625,Ad hoc - Southern Fleurieu,Karenia counts,,138.442544,-35.287625001
+794,Aldinga Beach Fishkill 2 (Nov),6000139,138.442146,-35.286695,Ad hoc - Southern Fleurieu,Karenia counts,,138.442146,-35.2866950009999
+795,Aldinga Beach Fishkill 3 (Nov),6000140,138.44287,-35.28894,Ad hoc - Southern Fleurieu,Karenia counts,,138.44287,-35.288940001
+796,Henley Beach Fishkill 1 (Nov),6000150,138.49615,-34.93238333,Ad hoc - metropolitan,Karenia counts,,138.49615,-34.932383334
+797,Henley Beach Fishkill 2 (Nov),6000151,138.49591667,-34.93171667,Ad hoc - metropolitan,Karenia counts,,138.495916667,-34.931716668
+798,Henley Beach Fishkill 3 (Nov),6000152,138.49575,-34.93075,Ad hoc - metropolitan,Karenia counts,,138.49575,-34.930750001
+799,Christies Beach Fishkill 1 (Nov),6000141,138.46885,-35.13506,Ad hoc - metropolitan,Karenia counts,,138.46885,-35.1350600009999
+800,Christies Beach Fishkill 2 (Nov),6000142,138.46813,-35.13574,Ad hoc - metropolitan,Karenia counts,,138.46813,-35.1357400009999
+801,Christies Beach Fishkill 3 (Nov),6000143,138.469,-35.13408,Ad hoc - metropolitan,Karenia counts,,138.469,-35.134080001
+802,Fishery Beach Fishkill 1 (Nov),6000144,138.11456,-35.63264,Ad hoc - Southern Fleurieu,Karenia counts,,138.11456,-35.632640001
+803,Fishery Beach Fishkill 2 (Nov),6000145,138.11366,-35.63281,Ad hoc - Southern Fleurieu,Karenia counts,,138.11366,-35.6328100009999
+804,Fishery Beach Fishkill 3 (Nov),6000146,138.11414,-35.63271,Ad hoc - Southern Fleurieu,Karenia counts,,138.11414,-35.632710001
+805,Hallett Cove Fishkill 1 (Nov),6000147,138.49575,-35.07863,Ad hoc - metropolitan,Karenia counts,,138.49575,-35.078630001
+806,Hallett Cove Fishkill 2 (Nov),6000148,138.49578,-35.07788,Ad hoc - metropolitan,Karenia counts,,138.49578,-35.077880001
+807,Hallett Cove Fishkill 3 (Nov),6000149,138.49553,-35.07688,Ad hoc - metropolitan,Karenia counts,,138.49553,-35.0768800009999
+808,Marino Fishkill 1 (Nov),6000153,138.5074,-35.04466,Ad hoc - metropolitan,Karenia counts,,138.5074,-35.044660001
+809,Marino Fishkill 2 (Nov),6000154,138.50763,-35.04414,Ad hoc - metropolitan,Karenia counts,,138.50763,-35.044140001
+810,Marino Fishkill 3 (Nov),6000155,138.5073,-35.04495,Ad hoc - metropolitan,Karenia counts,,138.5073,-35.044950001
+811,Somerton Fishkill 1 (Nov),6000162,138.50963,-34.9993,Ad hoc - metropolitan,Karenia counts,,138.50963,-34.9993000009999
+812,Somerton Fishkill 2 (Nov),6000163,138.50958,-34.99876,Ad hoc - metropolitan,Karenia counts,,138.50958,-34.9987600009999
+813,Somerton Fishkill 3 (Nov),6000164,138.50973,-35.0009,Ad hoc - metropolitan,Karenia counts,,138.50973,-35.0009000009999
+814,Semaphore Fishkill 1 (Nov),6000159,138.47674,-34.84041,Ad hoc - metropolitan,Karenia counts,,138.47674,-34.840410001
+815,Semaphore Fishkill 2 (Nov),6000160,138.4768,-34.83935,Ad hoc - metropolitan,Karenia counts,,138.4768,-34.839350001
+816,Semaphore Fishkill 3 (Nov),6000161,138.47645,-34.8413,Ad hoc - metropolitan,Karenia counts,,138.47645,-34.841300001
+817,Coorong (COR-6A),4000042,139.0823,-35.6669,Regional - Coorong,Karenia counts (through the SA Shellfish Quality Assurance Program),SASQAP site COR-6A,139.0823,-35.6669000009999
+818,Point Lowly Lighthouse,2000020,137.78432869,-33.00091759,Ad hoc - Eyre Peninsula,Karenia counts,,137.784328687,-33.0009175929999
+819,Victor Fishkill 1 (Nov),6000176,138.64964,-35.53841,Ad hoc - Southern Fleurieu,Karenia counts,,138.64964,-35.5384100009999
+820,Victor Fishkill 2 (Nov),6000177,138.64864,-35.53858,Ad hoc - Southern Fleurieu,Karenia counts,,138.64864,-35.538580001
+821,Victor Fishkill 3 (Nov),6000178,138.65104,-35.53831,Ad hoc - Southern Fleurieu,Karenia counts,,138.65104,-35.538310001
+822,Sultana Point Fishkill 1 (Nov),6000174,137.75886667,-35.11425,Ad hoc - Yorke Peninsula,Karenia counts,,137.758866667,-35.114250001
+823,Sultana Point Fishkill 3 (Nov),6000175,137.75796835,-35.11498483,Ad hoc - Yorke Peninsula,Karenia counts,100 m West from site 1,137.757968352,-35.114984826
+824,Foul Bay Fishkill 1 (Nov),6000165,137.20350394,-35.19295799,Ad hoc - Yorke Peninsula,Karenia counts,100 m East from site 2,137.203503943,-35.192957991
+825,Foul Bay Fishkill 2 (Nov),6000166,137.20291667,-35.19351667,Ad hoc - Yorke Peninsula,Karenia counts,,137.202916667,-35.193516668
+826,Foul Bay Fishkill 3 (Nov),6000167,137.20235388,-35.19413599,Ad hoc - Yorke Peninsula,Karenia counts,100 m West from site 2,137.202353879,-35.1941359909999
+827,Moorowie Fishkill 1 (Nov),6000168,137.53782314,-35.11401818,Ad hoc - Yorke Peninsula,Karenia counts,100 m East from site 2,137.537823144,-35.114018183
+828,Moorowie Fishkill 2 (Nov),6000169,137.53676667,-35.11378333,Ad hoc - Yorke Peninsula,Karenia counts,,137.536766667,-35.1137833339999
+829,Moorowie Fishkill 3 (Nov),6000170,137.53517087,-35.11385908,Ad hoc - Yorke Peninsula,Karenia counts,100 m West from site 2,137.535170872,-35.1138590799999
+830,Whyalla Beached Stingray 1 (Nov),6000179,137.57561667,-33.0442,Ad hoc - Eyre Peninsula,Karenia counts,,137.575616667,-33.044200001
+831,Whyalla Beached Stingray 2 (Nov),6000180,137.57446667,-33.04448333,Ad hoc - Eyre Peninsula,Karenia counts,,137.574466667,-33.0444833339999
+832,Whyalla Beached Stingray 3 (Nov),6000181,137.57678333,-33.04396667,Ad hoc - Eyre Peninsula,Karenia counts,,137.576783333,-33.0439666679999
+833,Snapper Point Fishkill 1 (Nov),6000171,138.51508333,-34.77106667,Ad hoc - metropolitan,Karenia counts,,138.515083333,-34.7710666679999
+834,Snapper Point Fishkill 2 (Nov),6000172,138.51508333,-34.77198333,Ad hoc - metropolitan,Karenia counts,,138.515083333,-34.771983334
+835,Snapper Point Fishkill 3 (Nov),6000173,138.51503333,-34.77013333,Ad hoc - metropolitan,Karenia counts,,138.515033333,-34.770133334
+836,Whyalla WH-A Bottom,6100002,137.46897,-33.27901,Offshore,Karenia counts,,137.46897,-33.27901
+837,Whyalla WH-B Bottom,6100003,137.54828,-33.11425,Offshore,Karenia counts,,137.54828,-33.11425
+838,Whyalla WH-C Bottom,6100004,137.62698,-33.06566,Offshore,Karenia counts,,137.62698,-33.06566
+839,Whyalla WH-D Bottom,6100005,137.696,-33.02539,Offshore,Karenia counts,,137.696,-33.02539
+840,Whyalla WH-E Bottom,6100006,137.74773,-32.9967,Offshore,Karenia counts,,137.74773,-32.9967
+841,Aldinga Fishkill (Nov),6000182,138.443957,-35.2901465,Ad hoc - Southern Fleurieu,Karenia counts,,138.443957,-35.290146501
+842,Sellicks Beach Fishkill (Nov),6000186,138.44757,-35.32923,Ad hoc - Southern Fleurieu,Karenia counts,,138.44757,-35.329230001
+843,Silver Sands Fishkill (Nov),6000187,138.44749,-35.30888,Ad hoc - Southern Fleurieu,Karenia counts,,138.44749,-35.308880001
+844,American River 3 (Nov),6000183,137.78605556,-35.77266667,Ad hoc - Kangaroo Island,Karenia counts,,137.786055556,-35.7726666679999
+845,American River 2 (Nov),6000184,137.78119444,-35.77816667,Ad hoc - Kangaroo Island,Karenia counts,,137.781194444,-35.778166668
+846,American River 1 (Nov),6000185,137.77433333,-35.78269444,Ad hoc - Kangaroo Island,Karenia counts,,137.774333333,-35.7826944449999
+847,Webb Beach Fishkill 1 (Nov),6000194,138.2615501,-34.4597129,Ad hoc - metropolitan,Karenia counts,,138.2615501,-34.4597129009999
+848,Webb Beach Fishkill 2 (Nov),6000195,138.261105,-34.4602885,Ad hoc - metropolitan,Karenia counts,,138.261105,-34.460288501
+849,Webb Beach Fishkill 3 (Nov),6000196,138.2605322,-34.4662268,Ad hoc - metropolitan,Karenia counts,,138.2605322,-34.4662268009999
+850,Tennyson Fishkill 1 (Nov),6000188,138.48303,-34.88545,Ad hoc - metropolitan,Karenia counts,,138.48303,-34.885450001
+851,Tennyson Fishkill 2 (Nov),6000189,138.48338,-34.88621,Ad hoc - metropolitan,Karenia counts,,138.48338,-34.8862100009999
+852,Tennyson Fishkill 3 (Nov),6000190,138.4826,-34.88469,Ad hoc - metropolitan,Karenia counts,,138.4826,-34.884690001
+853,Tiddy Widdy Fishkill 1 (Nov),6000191,137.94096878,-34.40805869,Ad hoc - Yorke Peninsula,Karenia counts,,137.940968779,-34.40805869
+854,Tiddy Widdy Fishkill 2 (Nov),6000192,137.94035,-34.4088,Ad hoc - Yorke Peninsula,Karenia counts,,137.94035,-34.408800001
+855,Tiddy Widdy Fishkill 3 (Nov),6000193,137.939843,-34.40936333,Ad hoc - Yorke Peninsula,Karenia counts,,137.939842999,-34.409363331
+856,Middleton Point,2000021,138.707468,-35.516147,Ad hoc - Southern Fleurieu,Karenia counts,,138.707468,-35.516147001
+857,Parsons Beach,2000022,138.47202,-35.633918,Regional - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.47202,-35.633918001
+858,Waitpinga Beach,2000023,138.496202,-35.63607,Regional - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.496202,-35.636070001
+859,Christies Beach Fishkill 1 (Nov ii),6000198,138.46938,-35.13061,Ad hoc - metropolitan,Karenia counts,,138.46938,-35.130610001
+860,Christies Beach Fishkill 2 (Nov ii),6000199,138.4695,-35.13309,Ad hoc - metropolitan,Karenia counts,,138.4695,-35.133090001
+861,Christies Beach Fishkill 3 (Nov ii),6000200,138.46864,-35.13603,Ad hoc - metropolitan,Karenia counts,,138.46864,-35.1360300009999
+862,Semaphore Fishkill (Nov),6000217,138.47769,-34.8427,Ad hoc - metropolitan,Karenia counts,,138.47769,-34.842700001
+863,Tennyson Fishkill (Nov),6000222,138.4831,-34.88386,Ad hoc - metropolitan,Karenia counts,,138.4831,-34.883860001
+864,Grange Fishkill (Nov),6000205,138.4895,-34.89983,Ad hoc - metropolitan,Karenia counts,,138.4895,-34.8998300009999
+865,Henley Beach Fishkill (Nov),6000206,138.49435,-34.92391,Ad hoc - metropolitan,Karenia counts,,138.49435,-34.923910001
+866,Glenelg Fishkill (Nov),6000204,138.50894,-34.97869,Ad hoc - metropolitan,Karenia counts,,138.50894,-34.978690001
+867,Kingston Park (Nov),6000207,138.51243,-35.04061,Ad hoc - metropolitan,Karenia counts,,138.51243,-35.0406100009999
+868,Somerton Park Beach (Nov),6000221,138.51006,-34.99958,Ad hoc - metropolitan,Karenia counts,,138.51006,-34.999580001
+869,Seaford Fishkill 1 (Dec),6000214,138.4672,-35.18113,Ad hoc - metropolitan,Karenia counts,,138.4672,-35.1811300009999
+870,Seaford Fishkill 2 (Dec),6000215,138.46706,-35.18042,Ad hoc - metropolitan,Karenia counts,,138.46706,-35.180420001
+871,Seaford Fishkill 3 (Dec),6000216,138.46678,-35.17969,Ad hoc - metropolitan,Karenia counts,,138.46678,-35.179690001
+872,Port Willunga Fishkill 1 (Dec),6000211,138.46113,-35.25816,Ad hoc - Southern Fleurieu,Karenia counts,,138.46113,-35.258160001
+873,Port Willunga Fishkill 2 (Dec),6000212,138.46121,-35.25712,Ad hoc - Southern Fleurieu,Karenia counts,,138.46121,-35.257120001
+874,Port Willunga Fishkill 3 (Dec),6000213,138.46134,-35.25564,Ad hoc - Southern Fleurieu,Karenia counts,,138.46134,-35.255640001
+875,Brown Bay (Dec),6000197,140.833194,-38.041639,Ad hoc - South East,Karenia counts,,140.833194,-38.041639001
+876,Tennyson Fishkill 1 (Dec),6000223,138.4849,-34.8891,Ad hoc - metropolitan,Karenia counts,,138.4849,-34.889100001
+877,Tennyson Fishkill 2 (Dec),6000224,138.48428,-34.88865,Ad hoc - metropolitan,Karenia counts,,138.48428,-34.888650001
+878,Tennyson Fishkill 3 (Dec),6000225,138.48489,-34.89025,Ad hoc - metropolitan,Karenia counts,,138.48489,-34.890250001
+879,Normanville Fishkill 1 (Dec),6000208,138.30763,-35.44521,Ad hoc - Southern Fleurieu,Karenia counts,,138.30763,-35.445210001
+880,Normanville Fishkill 2 (Dec),6000209,138.30841,-35.44446,Ad hoc - Southern Fleurieu,Karenia counts,,138.30841,-35.444460001
+881,Normanville Fishkill 3 (Dec),6000210,138.3071,-35.44563,Ad hoc - Southern Fleurieu,Karenia counts,,138.3071,-35.445630001
+882,Silver Sands Fishkill 1 (Dec),6000218,138.44768,-35.31184,Ad hoc - Southern Fleurieu,Karenia counts,,138.44768,-35.311840001
+883,Silver Sands Fishkill 2 (Dec),6000219,138.44763,-35.31049,Ad hoc - Southern Fleurieu,Karenia counts,,138.44763,-35.3104900009999
+884,Silver Sands Fishkill 3 (Dec),6000220,138.44745,-35.30844,Ad hoc - Southern Fleurieu,Karenia counts,,138.44745,-35.308440001
+885,HAB 38 Bottom,7100038,136.845,-35.11,Offshore,Karenia counts,,136.845,-35.1100000009999
+886,HAB 38 Surface,7000038,136.845,-35.11,Offshore,Karenia counts,,136.845,-35.1100000009999
+887,HAB 39 Bottom,7100039,136.6561,-35.01811,Offshore,Karenia counts,,136.6561,-35.018110001
+888,HAB 39 Surface,7000039,136.6561,-35.01811,Offshore,Karenia counts,,136.6561,-35.018110001
+889,HAB 40 Bottom,7100040,136.4676,-34.92595,Offshore,Karenia counts,,136.4676,-34.9259500009999
+890,HAB 40 Surface,7000040,136.4676,-34.92595,Offshore,Karenia counts,,136.4676,-34.9259500009999
+891,HAB 41 Bottom,7100041,136.2797,-34.8335,Offshore,Karenia counts,,136.2797,-34.8335000009999
+892,HAB 41 Surface,7000041,136.2797,-34.8335,Offshore,Karenia counts,,136.2797,-34.8335000009999
+893,HAB 42 Bottom,7100042,136.0918,-34.74078,Offshore,Karenia counts,,136.0918,-34.740780001
+894,HAB 42 Surface,7000042,136.0918,-34.74078,Offshore,Karenia counts,,136.0918,-34.740780001
+895,Carrickalinga Fishkill 1 (Dec),6000226,138.3206582,-35.42516409,Ad hoc - Southern Fleurieu,Karenia counts,,138.3206582,-35.4251640909999
+896,Carrickalinga Fishkill 2 (Dec),6000227,138.32062,-35.4254,Ad hoc - Southern Fleurieu,Karenia counts,,138.32062,-35.425400001
+897,Carrickalinga Fishkill 3 (Dec),6000228,138.31984,-35.42638,Ad hoc - Southern Fleurieu,Karenia counts,,138.31984,-35.426380001
+898,Normanville Fishkill 1 (Dec ii),6000229,138.30779,-35.4448,Ad hoc - Southern Fleurieu,Karenia counts,,138.30779,-35.444800001
+899,Normanville Fishkill 2 (Dec ii),6000230,138.30737,-35.44528,Ad hoc - Southern Fleurieu,Karenia counts,,138.30737,-35.445280001
+900,Normanville Fishkill 3 (Dec ii),6000231,138.30695,-35.44567,Ad hoc - Southern Fleurieu,Karenia counts,,138.30695,-35.4456700009999
+901,Stony Point,5000042,137.752294,-32.99594,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,137.752294,-32.995940001
+902,Browns Beach,5000028,136.89305,-35.181327,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.89305,-35.1813270009999
+903,Little Emu Beach,5000029,136.944268,-35.272766,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.944268,-35.272766001
+904,Shell Beach,5000030,136.87219,-35.191708,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.87219,-35.1917080009999
+905,Chinamans,5000031,136.918405,-35.286212,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.918405,-35.286212
+906,West Bay,5000032,136.831875,-35.235513,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.831875,-35.235513001
+907,West Cape,5000033,136.828189,-35.248911,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,136.828189,-35.248911001
+908,Deep Pondalowie Bay,5000034,136.371233,-35.23925,Ad hoc - offshore,Karenia counts,,136.371233,-35.239250001
+909,Susanne Shoal,5000035,136.5713,-35.2384833,Ad hoc - offshore,Karenia counts,,136.5713,-35.238483301
+910,Pondalowie Out Front Surface,5000036,136.8104833,-35.22635,Ad hoc - offshore,Karenia counts,,136.8104833,-35.226350001
+911,Pondalowie Mooring Surface,5000037,136.83555,-35.2304833,Ad hoc - offshore,Karenia counts,,136.83555,-35.2304833009999
+912,Smiths Bay Beach,2000025,137.445,-35.5962,Regional - Kangaroo Island,Quick scan (presence of potentially harmful species),,137.445,-35.5962000009999
+913,Stokes Bay Boat Ramp,2000024,137.2037,-35.625,Regional - Kangaroo Island,Quick scan (presence of potentially harmful species),,137.2037,-35.6250000009999
+914,Moana - Seaford Beach,5000038,138.465,-35.184722,Ad hoc - metropolitan,Quick scan (presence of potentially harmful species),,138.465,-35.184722001
+915,Moana Beach,5000039,138.467778,-35.201944,Ad hoc - metropolitan,Quick scan (presence of potentially harmful species),,138.467778,-35.201944001
+916,Sellicks Silver Sands Beach,5000040,138.443333,-35.304722,Ad hoc - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.443333,-35.304722001
+917,Sellicks Beach,5000041,138.443333,-35.334167,Ad hoc - Southern Fleurieu,Quick scan (presence of potentially harmful species),,138.443333,-35.334167001
+918,Browns Surface,5000045,136.86028,-35.174783,Ad hoc - offshore,Karenia counts,,136.86028,-35.174783001
+919,Browns Bottom,5100045,136.86028,-35.174783,Ad hoc - offshore,Karenia counts,,136.86028,-35.174783001
+920,Inner Maquarie Bottom,5100048,136.69035,-35.2832166,Ad hoc - offshore,Karenia counts,,136.69035,-35.2832166009999
+921,Inner Maquarie Surface,5000048,136.69035,-35.2832166,Ad hoc - offshore,Karenia counts,,136.69035,-35.2832166009999
+922,Lawrey Bottom,5100049,136.75525,-35.242616,Ad hoc - offshore,Karenia counts,,136.75525,-35.2426160009999
+923,Lawrey Surface,5000049,136.75525,-35.242616,Ad hoc - offshore,Karenia counts,,136.75525,-35.2426160009999
+924,Outer Maquarie Bottom,5100047,136.622983,-35.320816,Ad hoc - offshore,Karenia counts,,136.622983,-35.320816001
+925,Outer Maquarie Surface,5000047,136.622983,-35.320816,Ad hoc - offshore,Karenia counts,,136.622983,-35.320816001
+926,Pondalowie 1 Bottom,5100044,136.830783,-35.204716,Ad hoc - offshore,Karenia counts,,136.830783,-35.204716001
+927,Pondalowie 1 Surface,5000044,136.830783,-35.204716,Ad hoc - offshore,Karenia counts,,136.830783,-35.204716001
+928,Pondalowie Beach,5000043,136.838466,-35.23551,Ad hoc - Yorke Peninsula,Karenia counts,,136.838466,-35.235510001
+929,Pondalowie Mooring Bottom,5100037,136.83555,-35.2304833,Ad hoc - offshore,Karenia counts,,136.83555,-35.2304833009999
+930,Pondalowie Out Front Bottom,5100036,136.8104833,-35.22635,Ad hoc - offshore,Karenia counts,,136.8104833,-35.226350001
+931,Waller Bottom,5100046,136.7954,-35.209966,Ad hoc - offshore,Karenia counts,,136.7954,-35.2099660009999
+932,Waller Surface,5000046,136.7954,-35.209966,Ad hoc - offshore,Karenia counts,,136.7954,-35.2099660009999
+933,North of Thistle Surface,5000050,136.18636,-34.88795,Ad hoc - offshore,Karenia counts,,136.18636,-34.887950001
+934,North of Thistle Bottom,5100050,136.18636,-34.88795,Ad hoc - offshore,Karenia counts,,136.18636,-34.887950001
+935,Wedge Island North,5000051,136.45107,-35.13585,Ad hoc - offshore,Karenia counts,,136.45107,-35.1358500009999
+936,Wedge Island Bay Bottom,5100052,136.46518,-35.14227,Ad hoc - offshore,Karenia counts,,136.46518,-35.1422700009999
+937,West of Wedge Island Surface,5000053,136.42204,-35.09964,Ad hoc - offshore,Karenia counts,,136.42204,-35.099640001
+938,West of Wedge Island Bottom,5100053,136.42204,-35.09964,Ad hoc - offshore,Karenia counts,,136.42204,-35.099640001
+939,HAB 43 Bottom,7100043,136.68395,-35.20468333,Offshore,Karenia counts,,136.68395,-35.2046833329999
+940,HAB 43 Surface,7000043,136.68395,-35.20468333,Offshore,Karenia counts,,136.68395,-35.2046833329999
+941,HAB 46 Bottom,7100046,136.99416667,-35.36976667,Offshore,Karenia counts,,136.994166667,-35.369766667
+942,HAB 46 Surface,7000046,136.99416667,-35.36976667,Offshore,Karenia counts,,136.994166667,-35.369766667
+943,HAB 47 Bottom,7100047,136.5384,-35.13603333,Offshore,Karenia counts,,136.5384,-35.1360333329999
+944,HAB 47 Surface,7000047,136.5384,-35.13603333,Offshore,Karenia counts,,136.5384,-35.1360333329999
+945,Emmes Bottom,5100054,136.8169,-35.3065,Ad hoc - offshore,Karenia counts,,136.8169,-35.3065
+946,Emmes Surface,5000054,136.8169,-35.3065,Ad hoc - offshore,Karenia counts,,136.8169,-35.3065
+947,Neels Bottom,5100055,136.3847,-35.3239,Ad hoc - offshore,Karenia counts,,136.3847,-35.3239
+948,Neels Surface,5000055,136.3847,-35.3239,Ad hoc - offshore,Karenia counts,,136.3847,-35.3239
+949,Althorpe Bottom,5100056,136.8662666,-35.377333,Ad hoc - offshore,Karenia counts,,136.8662666,-35.377333
+950,Althorpe Surface,5000056,136.8662666,-35.377333,Ad hoc - offshore,Karenia counts,,136.8662666,-35.377333
+951,Outer Suzzane Bottom,5100057,136.5797,-35.2788,Ad hoc - offshore,Karenia counts,,136.5797,-35.2787999999999
+952,Outer Suzzane Surface,5000057,136.5797,-35.2788,Ad hoc - offshore,Karenia counts,,136.5797,-35.2787999999999
+953,Cape Wiles Bottom,5100058,135.67819,-34.98059,Ad hoc - offshore,Karenia counts,,135.678190002,-34.980590005
+954,Cape Wiles Surface,5000058,135.67819,-34.98059,Ad hoc - offshore,Karenia counts,,135.678190002,-34.980590005
+955,Williams Island Bottom,5100059,135.96927,-35.01717,Ad hoc - offshore,Karenia counts,,135.96927,-35.01717
+956,Williams Island Surface,5000059,135.96927,-35.01717,Ad hoc - offshore,Karenia counts,,135.96927,-35.01717
+957,Maclaren Point Bottom,5100060,136.02853,-34.8036,Ad hoc - offshore,Karenia counts,,136.02853,-34.8036
+958,Maclaren Point Surface,5000060,136.02853,-34.8036,Ad hoc - offshore,Karenia counts,,136.02853,-34.8036
+959,Boston Aquawatch Bottom,5100061,135.90019,-34.71789,Ad hoc - offshore,Karenia counts,,135.90019,-34.71789
+960,Boston Aquawatch Surface,5000061,135.90019,-34.71789,Ad hoc - offshore,Karenia counts,,135.90019,-34.71789
+961,West Cape Offshore Surface,5000062,136.89325,-35.32404,Ad hoc - offshore,Karenia counts,,136.89325,-35.324040001
+962,West Cape Offshore Bottom,5100062,136.89325,-35.32404,Ad hoc - offshore,Karenia counts,,136.89325,-35.324040001
+963,Daly Head Surface,5000063,136.91185,-35.044683,Ad hoc - offshore,Karenia counts,,136.91185,-35.044683001
+964,Daly Head Bottom,5100063,136.91185,-35.044683,Ad hoc - offshore,Karenia counts,,136.91185,-35.044683001
+965,Lake Macquarie Bank Surface,5000064,136.641653,-35.3125,Ad hoc - offshore,Karenia counts,,136.641653,-35.3124999999999
+966,Lake Macquarie Bank Bottom,5100064,136.641653,-35.3125,Ad hoc - offshore,Karenia counts,,136.641653,-35.3124999999999
+967,HAB 44 Bottom,7100044,136.5197667,-35.309,Offshore,Karenia counts,,136.5197667,-35.309
+968,HAB 44 Surface,7000044,136.5197667,-35.309,Offshore,Karenia counts,,136.5197667,-35.309
+969,HAB 45 Bottom,7100045,136.7488,-35.35551667,Offshore,Karenia counts,,136.7488,-35.3555166699999
+970,HAB 45 Surface,7000045,136.7488,-35.35551667,Offshore,Karenia counts,,136.7488,-35.3555166699999
+971,Site 1 (Jan),5000065,136.90991167,-35.15455,Ad hoc - offshore,Karenia counts,,136.909911667,-35.154550001
+972,"Site 2 (Jan)
+",5000066,136.90991167,-35.15381667,Ad hoc - offshore,Karenia counts,,136.909911667,-35.1538166679999
+973,Site 3 (Jan),5000067,136.90991167,-35.15528333,Ad hoc - offshore,Karenia counts,,136.909911667,-35.1552833339999
+974,Corny Point,2000026,137.0106183,-34.89555,Regional - Yorke Peninsula,,,137.0106183,-34.8955500009999
+975,Point Souttar Fishkill 2 (Jan),6000233,137.30196333,-34.92115167,Ad hoc - Yorke Peninsula,,,137.301963333,-34.9211516679999
+976,Point Souttar Fishkill 1 (Jan),6000232,137.30305833,-34.92115167,Ad hoc - Yorke Peninsula,,,137.303058333,-34.9211516679999
+977,Point Souttar Fishkill 3 (Jan),6000234,137.30086833,-34.92115167,Ad hoc - Yorke Peninsula,,,137.300868333,-34.9211516679999
+978,HAB 48 Bottom,7100048,135.900507,-34.711394,Offshore,Karenia counts,,135.900507,-34.711394001
+979,HAB 48 Surface,7000048,135.900507,-34.711394,Offshore,Karenia counts,,135.900507,-34.711394001
+980,HAB 49 Bottom,7100049,135.997888,-34.72448,Offshore,Karenia counts,,135.997888,-34.724480001
+981,HAB 49 Surface,7000049,135.997888,-34.72448,Offshore,Karenia counts,,135.997888,-34.724480001
+982,HAB 50 Bottom,7100050,136.043852,-34.867644,Offshore,Karenia counts,,136.043852,-34.867644001
+983,HAB 50 Surface,7000050,136.043852,-34.867644,Offshore,Karenia counts,,136.043852,-34.867644001
+984,HAB 51 Bottom,7100051,136.059845,-34.949839,Offshore,Karenia counts,,136.059845,-34.9498390009999
+985,HAB 51 Surface,7000051,136.059845,-34.949839,Offshore,Karenia counts,,136.059845,-34.9498390009999
+986,HAB 52 Bottom,7100052,136.06174,-35.026231,Offshore,Karenia counts,,136.06174,-35.0262310009999
+987,HAB 52 Surface,7000052,136.06174,-35.026231,Offshore,Karenia counts,,136.06174,-35.0262310009999
+988,HAB 53 Bottom,7100053,136.320689,-35.062982,Offshore,Karenia counts,,136.320689,-35.062982001
+989,HAB 53 Surface,7000053,136.320689,-35.062982,Offshore,Karenia counts,,136.320689,-35.062982001
+990,HAB 55 Bottom,7100055,136.9338,-34.9208,Offshore,Karenia counts,,136.9338,-34.920800001
+991,HAB 55 Surface,7000055,136.9338,-34.9208,Offshore,Karenia counts,,136.9338,-34.920800001
+992,Neptune 50 Bottom,5100068,136.10416,-35.33215,Ad hoc - offshore,Karenia counts,,136.10416,-35.3321500009999
+993,Neptune 50 Surface,5000068,136.10416,-35.33215,Ad hoc - offshore,Karenia counts,,136.10416,-35.3321500009999
+994,Neptune North Bottom,5100069,136.113633,-35.315183,Ad hoc - offshore,Karenia counts,,136.113633,-35.315183001
+995,Neptune North Surface,5000069,136.113633,-35.315183,Ad hoc - offshore,Karenia counts,,136.113633,-35.315183001
+996,Neptune Bay Bottom,5100070,136.12218,-35.33135,Ad hoc - offshore,Karenia counts,,136.12218,-35.331350001
+997,Neptune Bay Surface,5000070,136.12218,-35.33135,Ad hoc - offshore,Karenia counts,,136.12218,-35.331350001
+998,Corny Point Dairy Rd,5000071,137.08429224,-34.91848135,Ad hoc - Yorke Peninsula,Quick scan (presence of potentially harmful species),,137.084292242,-34.9184813539999
+999,HAB 54 Bottom,7100054,136.26332,-34.55,Offshore,Karenia counts,,136.26332,-34.5500000009999
+1000,HAB 54 Surface,7000054,136.26332,-34.55,Offshore,Karenia counts,,136.26332,-34.5500000009999
+1001,Thistle Ad Hoc 1 Bottom,5100072,136.14011,-35.02392,Ad hoc - offshore,Karenia counts,,136.14011,-35.023920001
+1002,Thistle Ad Hoc 1 Surface,5000072,136.14011,-35.02392,Ad hoc - offshore,Karenia counts,,136.14011,-35.023920001
+1003,Thistle Ad Hoc 2 Bottom,5100073,136.18312,-35.06205,Ad hoc - offshore,Karenia counts,,136.18312,-35.0620500009999
+1004,Thistle Ad Hoc 2 Surface,5000073,136.18312,-35.06205,Ad hoc - offshore,Karenia counts,,136.18312,-35.0620500009999
+1005,"Thistle Ad Hoc 3 Bottom
+",5100074,136.1965,-35.04227,Ad hoc - offshore,Karenia counts,,136.1965,-35.042270001
+1006,Thistle Ad Hoc 3 Surface,5000074,136.1965,-35.04227,Ad hoc - offshore,Karenia counts,,136.1965,-35.042270001
+1007,Thistle Ad Hoc 4 Bottom,5100075,136.1611,-34.98414,Ad hoc - offshore,Karenia counts,,136.1611,-34.984140001
+1008,Thistle Ad Hoc 4 Surface,5000075,136.1611,-34.98414,Ad hoc - offshore,Karenia counts,,136.1611,-34.984140001
+1009,Spilsby Ad Hoc 1 Bottom,5100076,136.43011,-34.67059,Ad hoc - offshore,Karenia counts,,136.43011,-34.6705900009999
+1010,Spilsby Ad Hoc 1 Surface,5000076,136.43011,-34.67059,Ad hoc - offshore,Karenia counts,,136.43011,-34.6705900009999
+1011,Spilsby Ad Hoc 2 Bottom,5100077,136.43184,-34.60393,Ad hoc - offshore,Karenia counts,,136.43184,-34.603930001
+1012,Spilsby Ad Hoc 2 Surface,5000077,136.43184,-34.60393,Ad hoc - offshore,Karenia counts,,136.43184,-34.603930001
+1013,North Neptune,5000078,136.074167,-35.225,Ad hoc - offshore,Karenia counts,,136.074167,-35.225000001
+1014,Low Rocks,5000079,136.033333,-35.183333,Ad hoc - offshore,Karenia counts,,136.033333,-35.1833330009999
+1015,Tiperra Lighthouse,5000080,137.3999999,-34.04545961,Ad hoc - offshore,Karenia counts,,137.3999999,-34.045459611
+1016,Curta Rocks Bottom,5100081,135.8485,-34.9257,Ad hoc - offshore,Karenia counts,,135.8485,-34.9257000009999
+1017,Curta Rocks Surface,5000081,135.8485,-34.9257,Ad hoc - offshore,Karenia counts,,135.8485,-34.9257000009999
+1018,Fishery Bay Bottom,5100082,135.713698,-34.938251,Ad hoc - offshore,Karenia counts,,135.713698,-34.938251001
+1019,Fishery Bay Surface,5000082,135.713698,-34.938251,Ad hoc - offshore,Karenia counts,,135.713698,-34.938251001
+1020,Red Banks Bottom,5100083,135.589962,-34.909758,Ad hoc - offshore,Karenia counts,,135.589962,-34.9097580009999
+1021,Red Banks Surface,5000083,135.589962,-34.909758,Ad hoc - offshore,Karenia counts,,135.589962,-34.9097580009999
+1022,Almonta Bottom,5100084,135.354419,-34.705836,Ad hoc - offshore,Karenia counts,,135.354419,-34.705836001
+1023,Almonta Surface,5000084,135.354419,-34.705836,Ad hoc - offshore,Karenia counts,,135.354419,-34.705836001
+1024,Hummock Bottom,5100085,135.12901,-34.711451,Ad hoc - offshore,Karenia counts,,135.12901,-34.7114510009999
+1025,Hummock Surface,5000085,135.12901,-34.711451,Ad hoc - offshore,Karenia counts,,135.12901,-34.7114510009999
+1026,Reef Point Bottom,5100086,135.093737,-34.482108,Ad hoc - offshore,Karenia counts,,135.093737,-34.482108001
+1027,Reef Point Surface,5000086,135.093737,-34.482108,Ad hoc - offshore,Karenia counts,,135.093737,-34.482108001
+1028,Coffin Bay 1 Bottom,5100087,135.236353,-34.457626,Ad hoc - offshore,Karenia counts,,135.236353,-34.4576260009999
+1029,Coffin Bay 1 Surface,5000087,135.236353,-34.457626,Ad hoc - offshore,Karenia counts,,135.236353,-34.4576260009999
+1030,Coffin Bay 2 Bottom,5100088,135.360026,-34.464704,Ad hoc - offshore,Karenia counts,,135.360026,-34.464704001
+1031,Coffin Bay 2 Surface,5000088,135.360026,-34.464704,Ad hoc - offshore,Karenia counts,,135.360026,-34.464704001
+1032,Drummond Bottom,5100089,135.22947,-34.168068,Ad hoc - offshore,Karenia counts,,135.22947,-34.1680680009999
+1033,Drummond Surface,5000089,135.22947,-34.168068,Ad hoc - offshore,Karenia counts,,135.22947,-34.1680680009999
+1034,Point Turton 1 Bottom,5100090,137.2673,-34.8673,Ad hoc - offshore,Karenia counts,,137.2673,-34.8673000009999
+1035,Point Turton 1 Surface,5000090,137.2673,-34.8673,Ad hoc - offshore,Karenia counts,,137.2673,-34.8673000009999
+1036,Point Turton 2 Bottom,5100091,137.3247,-34.692283,Ad hoc - offshore,Karenia counts,,137.3247,-34.692283001
+1037,Point Turton 2 Surface,5000091,137.3247,-34.692283,Ad hoc - offshore,Karenia counts,,137.3247,-34.692283001
+1038,Dany Beach,5000092,137.062757,-34.913212,Ad hoc - Yorke Peninsula,Quick scan (presence of potentially harmful species) ,,137.062757,-34.913212001
+1039,Louth Bay Jetty,2000029,135.934066,-34.540429,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,135.934066,-34.5404290009999
+1040,North Shields Jetty,2000028,135.867466,-34.62911,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,135.867466,-34.629110001
+1041,Port Lincoln Town Jetty,2000027,135.859721,-34.718097,Regional - Eyre Peninsula,Quick scan (presence of potentially harmful species),,135.859721,-34.7180970009999
+1042,Point Turton 3 Bottom,5100093,137.390093,-34.809635,Ad hoc - offshore,Karenia counts,,137.390093,-34.8096350009999
+1043,Point Turton 3 Surface,5000093,137.390093,-34.809635,Ad hoc - offshore,Karenia counts,,137.390093,-34.8096350009999
+1044,Caso Bottom,5100094,136.574483,-35.79115,Ad hoc - offshore,Karenia counts,,136.574483,-35.7911500009999
+1045,Caso Surface,5000094,136.574483,-35.79115,Ad hoc - offshore,Karenia counts,,136.574483,-35.7911500009999
+1046,West End Bottom,5100095,136.503167,-35.778583,Ad hoc - offshore,Karenia counts,,136.503167,-35.778583001
+1047,West End Surface,5000095,136.503167,-35.778583,Ad hoc - offshore,Karenia counts,,136.503167,-35.778583001
+1048,Port Rickaby,2000030,137.492862909577,-34.6725172872359,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,137.492863,-34.672517001
+1049,Hardwicke Bay,2000031,137.45537422,-34.88902925,Regional - Yorke Peninsula,Quick scan (presence of potentially harmful species),,137.455374221,-34.8890292469999
+1050,Kingston Jetty,2000032,139.846221995,-36.824695376,Ad hoc - South East,Quick scan (presence of potentially harmful species),,139.846221995,-36.824695376
+1051,Kirton Point Jetty,2000033,135.886522,-34.729571001,Regional - Eyre Peninsula,Full scan (presence of all species),,135.886522,-34.729571001
+1052,Shoal Bay Tunakill 1 (Feb 2026),6000235,137.574869,-35.612787001,Ad hoc - Kangaroo Island,Karenia counts,,137.574869,-35.612787001
+1053,Point Turton Fishkill 2 (Feb 2026),6000237,137.35215,-34.9338333339999,Ad hoc - Yorke Peninsula,Karenia counts,,137.35215,-34.9338333339999
+1054,Point Turton Fishkill 3 (Feb 2026),6000238,137.35215,-34.9329353009999,Ad hoc - Yorke Peninsula,Karenia counts,,137.35215,-34.9329353009999
+1055,Point Turton Fishkill 1 (Feb 2026),6000236,137.35215,-34.934731368,Ad hoc - Yorke Peninsula,Karenia counts,,137.35215,-34.934731368
+1056,Hardwicke Bay Fishkill 2 (Feb 2026),6000240,137.451866667,-34.900000001,Ad hoc - Yorke Peninsula,Karenia counts,,137.451866667,-34.900000001
+1057,Hardwicke Bay Fishkill 3 (Feb 2026),6000241,137.451866667,-34.899102001,Ad hoc - Yorke Peninsula,Karenia counts,,137.451866667,-34.899102001
+1058,Hardwicke Bay Fishkill 1 (Feb 2026),6000239,137.451866667,-34.900898001,Ad hoc - Yorke Peninsula,Karenia counts,,137.451866667,-34.900898001
+1059,Kingston Park Fishkill 1 (Feb 2026),6000242,138.514694444,-35.0374166679999,Ad hoc - metropolitan,Karenia counts,,138.514694444,-35.0374166679999
+1060,Kingston Park Fishkill 2 (Feb 2026),6000243,138.515305556,-35.0365555559999,Ad hoc - metropolitan,Karenia counts,,138.515305556,-35.0365555559999
+1061,Kingston Park Fishkill 3 (Feb 2026),6000244,138.515555556,-35.035416668,Ad hoc - metropolitan,Karenia counts,,138.515555556,-35.035416668
+1062,Long Beach Robe Fishkill 1 (Feb 2026),6000245,139.7625,-37.078500001,Ad hoc - South East,Karenia counts,,139.7625,-37.078500001
+1063,Long Beach Robe Fishkill 3 (Feb 2026),6000247,139.7625,-37.077602779,Ad hoc - South East,Karenia counts,,139.7625,-37.077602779
+1064,Long Beach Robe Fishkill 2 (Feb 2026),6000246,139.7625,-37.0793972229999,Ad hoc - South East,Karenia counts,,139.7625,-37.0793972229999
+1065,Port Victoria Fishkill 2 (Feb 2026),6000249,137.481583333,-34.495816668,Ad hoc - Yorke Peninsula,Karenia counts,,137.481583333,-34.495816668
+1066,Port Victoria Fishkill 3 (Feb 2026),6000250,137.481583333,-34.494918668,Ad hoc - Yorke Peninsula,Karenia counts,,137.481583333,-34.494918668
+1067,Port Victoria Fishkill 1 (Feb 2026),6000248,137.481583333,-34.4967194449999,Ad hoc - Yorke Peninsula,Karenia counts,,137.481583333,-34.4967194449999
+1068,Port Rickaby Fishkill 2 (Feb 2026),6000252,137.494416667,-34.671433334,Ad hoc - Yorke Peninsula,Karenia counts,,137.494416667,-34.671433334
+1069,Port Rickaby Fishkill 3 (Feb 2026),6000253,137.494416667,-34.670533334,Ad hoc - Yorke Peninsula,Karenia counts,,137.494416667,-34.670533334
+1070,Port Rickaby Fishkill 1 (Feb 2026),6000251,137.494416667,-34.672333334,Ad hoc - Yorke Peninsula,Karenia counts,,137.494416667,-34.672333334
+1071,Wardang Island Bottom,5100096,137.352,-34.558383001,Ad hoc - offshore,Karenia counts,,137.352,-34.558383001
+1072,Wardang Island Surface,5000096,137.352,-34.558383001,Ad hoc - offshore,Karenia counts,,137.352,-34.558383001
+1073,Wardang Island 2 Surface,5000097,137.40960016,-34.62286004,Ad hoc - offshore,Karenia counts,,137.40960016,-34.6228600439999
+1074,Wardang Island 2 Bottom,5100097,137.40960016,-34.62286004,Ad hoc - offshore,Karenia counts,,137.40960016,-34.6228600439999
+1075,Rocky Island Surface,5000098,134.71825,-34.803333,Ad hoc - offshore,Karenia counts,,134.718249999,-34.803332998
+1076,Williams Island 2 Surface,5000099,135.91393173,-35.003127,Ad hoc - offshore,Karenia counts,,135.913931726,-35.003126997
+1077,Cape Catastrophe Surface,5000100,135.99728304,-34.98654976,Ad hoc - offshore,Karenia counts,,135.997283039,-34.9865497559999
+1078,Geltwood Beach,2000034,140.17621887,-37.61604585,Ad hoc - South East,Quick scan (presence of potentially harmful species),,140.176218871,-37.6160458539999
+1079,Southend Jetty,2000035,140.11373501,-37.567321,Ad hoc - South East,Quick scan (presence of potentially harmful species),,140.113735007,-37.567321001
+1080,Posties Beach,2000036,140.649937,-38.050134,Ad hoc - South East,Quick scan (presence of potentially harmful species),,140.649937,-38.050134
