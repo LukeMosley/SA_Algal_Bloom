@@ -10,28 +10,57 @@ from datetime import timedelta
 # Load data + coordinates
 # ---------------------------
 @st.cache_data
-def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv", site_file="HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"):
-
+def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv", 
+              site_file="HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"):
     # -----------------------
     # Load algal results
     # -----------------------
     df = pd.read_csv(algal_file, encoding="utf-8-sig")
     df.columns = df.columns.str.strip()
-
     df['Date_Sample_Collected'] = pd.to_datetime(
         df['Date_Sample_Collected'], errors='coerce'
     )
-
+    
+    # -----------------------
+    # Clean Result_Name (minimal fix + standardization)
+    # -----------------------
+    df['Result_Name'] = (
+        df['Result_Name']
+        .astype(str)
+        .str.strip()                           # remove leading/trailing whitespace
+        .str.replace(r'\s+', ' ', regex=True)  # collapse multiple spaces to single
+        .str.replace('\xa0', ' ')              # replace non-breaking spaces
+    )
+    
+    # Standardization: merge near-duplicates and group sp/spp for Karenia
+    karenia_standardization = {
+        # Period fixes
+        'Karenia sp': 'Karenia sp.',
+        'Karenia spp': 'Karenia sp.',          # ← group spp into sp.
+        
+        # cf. → direct name
+        'Karenia cf. longicanalis': 'Karenia longicanalis',
+        
+        # Also catch any period-missing or space-variant spp versions after cleaning
+        'Karenia spp.': 'Karenia sp.',         # group standardized spp. too
+        'Karenia spp': 'Karenia sp.',          # just in case
+        
+        # Optional: if you ever see these variants in future data
+        # 'Karenia sp. ': 'Karenia sp.',       # trailing space (already handled by strip)
+        # 'Karenia  sp.': 'Karenia sp.',       # double space (handled by replace)
+    }
+    
+    df['Result_Name'] = df['Result_Name'].replace(karenia_standardization)
+    
     # -----------------------
     # Load site metadata
     # -----------------------
     sites = pd.read_csv(site_file, encoding="utf-8-sig")
     sites.columns = sites.columns.str.strip()
-
     sites = sites.rename(columns={"SiteName": "Site_Description"})
-
+    
     # -----------------------
-    # Cleaning function
+    # Cleaning function for sites
     # -----------------------
     def clean_site(series):
         return (
@@ -43,22 +72,27 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.
             .str.replace(r'\s+', ' ', regex=True)
             .str.lower()
         )
-
+    
     df["site_key"] = clean_site(df["Site_Description"])
     sites["site_key"] = clean_site(sites["Site_Description"])
-
+    
     # Keep only needed site columns
     sites = (
         sites[["site_key", "Latitude", "Longitude"]]
         .dropna(subset=["Latitude", "Longitude"])
         .drop_duplicates(subset=["site_key"])
     )
-
+    
     # -----------------------
     # Merge
     # -----------------------
     df = df.merge(sites, on="site_key", how="left")
-
+    
+    # Log unmatched sites for debugging (optional but helpful)
+    unmatched = df[df['Latitude'].isna()]['Site_Description'].unique()
+    if len(unmatched) > 0:
+        st.warning(f"Unmatched sites (no coords): {', '.join(unmatched)}")
+    
     return df
     
 @st.cache_data
