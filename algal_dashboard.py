@@ -1,6 +1,5 @@
 import pandas as pd
 import folium
-from folium.plugins import MarkerCluster
 from branca.colormap import LinearColormap
 from streamlit_folium import st_folium
 import streamlit as st
@@ -12,20 +11,25 @@ from datetime import timedelta
 # ---------------------------
 @st.cache_data
 def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv", site_file="HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"):
+
     # -----------------------
     # Load algal results
     # -----------------------
     df = pd.read_csv(algal_file, encoding="utf-8-sig")
     df.columns = df.columns.str.strip()
+
     df['Date_Sample_Collected'] = pd.to_datetime(
         df['Date_Sample_Collected'], errors='coerce'
     )
+
     # -----------------------
     # Load site metadata
     # -----------------------
     sites = pd.read_csv(site_file, encoding="utf-8-sig")
     sites.columns = sites.columns.str.strip()
+
     sites = sites.rename(columns={"SiteName": "Site_Description"})
+
     # -----------------------
     # Cleaning function
     # -----------------------
@@ -39,70 +43,71 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.
             .str.replace(r'\s+', ' ', regex=True)
             .str.lower()
         )
+
     df["site_key"] = clean_site(df["Site_Description"])
     sites["site_key"] = clean_site(sites["Site_Description"])
+
     # Keep only needed site columns
     sites = (
         sites[["site_key", "Latitude", "Longitude"]]
         .dropna(subset=["Latitude", "Longitude"])
         .drop_duplicates(subset=["site_key"])
     )
+
     # -----------------------
     # Merge
     # -----------------------
     df = df.merge(sites, on="site_key", how="left")
-    # Log unmatched for debugging
-    unmatched = df[df['Latitude'].isna()]['Site_Description'].unique()
-    if len(unmatched) > 0:
-        st.warning(f"Unmatched sites (no coords): {', '.join(unmatched)}")
+
     return df
-   
+    
 @st.cache_data
 def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
     if not os.path.exists(file_path):
         st.warning(f"⚠️ Community data file '{file_path}' not found. Using empty dataset.")
         return pd.DataFrame()
-  
+   
     # Read Excel file
     df = pd.read_excel(file_path, sheet_name=0)
-  
+   
     # Trim whitespace from column names to handle any leading/trailing spaces
     df.columns = df.columns.str.strip()
-  
+   
     # FIXED: Rename Lat/Long to match expected column names for consistency
     if 'Lat' in df.columns:
         df = df.rename(columns={'Lat': 'Latitude'})
     if 'Long' in df.columns:
         df = df.rename(columns={'Long': 'Longitude'})
-  
+   
     # Convert Date column only if it's not already a datetime (handles auto-parsing by pandas)
     if not pd.api.types.is_datetime64_any_dtype(df['Date']):
         df['Date'] = pd.to_datetime(df['Date'], origin='1899-12-30', errors='coerce') # Added error handling
-  
+   
     # Identify species columns: everything after 'Date' up to and INCLUDING 'Total plankton'
     date_idx = df.columns.get_loc('Date')
     total_idx = df.columns.get_loc('Total plankton')
     species_cols = df.columns[date_idx + 1 : total_idx + 1].tolist() # Include 'Total plankton'
-  
+   
     # Melt to long format: one row per species per sample
     melted_df = pd.melt(df,
                         id_vars=['Location', 'Latitude', 'Longitude', 'Date'],
                         value_vars=species_cols,
                         var_name='Result_Name',
                         value_name='Result_Value_Numeric')
-  
+   
     # Rename columns to match main data structure
     melted_df['Site_Description'] = melted_df['Location']
     melted_df['Date_Sample_Collected'] = melted_df['Date']
-  
+   
     # Drop original Location and Date
     melted_df = melted_df.drop(['Location', 'Date'], axis=1)
-  
+   
     # Apply x1000 multiplier (cells/mL to cells/L)
     melted_df['Result_Value_Numeric'] *= 1000
-  
+   
     # Add units
     melted_df['Units'] = 'cells/L'
+
     melted_df['Result_Name'] = (
         melted_df['Result_Name']
             .astype(str)
@@ -110,20 +115,21 @@ def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
             .str.replace(r'\s+', ' ', regex=True)
             .str.replace('\xa0', ' ', regex=False)
     )
-   
+    
     melted_df['Result_Name'] += ' *'
-  
+
+   
     # Convert Latitude and Longitude to numeric
     melted_df['Latitude'] = pd.to_numeric(melted_df['Latitude'], errors='coerce')
     melted_df['Longitude'] = pd.to_numeric(melted_df['Longitude'], errors='coerce')
-  
+   
     # Optional: Filter to non-zero values to reduce noise (uncomment if desired)
     # melted_df = melted_df[melted_df['Result_Value_Numeric'] > 0]
-  
+   
     # Optional: Site name standardization/cleaning
     # site_mapping = {'Victor Harbor': 'Victor Harbour', ...}
     # melted_df['Site_Description'] = melted_df['Site_Description'].map(site_mapping).fillna(melted_df['Site_Description'])
-  
+   
     return melted_df
 # ---------------------------
 # Build Streamlit app
@@ -141,14 +147,14 @@ def main():
     <style>
     .block-container {padding-top: 1rem; padding-bottom: 0.25rem;}
     footer {visibility: hidden;}
-  
+   
     /* Sidebar styling */
     section[data-testid="stSidebar"] {
         font-size: 11px;
         padding: 0.4rem 0.5rem 0.5rem 0.5rem;
         max-width: 350px;
     }
-  
+   
     section[data-testid="stSidebar"] .stMarkdown p {margin-bottom: 0.25rem;}
     .sidebar-card {
         border: none; /* Remove border for subtlety */
@@ -170,37 +176,32 @@ def main():
     section[data-testid="stSidebar"] [data-testid="stMultiSelect"] {
         margin-top: -8px !important; /* Negative value pulls it up; adjust -5px to -12px as needed */
     }
-    /* Add overflow for long lists */
-    section[data-testid="stSidebar"] [data-testid="stMultiSelect"] {
-        max-height: 200px;
-        overflow-y: auto;
-    }
-  
+   
     /* Sidebar section filter header labels */
     section[data-testid="stSidebar"] label {
         font-weight: bold !important;
         color: #000 !important;
     }
-  
+   
     /* Smaller font for selected chips in sidebar multiselect */
     section[data-testid="stSidebar"] span[data-baseweb="tag"] {
         font-size: 14px !important; /* Adjust as needed for subtlety */
     }
-  
+   
     /* Smaller font and padding for sidebar multiselect (species) */
     section[data-testid="stSidebar"] [data-testid="stMultiSelect"] {
         font-size: 12px !important;
         padding: 0.2rem 0.3rem !important; /* Reduces internal padding; adjust values as needed */
         margin: 0rem 0 0 !important; /* Optional: tightens outer margins for less vertical space */
     }
-  
+   
     /* Smaller font and padding for sidebar date input (range) */
     section[data-testid="stSidebar"] [data-testid="stDateInput"] {
         font-size: 12px !important;
         padding: 0.2rem 0.3rem !important; /* Reduces internal padding; tweak values for fit */
         margin: 0rem 0 0 !important; /* Optional: tightens outer margins for less vertical space */
     }
-  
+   
     /* Record counter*/
     .records-count {
         font-size: 14px !important;
@@ -208,7 +209,7 @@ def main():
         margin: 0.1rem 0 0;
         padding-left: 4px; /* Indents text to right */
     }
-  
+   
     /* Horizontal colorbar */
     .colorbar-wrapper {
         display: flex;
@@ -218,12 +219,12 @@ def main():
         margin-bottom: 2px;
     }
     .colorbar-container {
-        background: linear-gradient(to right,
-            #641478 0%, /* 0-100,000 */
-            #89CFF0 20%, /* 100,000-200,000 */
-            #21908c 40%, /* 200,000-300,000 */
-            #5dc863 60%, /* 300,000-400,000 */
-            #fde725 100% /* 400,000-500,000+ */
+        background: linear-gradient(to right, 
+            #641478 0%,   /* 0-100,000 */
+            #89CFF0 20%,  /* 100,000-200,000 */
+            #21908c 40%,  /* 200,000-300,000 */
+            #5dc863 60%,  /* 300,000-400,000 */
+            #fde725 100%  /* 400,000-500,000+ */
         );
         height: 20px;
         border: 1px solid #ccc;
@@ -232,7 +233,7 @@ def main():
         max-width: 95%;
         width: 100%;
     }
-  
+   
     .colorbar-labels {
         display: flex;
         justify-content: space-between;
@@ -241,7 +242,7 @@ def main():
         margin-top: 4px; /* Increased gap above labels */
         color: #666;
     }
-  
+   
     .colorbar-labels span {
         flex: 1;
         text-align: center;
@@ -249,7 +250,7 @@ def main():
         font-weight: bold;
         /* Removed text-shadow as it's less needed below the bar */
     }
-  
+   
     .colorbar-units {
         font-size: 12px;
         color: #666;
@@ -268,7 +269,8 @@ def main():
         "HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv",
         "HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"
     )
-   
+
+    
     community_df = load_community()
     # ---------------------------
     # PERSISTENT STATE FOR FILTERS (to avoid reset on toggle)
@@ -303,15 +305,17 @@ def main():
         )
         # Checkbox for including community data (placed here, above Filters)
         include_community = st.checkbox('Include community data', value=True)
+
         if 'prev_include_community' not in st.session_state:
             st.session_state.prev_include_community = True
+
         if include_community != st.session_state.prev_include_community:
-            st.session_state.date_range = [] # Reset to trigger default last-2-weeks load
+            st.session_state.date_range = []  # Reset to trigger default last-2-weeks load
             st.session_state.prev_include_community = include_community
-      
+       
         # Filters card (moved up to appear above Select species)
         st.markdown('<div class="sidebar-card">Filters</div>', unsafe_allow_html=True)
-      
+       
         # Conditional combined data and date range
         if include_community:
             combined_df = pd.concat([df, community_df], ignore_index=True)
@@ -325,19 +329,20 @@ def main():
                 min_date, max_date = df['Date_Sample_Collected'].min(), df['Date_Sample_Collected'].max()
             else:
                 min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
-      
+       
         all_species = sorted(combined_df['Result_Name'].dropna().unique())
+
         # ---- FIRST LOAD SPECIES SEED (critical) ----
         if "species_multiselect" not in st.session_state:
             st.session_state["species_multiselect"] = [
                 s for s in all_species if "Karenia" in s
             ]
-       
+        
         # FIXED: Persist species selection—default to Karenia if no valid previous (instead of empty)
         previous_selected = st.session_state.species_selected
         # Filter previous to current options (removes unavailable on toggle off)
         filtered_previous = [s for s in previous_selected if s in all_species]
-      
+       
         # NEW: When community is included, ensure "Karenia spp subcount *" is in defaults if available
         karenia_defaults = [s for s in all_species if "Karenia" in s]
         if include_community and "Karenia spp subcount *" in all_species:
@@ -346,32 +351,35 @@ def main():
                     filtered_previous.append("Karenia spp subcount *")
                 else:
                     filtered_previous = ["Karenia spp subcount *"]
-      
+       
         default_species = filtered_previous if filtered_previous else karenia_defaults
+
         # Force multiselect state update when community toggles on
         if include_community:
             if "Karenia spp subcount *" in all_species:
                 current = st.session_state.get("species_multiselect", [])
                 if "Karenia spp subcount *" not in current:
                     st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
+
         # --- HARD SYNC multiselect state to available species ---
         valid_species = set(all_species)
         current = st.session_state.get("species_multiselect", [])
-       
+        
         # Remove anything no longer valid (e.g. community species when toggled off)
         cleaned = [s for s in current if s in valid_species]
-       
+        
         # If empty, seed with sensible defaults
         if not cleaned:
             cleaned = [s for s in all_species if "Karenia" in s]
-       
+        
         st.session_state["species_multiselect"] = cleaned
-       
+        
         species_selected = st.multiselect(
             "Select species (via dropdown or start typing, *denotes community data)",
             options=all_species,
             key="species_multiselect"
         )
+
         # FIXED: Persist date range—use previous if available, clamp to new min/max
         previous_date_range = st.session_state.date_range
         last_week_start = max_date - timedelta(days=14)
@@ -379,7 +387,6 @@ def main():
         if previous_date_range and len(previous_date_range) == 2:
             clamped_start = max(min_date.date(), min(previous_date_range[0], max_date.date()))
             clamped_end = max(clamped_start, min(max_date.date(), previous_date_range[1]))
-            st.session_state.date_range = [clamped_start, clamped_end]
             date_range = st.date_input("Date range (year/month/day format)", [clamped_start, clamped_end],
                                        min_value=min_date.date(), max_value=max_date.date(), key='date_input')
         else:
@@ -390,9 +397,6 @@ def main():
             start_date, end_date = pd.to_datetime(date_range[0]), pd.to_datetime(date_range[1])
         else:
             start_date, end_date = min_date, max_date
-        # NEW: Remove community species if toggled off
-        if not include_community:
-            st.session_state["species_multiselect"] = [s for s in st.session_state["species_multiselect"] if not s.endswith('*')]
     # ---------------------------
     # Filter dataset
     # ---------------------------
@@ -451,17 +455,15 @@ def main():
         attr='Esri', name='Labels', overlay=True, control=True
     ).add_to(m)
     folium.LayerControl(position='bottomright').add_to(m) # Native positioning for layers
-    # Add MarkerCluster
-    marker_cluster = MarkerCluster().add_to(m)
     # Color scale (updated to match CSS colors and transition points)
     viridis_colors = ['#641478', '#89CFF0', '#21908c', '#5dc863', '#fde725']
     colormap = LinearColormap(
         colors=viridis_colors,
-        index=[0, 100000, 200000, 300000, 500000], # Matches CSS % stops (0%, 20%, 40%, 60%, 100%)
+        index=[0, 100000, 200000, 300000, 500000],  # Matches CSS % stops (0%, 20%, 40%, 60%, 100%)
         vmin=0,
         vmax=500000
     )
-   
+    
     ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
     # Add markers for main data
     for _, row in sub_df.iterrows():
@@ -476,7 +478,7 @@ def main():
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{row['Result_Name']}<br>"
                        f"{value:,.0f} {units}")
-            ).add_to(marker_cluster)
+            ).add_to(m)
     # Add markers for community data (if included)
     for _, row in comm_sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
@@ -490,7 +492,7 @@ def main():
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{row['Result_Name']}<br>"
                        f"{value:,.0f} {units}")
-            ).add_to(marker_cluster)
+            ).add_to(m)
     # Always fit bounds if data (like old code)
     combined_sub = pd.concat([sub_df, comm_sub_df], ignore_index=True)
     if not combined_sub.empty:
@@ -509,27 +511,27 @@ def main():
     # ---------------------------
     if not df.empty: # Check full df for options, even if sub_df is filtered
         st.subheader("Trends Over Time")
-      
+       
         # FIXED: Option to include community in trends
         include_comm_in_trends = st.checkbox("Include community data in trends", value=include_community)
-      
+       
         # FIXED: First, build base data for trends (df or combined)
         if include_comm_in_trends and include_community and not community_df.empty:
             base_trends_df = pd.concat([df, community_df], ignore_index=True)
         else:
             base_trends_df = df.copy()
-      
+       
         # FIXED: Now get all_species_trends and sites from base (unfiltered)
         all_species_trends = sorted(base_trends_df['Result_Name'].dropna().unique())
         default_trend_species = [s for s in all_species_trends if "Karenia" in s] or all_species_trends[:3] # Fallback to first 3 if no Karenia
-      
+       
         # Multi-select for species (defaults to Karenia)—NOW BEFORE FILTERING
         selected_trend_species = st.multiselect(
             "Select species for trend chart",
             options=all_species_trends,
             default=default_trend_species
         )
-      
+       
         # Site filter: All or specific—from base
         all_sites = sorted(base_trends_df['Site_Description'].dropna().unique())
         selected_site = st.selectbox(
@@ -537,19 +539,19 @@ def main():
             options=["All Sites"] + all_sites,
             index=0
         )
-      
+       
         # FIXED: Now filter plot_df using selected_trend_species
         plot_df = base_trends_df[
             (base_trends_df['Result_Name'].isin(selected_trend_species)) &
             (base_trends_df['Result_Value_Numeric'].notna())
         ].copy()
-      
+       
         if selected_site != "All Sites":
             plot_df = plot_df[plot_df['Site_Description'] == selected_site]
-      
+       
         # Sort by date (keep as datetime)
         plot_df = plot_df.sort_values('Date_Sample_Collected')
-      
+       
         if not plot_df.empty:
             # Pivot for multi-line chart
             trend_df = plot_df.pivot_table(
@@ -558,7 +560,7 @@ def main():
                 values='Result_Value_Numeric',
                 aggfunc='mean' # Average if multiple samples per day/species
             ).reset_index()
-          
+           
             # Melt without date conversion
             trend_melted = trend_df.melt(
                 id_vars='Date_Sample_Collected',
@@ -567,22 +569,19 @@ def main():
                 ignore_index=False
             )
             # No .dt.date here—keep as datetime for Altair
-          
-            # NEW: Add scale type radio
-            scale_type = st.radio("Y-axis scale", ["Linear", "Log"], horizontal=True, index=0)
-            y_scale = alt.Scale(type='log' if scale_type == "Log" else 'linear', domain=(1, trend_melted['Cell_Count'].max() * 1.1)) if scale_type == "Log" else alt.Scale()
-          
+           
             # Altair chart (linear scale only)
             base = alt.Chart(trend_melted).mark_line(point=True).encode(
+                ## x=alt.X('Date_Sample_Collected:T', title='Date', axis=alt.Axis(labelAngle=0)),
                 x=alt.X(
                     'Date_Sample_Collected:T',
                     title='Date',
                     axis=alt.Axis(
                         labelAngle=0,
-                        format='%d %b %Y' # e.g. 15 Jan 2026
+                        format='%d %b %Y'  # e.g. 15 Jan 2026
                     )
-                ),
-                y=alt.Y('Cell_Count:Q', title='Cell Count per L', scale=y_scale),
+            ),
+                y=alt.Y('Cell_Count:Q', title='Cell Count per L'),
                 color=alt.Color('Species:N', title='Species'),
                 tooltip=['Date_Sample_Collected', 'Species', 'Cell_Count']
             ).properties(
@@ -596,7 +595,7 @@ def main():
                 )
             ).interactive() # Enables zoom/pan
             st.altair_chart(base, use_container_width=True)
-          
+           
             # Show filtered row count for transparency
             st.caption(f"Showing {len(plot_df)} data points across {len(selected_trend_species)} species and {'all sites' if selected_site == 'All Sites' else selected_site}.")
         else:
