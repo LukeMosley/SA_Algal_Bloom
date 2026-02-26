@@ -369,68 +369,58 @@ def main():
                 min_date, max_date = pd.to_datetime('2020-01-01'), pd.to_datetime('2030-12-31')
       
         all_species = sorted(combined_df['Result_Name'].dropna().unique())
-       
+
         # ---- FIRST LOAD SPECIES SEED (critical) ----
         if "species_multiselect" not in st.session_state:
             st.session_state["species_multiselect"] = [
                 s for s in all_species if "Karenia" in s
             ]
-      
-        # FIXED: Persist species selection—default to Karenia if no valid previous (instead of empty)
-        previous_selected = st.session_state.species_selected
-        # Filter previous to current options (removes unavailable on toggle off)
+
+        # Persist + filter previous selections to what's currently available
+        previous_selected = st.session_state.get("species_selected", [])
         filtered_previous = [s for s in previous_selected if s in all_species]
-     
-        # NEW: When community is included, ensure "Karenia spp subcount *" is in defaults if available
+
+        # When community toggled on → prefer to include subcount if available
         karenia_defaults = [s for s in all_species if "Karenia" in s]
         if include_community and "Karenia spp subcount *" in all_species:
             if "Karenia spp subcount *" not in filtered_previous:
-                if filtered_previous:
-                    filtered_previous.append("Karenia spp subcount *")
-                else:
-                    filtered_previous = ["Karenia spp subcount *"]
-     
+                filtered_previous = filtered_previous + ["Karenia spp subcount *"]
+
         default_species = filtered_previous if filtered_previous else karenia_defaults
-        # Force multiselect state update when community toggles on
-        if include_community:
-            if "Karenia spp subcount *" in all_species:
-                current = st.session_state.get("species_multiselect", [])
-                if "Karenia spp subcount *" not in current:
-                    st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
-        # --- HARD SYNC multiselect state to available species ---
-        valid_species = set(all_species)
+
+        # Force add subcount to current state when community is on and it's missing
         current = st.session_state.get("species_multiselect", [])
-      
-        # Remove anything no longer valid (e.g. community species when toggled off)
-        cleaned = [s for s in current if s in valid_species]
-      
-        # If empty, seed with sensible defaults
+        if include_community and "Karenia spp subcount *" in all_species:
+            if "Karenia spp subcount *" not in current:
+                st.session_state["species_multiselect"] = current + ["Karenia spp subcount *"]
+
+        # Hard sync: remove invalid (e.g. community items when toggled off)
+        cleaned = [s for s in st.session_state.get("species_multiselect", []) if s in set(all_species)]
+
+        # Seed with Karenia if empty after cleaning
         if not cleaned:
             cleaned = [s for s in all_species if "Karenia" in s]
-      
+
         st.session_state["species_multiselect"] = cleaned
-       
-        # FIXED: Custom ordering — "Karenia spp subcount *" first, then "Karenia sp.", then other Karenia, then sorted remaining
-        subcount = [s for s in all_species if "Karenia spp subcount *" in s]
+
+        # ── Final custom ordering ──
+        # Priority: Karenia sp. variants first → subcount → other Karenia → everything else sorted
         karenia_sp = [s for s in all_species if "Karenia sp." in s and "subcount" not in s]
-        other_karenia = [s for s in all_species if "Karenia" in s and s not in subcount + karenia_sp]
+        subcount = [s for s in all_species if s == "Karenia spp subcount *"]  # exact match to avoid partials
+        other_karenia = [s for s in all_species if "Karenia" in s and s not in karenia_sp + subcount]
         remaining = [s for s in all_species if "Karenia" not in s]
-       
-        custom_options = subcount + karenia_sp + other_karenia + sorted(remaining)
-       
-        # FIXED: Custom ordering — "Karenia sp." first, then "Karenia spp subcount *", then other Karenia, then sorted remaining
-        karenia_sp = [s for s in all_species if "Karenia sp." in s and "subcount" not in s]
-        subcount = [s for s in all_species if "Karenia spp subcount *" in s]
-        other_karenia = [s for s in all_species if "Karenia" in s and s not in subcount + karenia_sp]
-        remaining = [s for s in all_species if "Karenia" not in s]
-       
+
         custom_options = karenia_sp + subcount + other_karenia + sorted(remaining)
-       
+
         species_selected = st.multiselect(
             "Select species (via dropdown or start typing, *denotes community data)",
-            options=custom_options,  # ← use custom order
+            options=custom_options,
+            default=st.session_state["species_multiselect"],  # ← use state here
             key="species_multiselect"
         )
+
+        # Keep selected in session state (Streamlit sometimes needs help syncing)
+        st.session_state.species_selected = species_selected
       
         # FIXED: Persist date range—use previous if available, clamp to new min/max
         previous_date_range = st.session_state.date_range
