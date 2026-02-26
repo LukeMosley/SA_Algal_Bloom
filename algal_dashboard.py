@@ -397,22 +397,38 @@ def main():
         # 2. Karenia spp subcount *
         # 3. Other Karenia (brevis, longicanalis, etc.)
         # 4. Everything else, sorted alphabetically
+        # ── Priority order lists (same as before) ──
         karenia_sp = [s for s in all_species if "Karenia sp." in s and "subcount" not in s]
-        subcount = [s for s in all_species if s == "Karenia spp subcount *"]  # exact match
+        subcount   = [s for s in all_species if s == "Karenia spp subcount *"]
         other_karenia = [s for s in all_species if "Karenia" in s and s not in karenia_sp + subcount]
         remaining = [s for s in all_species if "Karenia" not in s]
 
         custom_options = karenia_sp + subcount + other_karenia + sorted(remaining)
 
-        # Render the multiselect — use current valid selections as default
+        # When toggling community or first load → enforce clean order in selections
+        if "species_multiselect" not in st.session_state or \
+           st.session_state.get("last_include_community", None) != include_community:
+            # Build ordered default: prefer sp → subcount → other Karenia
+            preferred_order = []
+            for group in [karenia_sp, subcount, other_karenia]:
+                for item in group:
+                    if item in valid_selections:  # only keep ones that were actually selected
+                        preferred_order.append(item)
+            # Add any non-Karenia that were selected (rare)
+            for item in valid_selections:
+                if item not in preferred_order:
+                    preferred_order.append(item)
+            
+            st.session_state["species_multiselect"] = preferred_order
+            st.session_state["last_include_community"] = include_community
+
         species_selected = st.multiselect(
             "Select species (via dropdown or start typing, *denotes community data)",
             options=custom_options,
-            default=valid_selections,
-            key=f"species_multiselect_{include_community}_{len(all_species)}"   # dynamic → forces recreation
+            default=st.session_state["species_multiselect"],
+            key=f"species_multiselect_{include_community}_{len(all_species)}"
         )
 
-        # Keep in sync (helps Streamlit behave)
         st.session_state.species_selected = species_selected
       
         # FIXED: Persist date range—use previous if available, clamp to new min/max
