@@ -418,11 +418,20 @@ def main():
        
         custom_options = subcount + karenia_sp + other_karenia + sorted(remaining)
        
+        # FIXED: Custom ordering — "Karenia sp." first, then "Karenia spp subcount *", then other Karenia, then sorted remaining
+        karenia_sp = [s for s in all_species if "Karenia sp." in s and "subcount" not in s]
+        subcount = [s for s in all_species if "Karenia spp subcount *" in s]
+        other_karenia = [s for s in all_species if "Karenia" in s and s not in subcount + karenia_sp]
+        remaining = [s for s in all_species if "Karenia" not in s]
+       
+        custom_options = karenia_sp + subcount + other_karenia + sorted(remaining)
+       
         species_selected = st.multiselect(
             "Select species (via dropdown or start typing, *denotes community data)",
-            options=custom_options, # ← use custom order
+            options=custom_options,  # ← use custom order
             key="species_multiselect"
         )
+      
         # FIXED: Persist date range—use previous if available, clamp to new min/max
         previous_date_range = st.session_state.date_range
         last_week_start = max_date - timedelta(days=14)
