@@ -409,7 +409,7 @@ def main():
             "Select species (via dropdown or start typing, *denotes community data)",
             options=custom_options,
             default=valid_selections,
-            key="species_multiselect"
+            key=f"species_multiselect_{include_community}_{len(all_species)}"   # dynamic → forces recreation
         )
 
         # Keep in sync (helps Streamlit behave)
