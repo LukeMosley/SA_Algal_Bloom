@@ -10,8 +10,8 @@ from datetime import timedelta, time as dt_time
 # Load data + coordinates
 # ---------------------------
 @st.cache_data
-def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4703401805750476273.csv",
-              site_file="HarmfulAlgalBloom_MonitoringSites_-7640970768141511548.csv"):
+def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4208500738590205542.csv",
+              site_file="HarmfulAlgalBloom_MonitoringSites_-8195315387793301848.csv"):
     # -----------------------
     # Load algal results
     # -----------------------
