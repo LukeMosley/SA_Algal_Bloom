@@ -704,7 +704,7 @@ def main():
         st.download_button(
             label="Download Image",
             data=img_data,
-            file_name="pace_rrs_at_470.0_nm_composite.png",
+            file_name="pace_rrs_at_470.0_nm.png",
             mime="image/png"
         )
     else:
