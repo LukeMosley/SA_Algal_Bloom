@@ -697,7 +697,7 @@ def main():
     st.subheader("NASA PACE Satellite Remote Sensing Reflectance Image")
     st.caption("This map is derived from NASA PACE satellite imagery processed on date(s) (UTC) indicated on the plot. I have found, via specific calibration to Karenia sp. cell counts, that using a specific wavelength (approx. 470 nm) gives more accurate results than use of chlorophyll imagery (that uses other non-specific wavelengths). This is because many algal species contribute to chlorophyll, so it can be inaccurate in regard to detecting Karenia species. Blue indicates lower levels; lighter blue to green moderate levels; orange to red high levels. Note this is a beta version and subject to change. Frequency of updates is reliant on relatively cloud-free conditions!")
     st.image("pace_rrs_at_470.0_nm.png", use_container_width=True)
-    image_path = "pace_rrs_at_470.0_nm_composite.png"
+    image_path = "pace_rrs_at_470.0_nm.png"
     if os.path.exists(image_path):
         with open(image_path, "rb") as file:
             img_data = file.read()
