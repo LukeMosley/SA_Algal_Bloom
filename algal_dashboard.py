@@ -88,11 +88,19 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4208500738590205542.
     # -----------------------
     df = df.merge(sites, on="site_key", how="left")
    
-    # Log unmatched sites for debugging (optional but helpful)
-    #unmatched = df[df['Latitude'].isna()]['Site_Description'].unique()
-    #if len(unmatched) > 0:
-    # st.warning(f"Unmatched sites (no coords): {', '.join(unmatched)}")
-   
+    # ────────────────────────────────────────────────
+    # Apply small lat offset to Bottom samples (≈220 m)
+    # ────────────────────────────────────────────────
+    # Create mask — case-insensitive, handles NaN safely
+    bottom_mask = df["Site_Description"].fillna("").str.contains("bottom", case=False)
+    
+    OFFSET_LAT = 0.002   # ≈ 220–225 meters north in SA region
+    # Optional: small east offset makes diagonal separation → looks better on map
+    OFFSET_LON = 0.0008  # ≈ 60–80 m east
+
+    df.loc[bottom_mask, "Latitude"]  += OFFSET_LAT
+    df.loc[bottom_mask, "Longitude"] += OFFSET_LON
+
     return df
    
 @st.cache_data
