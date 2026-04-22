@@ -231,13 +231,13 @@
 242,Coobowie (CW-4),6000077,137.73581667,-35.05616662,Ad hoc - Yorke Peninsula,Karenia counts,,137.735816666,-35.056166618
 243,Coobowie (CW-6),6000078,137.7346833,-35.05211667,Ad hoc - Yorke Peninsula,Karenia counts,,137.734683304,-35.0521166729999
 244,Coobowie (CW-6A),6000079,137.74279997,-35.04908332,Ad hoc - Yorke Peninsula,Karenia counts,,137.742799968,-35.049083321
-245,Stansbury (ST-3),6000080,137.80805,-33.0944,Ad hoc - Eyre Peninsula,Karenia counts,,137.80805,-33.0944
-246,Stansbury (ST-4),6000081,137.80216668,-34.90071666,Ad hoc - Eyre Peninsula,Karenia counts,,137.802166684,-34.900716658
-247,Stansbury (ST-8),6000082,137.83265,-33.10838,Ad hoc - Eyre Peninsula,Karenia counts,,137.83265,-33.10838
-248,Stansbury (ST-9),6000083,137.82598,-33.09915,Ad hoc - Eyre Peninsula,Karenia counts,,137.82598,-33.09915
-249,Port Vincent (PV-2),6000084,137.8741,-33.22808,Ad hoc - Yorke Peninsula,Karenia counts,,137.8741,-33.22808
-250,Port Vincent (PV-4),6000085,137.88643,-33.22958,Ad hoc - Yorke Peninsula,Karenia counts,,137.88643,-33.2295799999999
-251,Port Vincent (PV-3),6000086,137.8691,-33.23092,Ad hoc - Yorke Peninsula,Karenia counts,,137.8691,-33.23092
+245,Stansbury (ST-3),6000080,137.80805,-34.9056,Ad hoc - Yorke Peninsula,Karenia counts,,137.80805,-34.905600001
+246,Stansbury (ST-4),6000081,137.80216668,-34.90071666,Ad hoc - Yorke Peninsula,Karenia counts,,137.802166684,-34.900716658
+247,Stansbury (ST-8),6000082,137.83265,-34.89161667,Ad hoc - Yorke Peninsula,Karenia counts,,137.83265,-34.891616668
+248,Stansbury (ST-9),6000083,137.82598333,-34.90085,Ad hoc - Yorke Peninsula,Karenia counts,,137.825983333,-34.900850001
+249,Port Vincent (PV-2),6000084,137.8741,-34.77191667,Ad hoc - Yorke Peninsula,Karenia counts,,137.8741,-34.771916668
+250,Port Vincent (PV-4),6000085,137.88643333,-34.77041667,Ad hoc - Yorke Peninsula,Karenia counts,,137.886433333,-34.7704166679999
+251,Port Vincent (PV-3),6000086,137.8691,-34.76908333,Ad hoc - Yorke Peninsula,Karenia counts,,137.8691,-34.769083334
 252,Carrickalinga 1,6000087,138.3207028,-35.4250461,Ad hoc - Southern Fleurieu,Karenia counts,,138.3207028,-35.4250461
 253,Carrickalinga 2,6000088,138.3202113,-35.4260632,Ad hoc - Southern Fleurieu,Karenia counts,,138.3202113,-35.4260631999999
 254,Carrickalinga 3,6000089,138.319559,-35.4267391,Ad hoc - Southern Fleurieu,Karenia counts,,138.319559,-35.4267391
@@ -775,3 +775,6 @@
 1234,Main Site Fishkill (May 2025),6000309,138.496277915,-34.935651166,Ad hoc - metropolitan,Karenia counts,No coordinates provided; location is approximate,138.496277915,-34.935651166
 1235,N 50m Fishkill (May 2025),6000310,138.496274185,-34.935185823,Ad hoc - metropolitan,Karenia counts,No coordinates provided; location is approximate,138.496274185,-34.935185823
 1236,Fishermans Point (May 2025),6000322,137.934824374,-33.55218982,Ad hoc - Yorke Peninsula,Karenia counts,No coordinates provided; location is approximate,137.934824374,-33.55218982
+1237,Hallys Beach Streaky Bay Fishkill 1 (Apr 2026),6000361,134.09147,-32.75076,Ad hoc - Eyre Peninsula,Karenia counts,,134.09147,-32.75076
+1238,Hallys Beach Streaky Bay Fishkill 2 (Apr 2026),6000362,134.09147,-32.749858288,Ad hoc - Eyre Peninsula,Karenia counts,100 m south east from site 1,134.09147,-32.751661713
+1239,Hallys Beach Streaky Bay Fishkill 3 (Apr 2026),6000363,134.09147,-32.752563427,Ad hoc - Eyre Peninsula,Karenia counts,200 m south east from site 1,134.09147,-32.752563427
