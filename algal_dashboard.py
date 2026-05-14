@@ -543,38 +543,21 @@ def main():
    
     ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
     # Add markers for main data
+    # Add markers for main data
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
-            color = colormap(value if pd.notna(value) else 1)
+            
+            # Robust display handling
+            if pd.isna(value) or value == 0:
+                value_display = "0"
+            else:
+                value_display = f"{value:,.0f}"
+            
+            color = colormap(value if pd.notna(value) else 0)
             units = row.get('Units', 'cells/L')
-            # FIXED: Add Time if present (generalized for both datasets)
-            time_str = ''
-            if 'Time' in row and pd.notna(row['Time']):
-                try:
-                    fractional_day = float(row['Time'])
-                    total_minutes = int(fractional_day * 1440)  # 24*60=1440 minutes in a day
-                    hours = total_minutes // 60
-                    minutes = total_minutes % 60
-                    time_str = f"Time: {hours:02d}:{minutes:02d}<br>"
-                except:
-                    time_str = f"Time: {row['Time']}<br>"
-            folium.CircleMarker(
-                location=[row['Latitude'], row['Longitude']],
-                radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
-                popup=(f"<b>{row['Site_Description']}</b><br>"
-                       f"{row['Date_Sample_Collected'].date()}<br>"
-                       f"{time_str}"
-                       f"{row['Result_Name']}<br>"
-                       f"{value_display} {units}")
-            ).add_to(m)
-    # Add markers for community data (if included)
-    for _, row in comm_sub_df.iterrows():
-        if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
-            value = row['Result_Value_Numeric']
-            color = colormap(value if pd.notna(value) else 1)
-            units = row.get('Units', 'cells/L')
-            # FIXED: Add Time if present (same as above)
+            
+            # Time string
             time_str = ''
             if 'Time' in row and pd.notna(row['Time']):
                 try:
@@ -585,15 +568,61 @@ def main():
                     time_str = f"Time: {hours:02d}:{minutes:02d}<br>"
                 except:
                     time_str = f"Time: {row['Time']}<br>"
+            
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
-                radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
+                radius=6, 
+                color=color, 
+                fill=True, 
+                fill_color=color, 
+                fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{time_str}"
                        f"{row['Result_Name']}<br>"
                        f"{value_display} {units}")
             ).add_to(m)
+          
+    # Add markers for community data
+    for _, row in sub_df.iterrows():
+        if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
+            value = row['Result_Value_Numeric']
+            
+            # Robust display handling
+            if pd.isna(value) or value == 0:
+                value_display = "0"
+            else:
+                value_display = f"{value:,.0f}"
+            
+            color = colormap(value if pd.notna(value) else 0)
+            units = row.get('Units', 'cells/L')
+            
+            # Time string
+            time_str = ''
+            if 'Time' in row and pd.notna(row['Time']):
+                try:
+                    fractional_day = float(row['Time'])
+                    total_minutes = int(fractional_day * 1440)
+                    hours = total_minutes // 60
+                    minutes = total_minutes % 60
+                    time_str = f"Time: {hours:02d}:{minutes:02d}<br>"
+                except:
+                    time_str = f"Time: {row['Time']}<br>"
+            
+            folium.CircleMarker(
+                location=[row['Latitude'], row['Longitude']],
+                radius=6, 
+                color=color, 
+                fill=True, 
+                fill_color=color, 
+                fill_opacity=0.8,
+                popup=(f"<b>{row['Site_Description']}</b><br>"
+                       f"{row['Date_Sample_Collected'].date()}<br>"
+                       f"{time_str}"
+                       f"{row['Result_Name']}<br>"
+                       f"{value_display} {units}")
+            ).add_to(m)
+          
     # Always fit bounds if data (like old code)
     combined_sub = pd.concat([sub_df, comm_sub_df], ignore_index=True)
     if not combined_sub.empty:
