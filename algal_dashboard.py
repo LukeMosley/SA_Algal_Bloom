@@ -12,6 +12,7 @@ from datetime import timedelta, time as dt_time
 @st.cache_data
 def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4208500738590205542.csv",
               site_file="HarmfulAlgalBloom_MonitoringSites_-7518154866587238262.csv"):
+    st.cache_data.clear()   # Force reload during development
     # -----------------------
     # Load algal results
     # -----------------------
@@ -479,16 +480,16 @@ def main():
     # ---------------------------
     mask_main = (
         df['Result_Name'].isin(species_selected) &
-        df['Date_Sample_Collected'].between(start_date, end_date) &
-        df['Result_Value_Numeric'].notna()
+        df['Date_Sample_Collected'].between(start_date, end_date)
+        # df['Result_Value_Numeric'].notna()
     )
     sub_df = df[mask_main].copy() # .copy() for safety
     comm_sub_df = pd.DataFrame()
     if include_community:
         mask_comm = (
             community_df['Result_Name'].isin(species_selected) &
-            community_df['Date_Sample_Collected'].between(start_date, end_date) &
-            community_df['Result_Value_Numeric'].notna()
+            community_df['Date_Sample_Collected'].between(start_date, end_date)
+            # community_df['Result_Value_Numeric'].notna()
         )
         comm_sub_df = community_df[mask_comm].copy()
     # FIXED: Record count—now "Showing X records matching selected species and date range"
