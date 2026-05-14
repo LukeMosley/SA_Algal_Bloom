@@ -12,7 +12,6 @@ from datetime import timedelta, time as dt_time
 @st.cache_data
 def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4208500738590205542.csv",
               site_file="HarmfulAlgalBloom_MonitoringSites_-7518154866587238262.csv"):
-    st.cache_data.clear()   # Force reload during development
     # -----------------------
     # Load algal results
     # -----------------------
