@@ -51,6 +51,24 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4208500738590205542.
     }
    
     df['Result_Name'] = df['Result_Name'].replace(karenia_standardization)
+
+    # ===================================================================
+    # NEW: Convert 'Not detected' to 0 cells/L
+    # ===================================================================
+    # Handle both string "Not detected" and any variants
+    not_detected_mask = (
+        df['Result_Value_String']
+        .astype(str)
+        .str.strip()
+        .str.lower()
+        .str.contains('not detected', na=False)
+    )
+   
+    # Set numeric value to 0 where "Not detected"
+    df.loc[not_detected_mask, 'Result_Value_Numeric'] = 0.0
+   
+    # Optional: also clean the string column for consistency
+    df.loc[not_detected_mask, 'Result_Value_String'] = '0'
    
     # -----------------------
     # Load site metadata
