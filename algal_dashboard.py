@@ -564,9 +564,9 @@ def main():
                 radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
-                       f"{time_str}"  # ← Insert here
+                       f"{time_str}"
                        f"{row['Result_Name']}<br>"
-                       f"{value:,.0f} {units}")
+                       f"{value_display} {units}")
             ).add_to(m)
     # Add markers for community data (if included)
     for _, row in comm_sub_df.iterrows():
@@ -590,9 +590,9 @@ def main():
                 radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
-                       f"{time_str}"  # ← Insert here
+                       f"{time_str}"
                        f"{row['Result_Name']}<br>"
-                       f"{value:,.0f} {units}")
+                       f"{value_display} {units}")
             ).add_to(m)
     # Always fit bounds if data (like old code)
     combined_sub = pd.concat([sub_df, comm_sub_df], ignore_index=True)
