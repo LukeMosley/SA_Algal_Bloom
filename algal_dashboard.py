@@ -542,14 +542,14 @@ def main():
     )
    
     ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
-    # Add markers for main data
-    # Add markers for main data
+   
+        # Add markers for main data
     for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             
             # Robust display handling
-            if pd.isna(value) or value == 0:
+            if pd.isna(value):
                 value_display = "0"
             else:
                 value_display = f"{value:,.0f}"
@@ -557,9 +557,8 @@ def main():
             color = colormap(value if pd.notna(value) else 0)
             units = row.get('Units', 'cells/L')
             
-            # Time string
             time_str = ''
-            if 'Time' in row and pd.notna(row['Time']):
+            if 'Time' in row and pd.notna(row.get('Time')):
                 try:
                     fractional_day = float(row['Time'])
                     total_minutes = int(fractional_day * 1440)
@@ -571,25 +570,20 @@ def main():
             
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
-                radius=6, 
-                color=color, 
-                fill=True, 
-                fill_color=color, 
-                fill_opacity=0.8,
+                radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{time_str}"
                        f"{row['Result_Name']}<br>"
                        f"{value_display} {units}")
             ).add_to(m)
-          
-    # Add markers for community data
-    for _, row in sub_df.iterrows():
+
+    # Add markers for community data (FIXED)
+    for _, row in comm_sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             
-            # Robust display handling
-            if pd.isna(value) or value == 0:
+            if pd.isna(value):
                 value_display = "0"
             else:
                 value_display = f"{value:,.0f}"
@@ -597,9 +591,8 @@ def main():
             color = colormap(value if pd.notna(value) else 0)
             units = row.get('Units', 'cells/L')
             
-            # Time string
             time_str = ''
-            if 'Time' in row and pd.notna(row['Time']):
+            if 'Time' in row and pd.notna(row.get('Time')):
                 try:
                     fractional_day = float(row['Time'])
                     total_minutes = int(fractional_day * 1440)
@@ -611,11 +604,7 @@ def main():
             
             folium.CircleMarker(
                 location=[row['Latitude'], row['Longitude']],
-                radius=6, 
-                color=color, 
-                fill=True, 
-                fill_color=color, 
-                fill_opacity=0.8,
+                radius=6, color=color, fill=True, fill_color=color, fill_opacity=0.8,
                 popup=(f"<b>{row['Site_Description']}</b><br>"
                        f"{row['Date_Sample_Collected'].date()}<br>"
                        f"{time_str}"
