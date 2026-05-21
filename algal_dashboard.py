@@ -556,13 +556,12 @@ def main():
     )
    
     ## colormap = LinearColormap(colors=['green', 'yellow', 'red'], vmin=0, vmax=500000) ##old traffic light colormap
-   
-        # Add markers for main data
-    for _, row in sub_df.iterrows():
+
+    # Add markers for community data
+    for _, row in comm_sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             
-            # Robust display handling
             if pd.isna(value):
                 value_display = "0"
             else:
@@ -591,12 +590,13 @@ def main():
                        f"{row['Result_Name']}<br>"
                        f"{value_display} {units}")
             ).add_to(m)
-
-    # Add markers for community data (FIXED)
-    for _, row in comm_sub_df.iterrows():
+  
+    # Add markers for main government data
+    for _, row in sub_df.iterrows():
         if pd.notna(row.get('Latitude')) and pd.notna(row.get('Longitude')):
             value = row['Result_Value_Numeric']
             
+            # Robust display handling
             if pd.isna(value):
                 value_display = "0"
             else:
