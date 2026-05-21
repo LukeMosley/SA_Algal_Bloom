@@ -122,98 +122,95 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_4208500738590205542.
     return df
    
 @st.cache_data
+@st.cache_data
 def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
     if not os.path.exists(file_path):
         st.warning(f"⚠️ Community data file '{file_path}' not found. Using empty dataset.")
         return pd.DataFrame()
-  
+ 
     # Read Excel file
     df = pd.read_excel(file_path, sheet_name=0)
-  
-    # Trim whitespace from column names to handle any leading/trailing spaces
+ 
+    # Trim whitespace from column names
     df.columns = df.columns.str.strip()
-  
-    # FIXED: Rename Lat/Long to match expected column names for consistency
+ 
+    # Rename Lat/Long for consistency
     if 'Lat' in df.columns:
         df = df.rename(columns={'Lat': 'Latitude'})
     if 'Long' in df.columns:
         df = df.rename(columns={'Long': 'Longitude'})
-  
-    # Convert Date column only if it's not already a datetime (handles auto-parsing by pandas)
+ 
+    # Convert Date
     if not pd.api.types.is_datetime64_any_dtype(df['Date']):
-        df['Date'] = pd.to_datetime(df['Date'], origin='1899-12-30', errors='coerce') # Added error handling
-  
-    # FIXED: Dynamically find species start (after 'Time' if present, else after 'Date')
+        df['Date'] = pd.to_datetime(df['Date'], origin='1899-12-30', errors='coerce')
+ 
+    # Dynamically find species columns
     if 'Time' in df.columns:
         start_idx = df.columns.get_loc('Time') + 1
     else:
         start_idx = df.columns.get_loc('Date') + 1
-  
+ 
     total_idx = df.columns.get_loc('Total plankton')
-    species_cols = df.columns[start_idx : total_idx + 1].tolist() # Include 'Total plankton'
-  
-    # FIXED: Include 'Time' in id_vars if present
+    species_cols = df.columns[start_idx : total_idx + 1].tolist()
+ 
+    # Melt to long format
     id_vars = ['Location', 'Latitude', 'Longitude', 'Date']
     if 'Time' in df.columns:
         id_vars.append('Time')
-  
-    # Melt to long format: one row per species per sample
+ 
     melted_df = pd.melt(df,
                         id_vars=id_vars,
                         value_vars=species_cols,
                         var_name='Result_Name',
                         value_name='Result_Value_Numeric')
-  
-    # Rename columns to match main data structure
+ 
+    # Rename columns to match main dataset
     melted_df['Site_Description'] = melted_df['Location']
     melted_df['Date_Sample_Collected'] = melted_df['Date']
-  
-    # Drop original Location and Date
+ 
+    # Drop original columns
     melted_df = melted_df.drop(['Location', 'Date'], axis=1)
-  
-    # Apply x1000 multiplier (cells/mL to cells/L)
+ 
+    # Convert cells/mL → cells/L
     melted_df['Result_Value_Numeric'] *= 1000
-  
+ 
     # Add units
     melted_df['Units'] = 'cells/L'
-    melted_df['Result_Name'] = (
-        melted_df['Result_Name']
-            .astype(str)
-            .str.strip()
-            .str.replace(r'\s+', ' ', regex=True)
-            .str.replace('\xa0', ' ', regex=False)
+ 
+    # ====================== CLEANUP & STANDARDIZATION ======================
+    # Clean site names
+    melted_df['Site_Description'] = (
+        melted_df['Site_Description']
+        .astype(str)
+        .str.strip()
+        .str.replace(r'\s+', ' ', regex=True)
     )
-   
-    melted_df['Result_Name'] += ' *'
-
-    # === KEY FIXES ===
-    melted_df['Site_Description'] = melted_df['Site_Description'].astype(str).str.strip()
-
-    # Specific normalization for known mismatches
+ 
+    # Specific normalization
     name_corrections = {
         'Louth Bay jetty': 'Louth Bay Jetty',
-        'Louth Bay Jetty': 'Louth Bay Jetty',   # just in case
-        # Add more here if you find others
+        'Louth Bay Jetty': 'Louth Bay Jetty',
     }
-    
     melted_df['Site_Description'] = melted_df['Site_Description'].replace(name_corrections)
-
-    # Optional: Only add suffix for sites that still don't match after normalization
-    # melted_df['Site_Description'] = melted_df['Site_Description'] + ' - community'
-    
-    melted_df['Result_Name'] = melted_df['Result_Name'].astype(str).str.strip() + ' *'
-    ...
-    # Convert Latitude and Longitude to numeric
+ 
+    # === IMPORTANT: Add suffix to ALL community data ===
+    # This prevents community data from overriding recent government data
+    melted_df['Site_Description'] = melted_df['Site_Description'] + ' - community'
+ 
+    # Clean Result_Name and add asterisk
+    melted_df['Result_Name'] = (
+        melted_df['Result_Name']
+        .astype(str)
+        .str.strip()
+        .str.replace(r'\s+', ' ', regex=True)
+        .str.replace('\xa0', ' ', regex=False)
+    )
+    melted_df['Result_Name'] += ' *'
+ 
+    # Convert coordinates to numeric
     melted_df['Latitude'] = pd.to_numeric(melted_df['Latitude'], errors='coerce')
     melted_df['Longitude'] = pd.to_numeric(melted_df['Longitude'], errors='coerce')
-  
-    # Optional: Filter to non-zero values to reduce noise (uncomment if desired)
-    # melted_df = melted_df[melted_df['Result_Value_Numeric'] > 0]
-  
-    # Optional: Site name standardization/cleaning
-    # site_mapping = {'Victor Harbor': 'Victor Harbour', ...}
-    # melted_df['Site_Description'] = melted_df['Site_Description'].map(site_mapping).fillna(melted_df['Site_Description'])
-  
+ 
     return melted_df
 # ---------------------------
 # Build Streamlit app
