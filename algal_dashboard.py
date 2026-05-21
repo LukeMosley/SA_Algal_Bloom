@@ -185,7 +185,24 @@ def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
     )
    
     melted_df['Result_Name'] += ' *'
-  
+
+    # === KEY FIXES ===
+    melted_df['Site_Description'] = melted_df['Site_Description'].astype(str).str.strip()
+
+    # Specific normalization for known mismatches
+    name_corrections = {
+        'Louth Bay jetty': 'Louth Bay Jetty',
+        'Louth Bay Jetty': 'Louth Bay Jetty',   # just in case
+        # Add more here if you find others
+    }
+    
+    melted_df['Site_Description'] = melted_df['Site_Description'].replace(name_corrections)
+
+    # Optional: Only add suffix for sites that still don't match after normalization
+    # melted_df['Site_Description'] = melted_df['Site_Description'] + ' - community'
+    
+    melted_df['Result_Name'] = melted_df['Result_Name'].astype(str).str.strip() + ' *'
+    ...
     # Convert Latitude and Longitude to numeric
     melted_df['Latitude'] = pd.to_numeric(melted_df['Latitude'], errors='coerce')
     melted_df['Longitude'] = pd.to_numeric(melted_df['Longitude'], errors='coerce')
