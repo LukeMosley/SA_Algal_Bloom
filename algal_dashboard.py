@@ -195,7 +195,7 @@ def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
  
     # === IMPORTANT: Add suffix to ALL community data ===
     # This prevents community data from overriding recent government data
-    melted_df['Site_Description'] = melted_df['Site_Description'] + ' - community'
+    melted_df['Site_Description'] = melted_df['Site_Description'] + ' - community data'
  
     # Clean Result_Name and add asterisk
     melted_df['Result_Name'] = (
