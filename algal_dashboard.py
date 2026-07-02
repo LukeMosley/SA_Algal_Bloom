@@ -11,7 +11,7 @@ from datetime import timedelta, time as dt_time
 # ---------------------------
 @st.cache_data
 def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_-3886754981793402050.csv",
-              site_file="HarmfulAlgalBloom_MonitoringSites_-5884474934260118018.csv"):
+              site_file="HarmfulAlgalBloom_MonitoringSites_4384908669728493705.csv"):
     # -----------------------
     # Load algal results
     # -----------------------
@@ -348,7 +348,7 @@ def main():
     # ---------------------------
     df = load_data(
         "HarmfulAlgalBloom_MonitoringSites_-3886754981793402050.csv",
-        "HarmfulAlgalBloom_MonitoringSites_-5884474934260118018.csv"
+        "HarmfulAlgalBloom_MonitoringSites_4384908669728493705.csv"
     )
    
     community_df = load_community()
