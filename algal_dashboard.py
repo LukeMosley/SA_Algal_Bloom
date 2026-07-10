@@ -15,7 +15,7 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_-3886754981793402050
     # -----------------------
     # Load algal results
     # -----------------------
-    df = pd.read_csv(algal_file, encoding="utf-8-sig")
+    df = pd.read_csv(algal_file, encoding="utf-8-sig", low_memory=False)
     df.columns = df.columns.str.strip()
     df['Date_Sample_Collected'] = pd.to_datetime(
         df['Date_Sample_Collected'], errors='coerce'
@@ -121,7 +121,6 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_-3886754981793402050
 
     return df
    
-@st.cache_data
 @st.cache_data
 def load_community(file_path="MASTER spreadsheet of community summaries.xlsx"):
     if not os.path.exists(file_path):
@@ -346,11 +345,7 @@ def main():
     # ---------------------------
     # File paths and data (load always, but filters conditional)
     # ---------------------------
-    df = load_data(
-        "HarmfulAlgalBloom_MonitoringSites_-3886754981793402050.csv",
-        "HarmfulAlgalBloom_MonitoringSites_4384908669728493705.csv"
-    )
-   
+    df = load_data()
     community_df = load_community()
     # ---------------------------
     # PERSISTENT STATE FOR FILTERS (to avoid reset on toggle)
