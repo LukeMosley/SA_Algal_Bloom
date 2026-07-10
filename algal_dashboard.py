@@ -638,7 +638,7 @@ def main():
     # ---------------------------
     # Map display (undocked)
     # ---------------------------
-    st_folium(m, use_container_width=True)
+    st_folium(m, width=1200, height=600)
     # ---------------------------
     # Trends Section
     # ---------------------------
