@@ -486,12 +486,17 @@ def main():
     # ---------------------------
     # Filter dataset
     # ---------------------------
+    # Filter dataset
+    start_date = pd.to_datetime(start_date)
+    end_date = pd.to_datetime(end_date) + pd.Timedelta(days=1)  # Make end date inclusive
     mask_main = (
         df['Result_Name'].isin(species_selected) &
-        df['Date_Sample_Collected'].between(start_date, end_date)
-        # df['Result_Value_Numeric'].notna()
+        df['Date_Sample_Collected'].between(start_date, end_date) &
+        df['Latitude'].notna() & 
+        df['Longitude'].notna()
     )
-    sub_df = df[mask_main].copy() # .copy() for safety
+    sub_df = df[mask_main].copy()
+  
     comm_sub_df = pd.DataFrame()
     if include_community:
         mask_comm = (
