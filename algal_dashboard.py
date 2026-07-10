@@ -15,7 +15,7 @@ def load_data(algal_file="HarmfulAlgalBloom_MonitoringSites_-3886754981793402050
     # -----------------------
     # Load algal results
     # -----------------------
-    df = pd.read_csv(algal_file, encoding="utf-8-sig", low_memory=False)
+    df = pd.read_csv(algal_file, encoding="utf-8-sig")
     df.columns = df.columns.str.strip()
     df['Date_Sample_Collected'] = pd.to_datetime(
         df['Date_Sample_Collected'], errors='coerce'
