@@ -733,7 +733,7 @@ def main():
                     color='#4c4c4c' # dark grey
                 )
             ).interactive() # Enables zoom/pan
-            st.altair_chart(base, width=True)
+            st.altair_chart(base, width='stretch')
           
             # Show filtered row count for transparency
             st.caption(f"Showing {len(plot_df)} data points across {len(selected_trend_species)} species and {'all sites' if selected_site == 'All Sites' else selected_site}.")
@@ -746,7 +746,7 @@ def main():
     # ---------------------------
     #st.subheader("NASA PACE Satellite Remote Sensing Reflectance Image")
     #st.caption("This map is derived from NASA PACE satellite imagery processed on date(s) (UTC) indicated on the plot. I have found, via specific calibration to Karenia sp. cell counts, that using a specific wavelength (approx. 470 nm) gives more accurate results than use of chlorophyll imagery (that uses other non-specific wavelengths). This is because many algal species contribute to chlorophyll, so it can be inaccurate in regard to detecting Karenia species. Blue indicates lower levels; lighter blue to green moderate levels; orange to red high levels. Note this is a beta version and subject to change. Frequency of updates is reliant on relatively cloud-free conditions!")
-    #st.image("pace_rrs_at_470_nm.png", width=True)
+    #st.image("pace_rrs_at_470_nm.png", width='stretch')
     #image_path = "pace_rrs_at_470_nm.png"
     #if os.path.exists(image_path):
     #    with open(image_path, "rb") as file:
